@@ -75,3 +75,6 @@ tests_zemu/yarn.lock
 tests_tools/target
 fuzz-*.log
 /scan-build
+.node-version
+CMakeCache.txt
+CMakeFiles/

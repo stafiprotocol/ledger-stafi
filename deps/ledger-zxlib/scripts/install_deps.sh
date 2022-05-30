@@ -25,8 +25,8 @@ case "${os_string}" in
 		;;
 	Darwin*)
 		brew install libusb
-		pip install -U ledgerblue ecpy
-		pip install -U conan
+		pip3 install -U ledgerblue ecpy
+		pip3 install -U conan
 		;;
 	*)
 		echo "OS not recognized"

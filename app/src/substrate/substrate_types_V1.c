@@ -244,20 +244,11 @@ parser_error_t _readLookupasStaticLookupSource_V1(parser_context_t* c, pd_Lookup
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->value))
     switch (v->value) {
-    case 0: // Id
+    case 0xff: // Id
         CHECK_ERROR(_readAccountId_V1(c, &v->id))
         break;
-    case 1: // Index
+    case 0xfd: // Index
         CHECK_ERROR(_readCompactAccountIndex_V1(c, &v->index))
-        break;
-    case 2: // Raw
-        CHECK_ERROR(_readBytes(c, &v->raw))
-        break;
-    case 3: // Address32
-        GEN_DEF_READARRAY(32)
-        break;
-    case 4: // Address20
-        GEN_DEF_READARRAY(20)
         break;
     default:
         return parser_unexpected_value;
@@ -1138,23 +1129,12 @@ parser_error_t _toStringLookupasStaticLookupSource_V1(
 {
     CLEAN_AND_CHECK()
     switch (v->value) {
-    case 0: // Id
+    case 0xff: // Id
         CHECK_ERROR(_toStringAccountId_V1(&v->id, outValue, outValueLen, pageIdx, pageCount))
         break;
-    case 1: // Index
+    case 0xfd: // Index
         CHECK_ERROR(_toStringCompactAccountIndex_V1(&v->index, outValue, outValueLen, pageIdx, pageCount))
         break;
-    case 2: // Raw
-        CHECK_ERROR(_toStringBytes(&v->raw, outValue, outValueLen, pageIdx, pageCount))
-        break;
-    case 3: // Address32
-    {
-        GEN_DEF_TOSTRING_ARRAY(32)
-    }
-    case 4: // Address20
-    {
-        GEN_DEF_TOSTRING_ARRAY(20)
-    }
     default:
         return parser_not_supported;
     }

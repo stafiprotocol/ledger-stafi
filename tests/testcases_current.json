@@ -1,6 +1,31 @@
 [
   {
-    "index": 78,
+    "index": 1,
+    "name": "Balances_Transfer",
+    "blob": "0600ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e070010a5d4e8000c0700e87648171200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Balances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Amount : FIS 1.0",
+      "3 | Tip : FIS 0.1"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Amount : FIS 1.0",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 3",
+      "5 | Tip : FIS 0.1",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 2,
     "name": "Balances_Transfer",
     "blob": "0603ff765f3681fcc33aba624a09833455a3fd971d6791a8f2c57440626cd119530860070010a5d4e8000c001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
     "output": [
@@ -20,6 +45,256 @@
       "6 | Era Period : 0",
       "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
       "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 3,
+    "name": "Staking_Bond",
+    "blob": "0800ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e33158139ae28a3dfaac5fe1560a5e9e05c000008001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Bond",
+      "1 | Controller [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Controller [2/2] : kweHVpqcov",
+      "2 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "2 | Amount [2/2] : 456789",
+      "3 | Payee : Staked"
+    ],
+    "output_expert": [
+      "0 | Staking : Bond",
+      "1 | Controller [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Controller [2/2] : kweHVpqcov",
+      "2 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "2 | Amount [2/2] : 456789",
+      "3 | Payee : Staked",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 2",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 4,
+    "name": "Staking_Bond_extra",
+    "blob": "080133158139ae28a3dfaac5fe1560a5e9e05c000807ac0c234b011200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Bond extra",
+      "1 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "1 | Amount [2/2] : 456789",
+      "2 | Tip : FIS 0.0055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Bond extra",
+      "1 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "1 | Amount [2/2] : 456789",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.0055555555",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 5,
+    "name": "Staking_Unbond",
+    "blob": "080233158139ae28a3dfaac5fe1560a5e9e05c000807ac0c234b011200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Unbond",
+      "1 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "1 | Amount [2/2] : 456789",
+      "2 | Tip : FIS 0.0055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Unbond",
+      "1 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "1 | Amount [2/2] : 456789",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.0055555555",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 6,
+    "name": "Staking_Withdraw_Unbonded",
+    "blob": "08030000000000080fac9e608bfbf8011200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Withdraw unbonded",
+      "1 | Tip : FIS 555.2342355555"
+    ],
+    "output_expert": [
+      "0 | Staking : Withdraw unbonded",
+      "1 | Num slashing spans : 0",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 555.2342355555",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 7,
+    "name": "Staking_Validate",
+    "blob": "080446b8d301000807ac0c234b011200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Validate",
+      "1 | Prefs : 0.7663121%",
+      "2 | Tip : FIS 0.0055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Validate",
+      "1 | Prefs : 0.7663121%",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.0055555555",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 8,
+    "name": "Staking_Nominate",
+    "blob": "080508ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2eff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965000807081a99be1c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Nominate",
+      "1 | Targets [1/4] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Targets [2/4] : kweHVpqcov",
+      "1 | Targets [3/4] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Targets [4/4] : 4xYaSWHwsX",
+      "2 | Tip : FIS 0.123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Nominate",
+      "1 | Targets [1/4] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Targets [2/4] : kweHVpqcov",
+      "1 | Targets [3/4] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Targets [4/4] : 4xYaSWHwsX",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.123456789",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 9,
+    "name": "Staking_Chill",
+    "blob": "0806000807081a99be1c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Chill",
+      "1 | Tip : FIS 0.123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill",
+      "1 | Chain : StaFi",
+      "2 | Nonce : 2",
+      "3 | Tip : FIS 0.123456789",
+      "4 | Era Phase : 0",
+      "5 | Era Period : 0",
+      "6 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "6 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 10,
+    "name": "Staking_Set_payee",
+    "blob": "0807010008320606001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Set payee",
+      "1 | Payee : Stash",
+      "2 | Tip : FIS 0.0000000987"
+    ],
+    "output_expert": [
+      "0 | Staking : Set payee",
+      "1 | Payee : Stash",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.0000000987",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 11,
+    "name": "Staking_Set_controller",
+    "blob": "0808ff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965000807081a99be1c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Set controller",
+      "1 | Controller [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Controller [2/2] : 4xYaSWHwsX",
+      "2 | Tip : FIS 0.123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Set controller",
+      "1 | Controller [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Controller [2/2] : 4xYaSWHwsX",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Tip : FIS 0.123456789",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 12,
+    "name": "Staking_Payout_stakers",
+    "blob": "08123673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2ed3040000000807081a99be1c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Payout stakers",
+      "1 | Validator stash [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Validator stash [2/2] : kweHVpqcov",
+      "2 | Era : 1235",
+      "3 | Tip : FIS 0.123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Payout stakers",
+      "1 | Validator stash [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Validator stash [2/2] : kweHVpqcov",
+      "2 | Era : 1235",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 2",
+      "5 | Tip : FIS 0.123456789",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 13,
+    "name": "Staking_Rebond",
+    "blob": "08132bf2af967ed05c82de3297ff6fde3c0008001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Rebond",
+      "1 | Amount [1/2] : FIS 1234567890123456789012.34567890123",
+      "1 | Amount [2/2] : 4"
+    ],
+    "output_expert": [
+      "0 | Staking : Rebond",
+      "1 | Amount [1/2] : FIS 1234567890123456789012.34567890123",
+      "1 | Amount [2/2] : 4",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 2",
+      "4 | Era Phase : 0",
+      "5 | Era Period : 0",
+      "6 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "6 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
   }
 ]

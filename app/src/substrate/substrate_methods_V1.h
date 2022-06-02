@@ -114,6 +114,68 @@ typedef struct {
     pd_CompactBalance_t amount;
 } pd_staking_rebond_V1_t;
 
+#define PD_CALL_xbalances_transfer_V1 0
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t dest;
+    pd_XSymbol_V1_t symbol;
+    pd_u128_t value;
+} pd_xbalances_transfer_V1_t;
+
+#define PD_CALL_rbalances_transfer_V1 0
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t dest;
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t value;
+} pd_rbalances_transfer_V1_t;
+
+#define PD_CALL_rfis_liquidity_bond_V1 18
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t pool;
+    pd_BalanceOf_t value;
+} pd_rfis_liquidity_bond_V1_t;
+
+#define PD_CALL_rfis_liquidity_bond_and_swap_V1 19
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t pool;
+    pd_BalanceOf_t value;
+    pd_Bytes_t recipient;
+    pd_ChainId_V1_t dest_id;
+} pd_rfis_liquidity_bond_and_swap_V1_t;
+
+#define PD_CALL_rfis_liquidity_unbond_V1 20
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t pool;
+    pd_u128_t value;
+} pd_rfis_liquidity_unbond_V1_t;
+
+#define PD_CALL_rfis_withdraw_unbond_V1 21
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t pool;
+} pd_rfis_liquidity_withdraw_unbond_V1_t;
+
+#define PD_CALL_bridgeswap_transfer_native_V1 0
+typedef struct {
+    pd_BalanceOf_t amount;
+    pd_Bytes_t recipient;
+    pd_ChainId_V1_t dest_id;
+} pd_bridgeswap_transfer_native_V1_t;
+
+#define PD_CALL_bridgeswap_transfer_rtoken_V1 0
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t amount;
+    pd_Bytes_t recipient;
+    pd_ChainId_V1_t dest_id;
+} pd_bridgeswap_transfer_rtoken_V1_t;
+
+#define PD_CALL_bridgeswap_transfer_xtoken_V1 0
+typedef struct {
+    pd_XSymbol_V1_t symbol;
+    pd_u128_t amount;
+    pd_Bytes_t recipient;
+    pd_ChainId_V1_t dest_id;
+} pd_bridgeswap_transfer_xtoken_V1_t;
+
 #define PD_CALL_SESSION_SET_KEYS_V1 0
 typedef struct {
     pd_Keys_V1_t keys;
@@ -1017,6 +1079,15 @@ typedef union {
     pd_session_set_keys_V1_t session_set_keys_V1;
     pd_session_purge_keys_V1_t session_purge_keys_V1;
     pd_utility_batch_V1_t utility_batch_V1;
+    pd_xbalances_transfer_V1_t xbalances_transfer_V1;
+    pd_rbalances_transfer_V1_t rbalances_transfer_V1;
+    pd_rfis_liquidity_bond_V1_t rfis_liquidity_bond_V1;
+    pd_rfis_liquidity_bond_and_swap_V1_t rfis_liquidity_bond_and_swap_V1;
+    pd_rfis_liquidity_unbond_V1_t rfis_liquidity_unbond_V1;
+    pd_rfis_liquidity_withdraw_unbond_V1_t rfis_liquidity_withdraw_unbond_V1;
+    pd_bridgeswap_transfer_native_V1_t bridgeswap_transfer_native_V1;
+    pd_bridgeswap_transfer_rtoken_V1_t bridgeswap_transfer_rtoken_V1;
+    pd_bridgeswap_transfer_xtoken_V1_t bridgeswap_transfer_xtoken_V1;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_timestamp_set_V1_t timestamp_set_V1;
     pd_indices_claim_V1_t indices_claim_V1;
@@ -1187,13 +1258,6 @@ typedef struct {
     pd_CompactBalance_t amount;
 } pd_balances_transfer_V1_t;
 
-#define PD_CALL_BALANCES_FORCE_TRANSFER_V1 2
-typedef struct {
-    pd_LookupasStaticLookupSource_V1_t source;
-    pd_LookupasStaticLookupSource_V1_t dest;
-    pd_CompactBalance_t amount;
-} pd_balances_force_transfer_V1_t;
-
 #define PD_CALL_BALANCES_TRANSFER_KEEP_ALIVE_V1 3
 typedef struct {
     pd_LookupasStaticLookupSource_V1_t dest;
@@ -1282,7 +1346,6 @@ typedef struct {
 
 typedef union {
     pd_balances_transfer_V1_t balances_transfer_V1;
-    pd_balances_force_transfer_V1_t balances_force_transfer_V1;
     pd_balances_transfer_keep_alive_V1_t balances_transfer_keep_alive_V1;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_system_fill_block_V1_t system_fill_block_V1;

@@ -135,6 +135,86 @@ __Z_INLINE parser_error_t _readMethod_utility_batch_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_xbalances_transfer_V1(
+    parser_context_t* c, pd_xbalances_transfer_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
+    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rbalances_transfer_V1(
+    parser_context_t* c, pd_rbalances_transfer_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rfis_liquidity_bond_V1(
+    parser_context_t* c, pd_rfis_liquidity_bond_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->pool))
+    CHECK_ERROR(_readBalanceOf(c, &m->value));
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rfis_liquidity_bond_and_swap_V1(
+    parser_context_t* c, pd_rfis_liquidity_bond_and_swap_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->pool))
+    CHECK_ERROR(_readBalanceOf(c, &m->value))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rfis_liquidity_unbond_V1(
+    parser_context_t* c, pd_rfis_liquidity_unbond_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->pool))
+    CHECK_ERROR(_readu128(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rfis_liquidity_withdraw_unbond_V1(
+    parser_context_t* c, pd_rfis_liquidity_withdraw_unbond_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->pool))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_native_V1(
+    parser_context_t* c, pd_bridgeswap_transfer_native_V1_t* m)
+{
+    CHECK_ERROR(_readBalanceOf(c, &m->amount))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_rtoken_V1(
+    parser_context_t* c, pd_bridgeswap_transfer_rtoken_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->amount))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_xtoken_V1(
+    parser_context_t* c, pd_bridgeswap_transfer_xtoken_V1_t* m)
+{
+    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->amount))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    return parser_ok;
+}
+
 #ifdef SUBSTRATE_PARSER_FULL
 __Z_INLINE parser_error_t _readMethod_system_fill_block_V1(
     parser_context_t* c, pd_system_fill_block_V1_t* m)
@@ -1481,7 +1561,33 @@ parser_error_t _readMethod_V1(
     case 256: /* module 1 call 0 */
         CHECK_ERROR(_readMethod_utility_batch_V1(c, &method->basic.utility_batch_V1))
         break;
-
+    case 7680: /* module 30 call 0 */
+        CHECK_ERROR(_readMethod_xbalances_transfer_V1(c, &method->basic.xbalances_transfer_V1))
+        break;
+    case 7936: /* module 31 call 0 */
+        CHECK_ERROR(_readMethod_rbalances_transfer_V1(c, &method->basic.rbalances_transfer_V1))
+        break;
+    case 8466: /* module 33 call 18 */
+        CHECK_ERROR(_readMethod_rfis_liquidity_bond_V1(c, &method->basic.rfis_liquidity_bond_V1))
+        break;
+    case 8467: /* module 33 call 19 */
+        CHECK_ERROR(_readMethod_rfis_liquidity_bond_and_swap_V1(c, &method->basic.rfis_liquidity_bond_and_swap_V1))
+        break;
+    case 8468: /* module 33 call 20 */
+        CHECK_ERROR(_readMethod_rfis_liquidity_unbond_V1(c, &method->basic.rfis_liquidity_unbond_V1))
+        break;
+    case 8469: /* module 33 call 21 */
+        CHECK_ERROR(_readMethod_rfis_liquidity_withdraw_unbond_V1(c, &method->basic.rfis_liquidity_withdraw_unbond_V1))
+        break;
+    case 9216: /* module 36 call 0 */
+        CHECK_ERROR(_readMethod_bridgeswap_transfer_native_V1(c, &method->basic.bridgeswap_transfer_native_V1))
+        break;
+    case 9218: /* module 36 call 2 */
+        CHECK_ERROR(_readMethod_bridgeswap_transfer_rtoken_V1(c, &method->basic.bridgeswap_transfer_rtoken_V1))
+        break;
+    case 9220: /* module 36 call 4 */
+        CHECK_ERROR(_readMethod_bridgeswap_transfer_xtoken_V1(c, &method->basic.bridgeswap_transfer_xtoken_V1))
+        break;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         CHECK_ERROR(_readMethod_system_fill_block_V1(c, &method->nested.system_fill_block_V1))
@@ -1522,6 +1628,14 @@ const char* _getMethod_ModuleName_V1(uint8_t moduleIdx)
         return STR_MO_SESSION;
     case 1:
         return STR_MO_UTILITY;
+    case 30:
+        return STR_MO_XBALANCES;
+    case 31:
+        return STR_MO_RBALANCES;
+    case 33:
+        return STR_MO_RFIS;
+    case 36:
+        return STR_MO_BRIDGESWAP;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0:
         return STR_MO_SYSTEM;
@@ -1570,6 +1684,24 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_PURGE_KEYS;
     case 256: /* module 1 call 0 */
         return STR_ME_BATCH;
+    case 7680: /* module 30 call 0 */
+        return STR_ME_TRANSFER;
+    case 7936: /* module 31 call 0 */
+        return STR_ME_TRANSFER;
+    case 8466: /* module 33 call 18 */
+        return STR_ME_LIQUIDITY_BOND;
+    case 8467: /* module 33 call 19 */
+        return STR_ME_LIQUIDITY_BOND_AND_SWAP;
+    case 8468: /* module 33 call 20 */
+        return STR_ME_LIQUIDITY_UNBOND;
+    case 8469: /* module 33 call 21 */
+        return STR_ME_LIQUIDITY_WITHDRAW_UNBOND;
+    case 9216: /* module 36 call 0 */
+        return STR_ME_TRANSFER_NATIVE;
+    case 9218: /* module 36 call 2 */
+        return STR_ME_TRANSFER_RTOKEN;
+    case 9220: /* module 36 call 4 */
+        return STR_ME_TRANSFER_XTOKEN;
     default:
         return _getMethod_Name_V1_ParserFull(callPrivIdx);
     }
@@ -1636,7 +1768,24 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 0;
     case 256: /* module 1 call 0 */
         return 1;
-
+    case 7680: /* module 30 call 0 */
+        return 3;
+    case 7936: /* module 31 call 0 */
+        return 3;
+    case 8466: /* module 33 call 18 */
+        return 2;
+    case 8467: /* module 33 call 19 */
+        return 4;
+    case 8468: /* module 33 call 20 */
+        return 2;
+    case 8469: /* module 33 call 21 */
+        return 1;
+    case 9216: /* module 36 call 0 */
+        return 3;
+    case 9218: /* module 36 call 2 */
+        return 4;
+    case 9220: /* module 36 call 4 */
+        return 4;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         return 1;
@@ -1778,6 +1927,103 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx) {
         case 0:
             return STR_IT_calls;
+        default:
+            return NULL;
+        }
+    case 7680: /* module 30 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_symbol;
+        case 2:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 7936: /* module 31 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_symbol;
+        case 2:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 8466: /* module 33 call 18 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pool;
+        case 1:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 8467: /* module 33 call 19 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pool;
+        case 1:
+            return STR_IT_value;
+        case 2:
+            return STR_IT_recipient;
+        case 3:
+            return STR_IT_dest_id;
+        default:
+            return NULL;
+        }
+    case 8468: /* module 33 call 20 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pool;
+        case 1:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 8469: /* module 33 call 21 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pool;
+        default:
+            return NULL;
+        }
+    case 9216: /* module 36 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_amount;
+        case 1:
+            return STR_IT_recipient;
+        case 2:
+            return STR_IT_dest_id;
+        default:
+            return NULL;
+        }
+    case 9218: /* module 36 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_amount;
+        case 2:
+            return STR_IT_recipient;
+        case 3:
+            return STR_IT_dest_id;
+        default:
+            return NULL;
+        }
+    case 9220: /* module 36 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_amount;
+        case 2:
+            return STR_IT_recipient;
+        case 3:
+            return STR_IT_dest_id;
         default:
             return NULL;
         }
@@ -2014,6 +2260,181 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return parser_no_data;
         }
+    case 7680: /* module 30 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.xbalances_transfer_V1.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringXSymbol_V1(
+                &m->basic.xbalances_transfer_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringu128(
+                &m->basic.xbalances_transfer_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 7936: /* module 31 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.rbalances_transfer_V1.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringRSymbol_V1(
+                &m->basic.rbalances_transfer_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringu128(
+                &m->basic.rbalances_transfer_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 8466: /* module 33 call 18 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.rfis_liquidity_bond_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringBalanceOf(
+                &m->basic.rfis_liquidity_bond_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 8467: /* module 33 call 19 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.rfis_liquidity_bond_and_swap_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringBalanceOf(
+                &m->basic.rfis_liquidity_bond_and_swap_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringBytes(
+                &m->basic.rfis_liquidity_bond_and_swap_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3:
+            return _toStringChainId_V1(
+                &m->basic.rfis_liquidity_bond_and_swap_V1.dest_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 8468: /* module 33 call 20 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.rfis_liquidity_unbond_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringu128(
+                &m->basic.rfis_liquidity_unbond_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 8469: /* module 33 call 21 */
+         switch (itemIdx) {
+         case 0:
+             return _toStringLookupasStaticLookupSource_V1(
+                 &m->basic.rfis_liquidity_withdraw_unbond_V1.pool,
+                 outValue, outValueLen,
+                 pageIdx, pageCount);
+         default:
+             return NULL;
+         }
+    case 9216: /* module 36 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringBalanceOf(
+                &m->basic.bridgeswap_transfer_native_V1.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringBytes(
+                &m->basic.bridgeswap_transfer_native_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringChainId_V1(
+                &m->basic.bridgeswap_transfer_native_V1.dest_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 9218: /* module 36 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringRSymbol_V1(
+                &m->basic.bridgeswap_transfer_rtoken_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringu128(
+                &m->basic.bridgeswap_transfer_rtoken_V1.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringBytes(
+                &m->basic.bridgeswap_transfer_rtoken_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3:
+            return _toStringChainId_V1(
+                &m->basic.bridgeswap_transfer_rtoken_V1.dest_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 9220: /* module 36 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return _toStringXSymbol_V1(
+                &m->basic.bridgeswap_transfer_xtoken_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1:
+            return _toStringu128(
+                &m->basic.bridgeswap_transfer_xtoken_V1.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2:
+            return _toStringBytes(
+                &m->basic.bridgeswap_transfer_xtoken_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3:
+            return _toStringChainId_V1(
+                &m->basic.bridgeswap_transfer_xtoken_V1.dest_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx) {
@@ -2137,6 +2558,15 @@ bool _getMethod_IsNestingSupported_V1(uint8_t moduleIdx, uint8_t callIdx)
 //    case 1816: // Staking:Chill other
     case 2304: // Session:Set keys
     case 2305: // Session:Purge keys
+    case 7680:  /* XBalances: transfer */
+    case 7936: /* RBalances: transfer */
+    case 8466: /* RFis: liquidity bond */
+    case 8467: /* RFis: liquidity bond and swap */
+    case 8468: /* RFis: liquidity unbond */
+    case 8469: /* RFis: liquidity withdraw unbond */
+    case 9216: /* BridgeSwap: transfer native */
+    case 9218: /* BridgeSwap: transfer rtoken */
+    case 9220: /* BridgeSwap: transfer xtoken */
 //    case 2818: // Grandpa:Note stalled
 //    case 3584: // Democracy:Propose
 //    case 3585: // Democracy:Second

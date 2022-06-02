@@ -179,6 +179,14 @@ typedef struct {
     compactInt_t value;
 } pd_CompactBalance_t;
 
+typedef struct {
+    const uint8_t* _ptr;
+} pd_u128_t;
+
+typedef struct {
+    const uint8_t* _ptr;
+} pd_u256_t;
+
 ////////////////////////
 ////////////////////////
 ////////////////////////

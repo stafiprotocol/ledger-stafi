@@ -116,6 +116,9 @@ parser_error_t _readWeight_V1(parser_context_t* c, pd_Weight_V1_t* v);
 parser_error_t _readXcmVersion_V1(parser_context_t* c, pd_XcmVersion_V1_t* v);
 parser_error_t _readschedulePeriodBlockNumber_V1(parser_context_t* c, pd_schedulePeriodBlockNumber_V1_t* v);
 parser_error_t _readschedulePriority_V1(parser_context_t* c, pd_schedulePriority_V1_t* v);
+parser_error_t _readXSymbol_V1(parser_context_t* c, pd_XSymbol_V1_t* v);
+parser_error_t _readRSymbol_V1(parser_context_t* c, pd_RSymbol_V1_t* v);
+parser_error_t _readChainId_V1(parser_context_t* c, pd_ChainId_V1_t* v);
 
 // toString functions
 parser_error_t _toStringAccountId_V1(
@@ -743,6 +746,27 @@ parser_error_t _toStringschedulePeriodBlockNumber_V1(
 
 parser_error_t _toStringschedulePriority_V1(
     const pd_schedulePriority_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringXSymbol_V1(
+    const pd_XSymbol_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringRSymbol_V1(
+    const pd_RSymbol_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringChainId_V1(
+    const pd_ChainId_V1_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,

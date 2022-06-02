@@ -589,6 +589,24 @@ parser_error_t _readOptionschedulePeriodBlockNumber_V1(parser_context_t* c, pd_O
     return parser_ok;
 }
 
+parser_error_t _readXSymbol_V1(parser_context_t* c, pd_XSymbol_V1_t* v)
+{
+    CHECK_ERROR(_readUInt8(c, &v->symbol))
+    return parser_ok;
+}
+
+parser_error_t _readRSymbol_V1(parser_context_t* c, pd_RSymbol_V1_t* v)
+{
+    CHECK_ERROR(_readUInt8(c, &v->symbol))
+    return parser_ok;
+}
+
+parser_error_t _readChainId_V1(parser_context_t* c, pd_ChainId_V1_t* v)
+{
+    CHECK_ERROR(_readUInt8(c, &v->chainId))
+    return parser_ok;
+}
+
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
@@ -1910,5 +1928,86 @@ parser_error_t _toStringOptionschedulePeriodBlockNumber_V1(
     } else {
         snprintf(outValue, outValueLen, "None");
     }
+    return parser_ok;
+}
+
+parser_error_t _toStringXSymbol_V1(
+    const pd_XSymbol_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    switch (v->symbol) {
+    case 0:
+        snprintf(outValue, outValueLen, "WRA");
+        break;
+    default:
+        return parser_not_supported;
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringRSymbol_V1(
+    const pd_RSymbol_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    switch (v->symbol) {
+    case 0:
+        snprintf(outValue, outValueLen, "rFIS");
+        break;
+    case 1:
+        snprintf(outValue, outValueLen, "rDOT");
+        break;
+    case 2:
+        snprintf(outValue, outValueLen, "rKSM");
+        break;
+    case 3:
+        snprintf(outValue, outValueLen, "rATOM");
+        break;
+    case 4:
+        snprintf(outValue, outValueLen, "rSOL");
+        break;
+    case 5:
+        snprintf(outValue, outValueLen, "rMatic");
+        break;
+    case 6:
+        snprintf(outValue, outValueLen, "rBNB");
+        break;
+    case 7:
+        snprintf(outValue, outValueLen, "rETH");
+        break;
+    default:
+        return parser_not_supported;
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringChainId_V1(
+    const pd_ChainId_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    switch (v->chainId) {
+    case 2:
+        snprintf(outValue, outValueLen, "Ethereum");
+        break;
+    case 3:
+        snprintf(outValue, outValueLen, "BSC");
+        break;
+    default:
+        return parser_not_supported;
+    }
+
     return parser_ok;
 }

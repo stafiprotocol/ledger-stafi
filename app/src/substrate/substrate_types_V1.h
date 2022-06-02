@@ -466,6 +466,18 @@ typedef struct {
     uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_schedulePriority_V1_t;
 
+typedef struct {
+    uint8_t symbol;
+} pd_XSymbol_V1_t;
+
+typedef struct {
+    uint8_t symbol;
+} pd_RSymbol_V1_t;
+
+typedef struct {
+    uint8_t chainId;
+} pd_ChainId_V1_t;
+
 #ifdef __cplusplus
 }
 #endif

@@ -62,27 +62,27 @@ $(info ************ FULL PARSER ENABLED ************)
 endif
 
 ifndef COIN
-COIN=DOT
+COIN=FIS
 endif
 
 include $(CURDIR)/Makefile.version
 
 $(info COIN  = [$(COIN)])
 
-ifeq ($(COIN),DOT)
+ifeq ($(COIN),FIS)
 # Main app configuration
 DEFINES += APP_STANDARD
 ifneq ($(TARGET_NAME),TARGET_NANOS)
 DEFINES += SUBSTRATE_PARSER_FULL
 endif
-APPNAME = "Polkadot"
-APPPATH = "44'/354'" --path "44'/434'"
+APPNAME = "StaFi"
+APPPATH = "44'/907'"
 
-else ifeq ($(COIN),DOT_XL)
+else ifeq ($(COIN),FIS_XL)
 # XL app configuration
 DEFINES += APP_STANDARD SUBSTRATE_PARSER_FULL
-APPNAME = "Polkadot XL"
-APPPATH = "44'/354'" --path "44'/434'"
+APPNAME = "StaFi"
+APPPATH = "44'/907'"
 
 else
 define error_message
@@ -255,9 +255,9 @@ dep/%.d: %.c Makefile
 .PHONY: listvariants
 listvariants:
 ifeq ($(TARGET_NAME),TARGET_NANOS)
-	@echo VARIANTS COIN DOT DOT_XL
+	@echo VARIANTS COIN FIS FIS_XL
 else
-	@echo VARIANTS COIN DOT
+	@echo VARIANTS COIN FIS
 endif
 
 .PHONY: version

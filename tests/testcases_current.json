@@ -1,6 +1,6 @@
 [
   {
-    "index": 1,
+    "index": 6001,
     "name": "Balances_Transfer",
     "blob": "0600ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e070010a5d4e8000c0700e87648171200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
     "output": [
@@ -18,6 +18,35 @@
       "3 | Chain : StaFi",
       "4 | Nonce : 3",
       "5 | Tip : FIS 0.1",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 6002,
+    "name": "Balances_Transfer",
+    "blob": "0600ff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c1796533158139ae28a3dfaac5fe1560a5e9e05c002833158139ae28a3dfaac5fe1560a5e9e05c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Balances : Transfer",
+      "1 | Dest [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Dest [2/2] : 4xYaSWHwsX",
+      "2 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "2 | Amount [2/2] : 456789",
+      "3 | Tip [1/2] : FIS 123456789012345678901234567.890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer",
+      "1 | Dest [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Dest [2/2] : 4xYaSWHwsX",
+      "2 | Amount [1/2] : FIS 123456789012345678901234567.890123",
+      "2 | Amount [2/2] : 456789",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip [1/2] : FIS 123456789012345678901234567.890123",
+      "5 | Tip [2/2] : 456789",
       "6 | Era Phase : 0",
       "7 | Era Period : 0",
       "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
@@ -162,7 +191,7 @@
     ]
   },
   {
-    "index": 8,
+    "index": 8051,
     "name": "Staking_Nominate",
     "blob": "080508ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2eff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965000807081a99be1c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
     "output": [
@@ -182,6 +211,43 @@
       "2 | Chain : StaFi",
       "3 | Nonce : 2",
       "4 | Tip : FIS 0.123456789",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 8052,
+    "name": "Staking_Nominate",
+    "blob": "080510ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2eff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965ff924cc3a998e6b2293fc46281e78be2a6693437bf33fcec370a9167bc33fdf17bff308a03fec4d787f08caf4fa7c569ad59e75c240a749a67704d35ed71c8298356002833158139ae28a3dfaac5fe1560a5e9e05c1200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Staking : Nominate",
+      "1 | Targets [1/8] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Targets [2/8] : kweHVpqcov",
+      "1 | Targets [3/8] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Targets [4/8] : 4xYaSWHwsX",
+      "1 | Targets [5/8] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Targets [6/8] : iUUaN2ksZK",
+      "1 | Targets [7/8] : 31qqU7B1t4ToDCSFzCjpqBVdXJvJtZq2CMiB9A",
+      "1 | Targets [8/8] : jfwNVyw46k",
+      "2 | Tip [1/2] : FIS 123456789012345678901234567.890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Nominate",
+      "1 | Targets [1/8] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Targets [2/8] : kweHVpqcov",
+      "1 | Targets [3/8] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Targets [4/8] : 4xYaSWHwsX",
+      "1 | Targets [5/8] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Targets [6/8] : iUUaN2ksZK",
+      "1 | Targets [7/8] : 31qqU7B1t4ToDCSFzCjpqBVdXJvJtZq2CMiB9A",
+      "1 | Targets [8/8] : jfwNVyw46k",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip [1/2] : FIS 123456789012345678901234567.890123",
+      "4 | Tip [2/2] : 456789",
       "5 | Era Phase : 0",
       "6 | Era Period : 0",
       "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",

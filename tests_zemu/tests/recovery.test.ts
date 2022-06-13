@@ -15,7 +15,7 @@
  ******************************************************************************* */
 
 import Zemu, { DEFAULT_START_OPTIONS } from '@zondax/zemu'
-import { newPolkadotApp } from '@zondax/ledger-substrate'
+import { newStafiApp } from '@zondax/ledger-substrate'
 import { APP_SEED, models } from './common'
 
 const defaultOptions = {
@@ -61,7 +61,7 @@ describe('Recovery', function () {
     const sim = new Zemu(m.path)
     try {
       await sim.start({ ...defaultOptions, model: m.name })
-      const app = newPolkadotApp(sim.getTransport())
+      const app = newStafiApp(sim.getTransport())
 
       const polkadot_expected_address = '166wVhuQsKFeb7bd1faydHgVvX1bZU2rUuY7FJmWApNz2fQY'
       const polkadot_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'

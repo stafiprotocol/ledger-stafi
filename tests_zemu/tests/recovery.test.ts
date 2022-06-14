@@ -63,10 +63,10 @@ describe('Recovery', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = newStafiApp(sim.getTransport())
 
-      const polkadot_expected_address = '166wVhuQsKFeb7bd1faydHgVvX1bZU2rUuY7FJmWApNz2fQY'
-      const polkadot_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'
-      const kusama_expected_address = '16nK5XEGrPHjSwzHAdkKabmwu6L2t1RGW6drYyGgS84UZDRy'
-      const kusama_expected_pk = 'ffbc10f71d63e0da1b9e7ee2eb4037466551dc32b9d4641aafd73a65970fae42'
+      const before_expected_address = '353XzZJD7bCgZCuHoN1kRmKJqTGz6cymAsWhyXKfRu2fuQ7g'
+      const before_expected_pk = 'be2ad5b206e506031688bb65897772ea8df57f1231bd62b8d1f765699e365c57'
+      const after_expected_address = '35r8fYjUZ8kBiHgu8KBTBJzzrDsUf8dGFicjYydXRvGjfJFY'
+      const after_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'
 
       let resp = await app.getAddress(0x80000000, 0x80000000, 0x80000000)
 
@@ -75,8 +75,8 @@ describe('Recovery', function () {
       expect(resp.return_code).toEqual(0x9000)
       expect(resp.error_message).toEqual('No errors')
 
-      expect(resp.address).toEqual(polkadot_expected_address)
-      expect(resp.pubKey).toEqual(polkadot_expected_pk)
+      expect(resp.address).toEqual(before_expected_address)
+      expect(resp.pubKey).toEqual(before_expected_pk)
 
       await activateSecretMode(sim)
 
@@ -87,8 +87,8 @@ describe('Recovery', function () {
       expect(resp.return_code).toEqual(0x9000)
       expect(resp.error_message).toEqual('No errors')
 
-      expect(resp.address).toEqual(kusama_expected_address)
-      expect(resp.pubKey).toEqual(kusama_expected_pk)
+      expect(resp.address).toEqual(after_expected_address)
+      expect(resp.pubKey).toEqual(after_expected_pk)
     } finally {
       await sim.close()
     }

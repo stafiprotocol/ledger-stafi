@@ -362,5 +362,248 @@
       "6 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
       "6 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
+  },
+  {
+    "index": 1e0001,
+    "name": "XBalances_Transfer",
+    "blob": "1e00ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e004ef338de509049c4133302f0f6b0490900283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | XBalances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Symbol : 0",
+      "3 | Value : 12345678901234567890123456789012345678",
+      "4 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | XBalances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Symbol : 0",
+      "3 | Value : 12345678901234567890123456789012345678",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 0.000012345678",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 310001,
+    "name": "RBalances_Transfer",
+    "blob": "1f00ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e064ef338de509049c4133302f0f6b0490900283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RBalances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Symbol : 6",
+      "3 | Value : 12345678901234567890123456789012345678",
+      "4 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RBalances : Transfer",
+      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
+      "1 | Dest [2/2] : kweHVpqcov",
+      "2 | Symbol : 6",
+      "3 | Value : 12345678901234567890123456789012345678",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 0.000012345678",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 211201,
+    "name": "RFis_LiquidityBond",
+    "blob": "2112ff924cc3a998e6b2293fc46281e78be2a6693437bf33fcec370a9167bc33fdf17b0010a5d4e8000000000000000000000000283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RFis : Liquidity bond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : FIS 1.0",
+      "3 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RFis : Liquidity bond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : FIS 1.0",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 0.000012345678",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 211301,
+    "name": "RFis_LiquidityBondAndSwap",
+    "blob": "2113ff924cc3a998e6b2293fc46281e78be2a6693437bf33fcec370a9167bc33fdf17b0010a5d4e8000000000000000000000050bd39f5936969828ed9315220659cd111290718140300283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RFis : Liquidity bond and swap",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : FIS 1.0",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 3",
+      "5 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RFis : Liquidity bond and swap",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : FIS 1.0",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 3",
+      "5 | Chain : StaFi",
+      "6 | Nonce : 10",
+      "7 | Tip : FIS 0.000012345678",
+      "8 | Era Phase : 0",
+      "9 | Era Period : 0",
+      "10 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "10 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 211401,
+    "name": "RFis_LiquidityUnbond",
+    "blob": "2114ff924cc3a998e6b2293fc46281e78be2a6693437bf33fcec370a9167bc33fdf17b874b9f2ca8f258f1fd1e66000000000000283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RFis : Liquidity unbond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : 123456789012345678901234567",
+      "3 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RFis : Liquidity unbond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Value : 123456789012345678901234567",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 0.000012345678",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 211501,
+    "name": "RFis_LiquidityWithdrawUnbond",
+    "blob": "2115ff924cc3a998e6b2293fc46281e78be2a6693437bf33fcec370a9167bc33fdf17b00283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RFis : Liquidity withdraw unbond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RFis : Liquidity withdraw unbond",
+      "1 | Pool [1/2] : 3441xwyGxnLMvRey644dVfDoBL5AhStfrJ7Yde",
+      "1 | Pool [2/2] : iUUaN2ksZK",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 0.000012345678",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 240001,
+    "name": "BridgeSwap_TransferNative",
+    "blob": "24001581396eb1c9be46321be4270000000050bd39f5936969828ed9315220659cd111290718140400283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | BridgeSwap : Transfer native",
+      "1 | Amount : FIS 12345678901234567.890123456789",
+      "2 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "2 | Recipient [2/2] : 14",
+      "3 | ChainId : 4",
+      "4 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | BridgeSwap : Transfer native",
+      "1 | Amount : FIS 12345678901234567.890123456789",
+      "2 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "2 | Recipient [2/2] : 14",
+      "3 | ChainId : 4",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 0.000012345678",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 240201,
+    "name": "BridgeSwap_TransferRtoken",
+    "blob": "2402031581396eb1c9be46321be4270000000050bd39f5936969828ed9315220659cd111290718140400283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | BridgeSwap : Transfer rtoken",
+      "1 | Symbol : 3",
+      "2 | Amount : 12345678901234567890123456789",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 4",
+      "5 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | BridgeSwap : Transfer rtoken",
+      "1 | Symbol : 3",
+      "2 | Amount : 12345678901234567890123456789",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 4",
+      "5 | Chain : StaFi",
+      "6 | Nonce : 10",
+      "7 | Tip : FIS 0.000012345678",
+      "8 | Era Phase : 0",
+      "9 | Era Period : 0",
+      "10 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "10 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 240401,
+    "name": "BridgeSwap_TransferXtoken",
+    "blob": "2404001581396eb1c9be46321be4270000000050bd39f5936969828ed9315220659cd111290718140400283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | BridgeSwap : Transfer xtoken",
+      "1 | Symbol : 0",
+      "2 | Amount : 12345678901234567890123456789",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 4",
+      "5 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | BridgeSwap : Transfer xtoken",
+      "1 | Symbol : 0",
+      "2 | Amount : 12345678901234567890123456789",
+      "3 | Recipient [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "3 | Recipient [2/2] : 14",
+      "4 | ChainId : 4",
+      "5 | Chain : StaFi",
+      "6 | Nonce : 10",
+      "7 | Tip : FIS 0.000012345678",
+      "8 | Era Phase : 0",
+      "9 | Era Period : 0",
+      "10 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "10 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
   }
 ]

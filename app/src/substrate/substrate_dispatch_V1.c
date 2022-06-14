@@ -2268,7 +2268,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1:
-            return _toStringXSymbol_V1(
+            return _toStringu8(
                 &m->basic.xbalances_transfer_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2288,7 +2288,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1:
-            return _toStringRSymbol_V1(
+            return _toStringu8(
                 &m->basic.rbalances_transfer_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2333,7 +2333,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3:
-            return _toStringChainId_V1(
+            return _toStringu8(
                 &m->basic.rfis_liquidity_bond_and_swap_V1.dest_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2378,7 +2378,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2:
-            return _toStringChainId_V1(
+            return _toStringu8(
                 &m->basic.bridgeswap_transfer_native_V1.dest_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2388,7 +2388,7 @@ parser_error_t _getMethod_ItemValue_V1(
     case 9218: /* module 36 call 2 */
         switch (itemIdx) {
         case 0:
-            return _toStringRSymbol_V1(
+            return _toStringu8(
                 &m->basic.bridgeswap_transfer_rtoken_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2403,7 +2403,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3:
-            return _toStringChainId_V1(
+            return _toStringu8(
                 &m->basic.bridgeswap_transfer_rtoken_V1.dest_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2413,7 +2413,7 @@ parser_error_t _getMethod_ItemValue_V1(
     case 9220: /* module 36 call 4 */
         switch (itemIdx) {
         case 0:
-            return _toStringXSymbol_V1(
+            return _toStringu8(
                 &m->basic.bridgeswap_transfer_xtoken_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -2428,7 +2428,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3:
-            return _toStringChainId_V1(
+            return _toStringu8(
                 &m->basic.bridgeswap_transfer_xtoken_V1.dest_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);

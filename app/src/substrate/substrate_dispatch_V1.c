@@ -215,6 +215,195 @@ __Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_xtoken_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_bond_V1(
+    parser_context_t* c, pd_rtokenseries_liquidity_bond_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->pubkey))
+    CHECK_ERROR(_readBytes(c, &m->signature))
+    CHECK_ERROR(_readBytes(c, &m->pool))
+    CHECK_ERROR(_readBytes(c, &m->blockhash))
+    CHECK_ERROR(_readBytes(c, &m->txhash))
+    CHECK_ERROR(_readu128(c, &m->amount))
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_bond_and_swap_V1(
+    parser_context_t* c, pd_rtokenseries_liquidity_bond_and_swap_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->pubkey))
+    CHECK_ERROR(_readBytes(c, &m->signature))
+    CHECK_ERROR(_readBytes(c, &m->pool))
+    CHECK_ERROR(_readBytes(c, &m->blockhash))
+    CHECK_ERROR(_readBytes(c, &m->txhash))
+    CHECK_ERROR(_readu128(c, &m->amount))
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_unbond_V1(
+    parser_context_t* c, pd_rtokenseries_liquidity_unbond_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readBytes(c, &m->pool))
+    CHECK_ERROR(_readu128(c, &m->value))
+    CHECK_ERROR(_readBytes(c, &m->recipient))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rtokenseries_refund_swap_fee_V1(
+    parser_context_t* c, pd_rtokenseries_refund_swap_fee_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readHash(c, &m->bond_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_xclaim_claim_V1(
+    parser_context_t* c, pd_xclaim_claim_V1_t* m)
+{
+    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_xclaim_mint_claim_V1(
+    parser_context_t* c, pd_xclaim_mint_claim_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->dest))
+    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rclaim_claim_rtoken_reward_V1(
+    parser_context_t* c, pd_rclaim_claim_rtoken_reward_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu32(c, &m->cycle))
+    CHECK_ERROR(_readu64(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rclaim_claim_reth_reward_V1(
+    parser_context_t* c, pd_rclaim_claim_reth_reward_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->pubkey))
+    CHECK_ERROR(_readBytes(c, &m->sigs))
+    CHECK_ERROR(_readu32(c, &m->cycle))
+    CHECK_ERROR(_readu64(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rclaim_update_reth_claim_info_V1(
+    parser_context_t* c, pd_rclaim_update_reth_claim_info_V1_t* m)
+{
+    CHECK_ERROR(_readVecBytes(c, &m->pubkeys))
+    CHECK_ERROR(_readVecu128(c, &m->mint_values))
+    CHECK_ERROR(_readVecu128(c, &m->native_token_values))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexnswap_swap_rtoken_for_native_token_V1(
+    parser_context_t* c, pd_rdexnswap_swap_rtoken_for_native_token_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->receiver))
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->rtoken_amount))
+    CHECK_ERROR(_readu128(c, &m->min_out_amount))
+    CHECK_ERROR(_readu8(c, &m->grade))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexnswap_swap_rfis_for_fis_token_V1(
+    parser_context_t* c, pd_rdexnswap_swap_rfis_for_fis_token_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->receiver))
+    CHECK_ERROR(_readu128(c, &m->rtoken_amount))
+    CHECK_ERROR(_readu128(c, &m->min_out_amount))
+    CHECK_ERROR(_readu8(c, &m->grade))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexswap_swap_V1(
+    parser_context_t* c, pd_rdexswap_swap_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->input_amount))
+    CHECK_ERROR(_readu128(c, &m->min_out_amount))
+    CHECK_ERROR(_readbool(c, &m->input_is_fis))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexswap_add_liquidity_V1(
+    parser_context_t* c, pd_rdexswap_add_liquidity_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->rtoken_amount))
+    CHECK_ERROR(_readu128(c, &m->fis_amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexswap_remove_liquidity_V1(
+    parser_context_t* c, pd_rdexswap_remove_liquidity_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->rm_unit))
+    CHECK_ERROR(_readu128(c, &m->swap_unit))
+    CHECK_ERROR(_readu128(c, &m->min_fis_out_amount))
+    CHECK_ERROR(_readu128(c, &m->min_rtoken_out_amount))
+    CHECK_ERROR(_readbool(c, &m->input_is_fis))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_lpbalances_transfer_V1(
+    parser_context_t* c, pd_lpbalances_transfer_V1_t* m)
+{
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu128(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexmining_deposit_V1(
+    parser_context_t* c, pd_rdexmining_deposit_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu32(c, &m->pool_index))
+    CHECK_ERROR(_readu32(c, &m->grade_index))
+    CHECK_ERROR(_readu128(c, &m->lp_amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexmining_withdraw_V1(
+    parser_context_t* c, pd_rdexmining_withdraw_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu32(c, &m->pool_index))
+    CHECK_ERROR(_readu32(c, &m->stake_index))
+    CHECK_ERROR(_readu128(c, &m->lp_amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexmining_claim_reward_V1(
+    parser_context_t* c, pd_rdexmining_claim_reward_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu32(c, &m->pool_index))
+    CHECK_ERROR(_readu32(c, &m->stake_index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_rdexmining_emergency_withdraw_V1(
+    parser_context_t* c, pd_rdexmining_emergency_withdraw_V1_t* m)
+{
+    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu32(c, &m->pool_index))
+    CHECK_ERROR(_readu32(c, &m->stake_index))
+    return parser_ok;
+}
+
 #ifdef SUBSTRATE_PARSER_FULL
 __Z_INLINE parser_error_t _readMethod_system_fill_block_V1(
     parser_context_t* c, pd_system_fill_block_V1_t* m)
@@ -1588,6 +1777,63 @@ parser_error_t _readMethod_V1(
     case 9220: /* module 36 call 4 */
         CHECK_ERROR(_readMethod_bridgeswap_transfer_xtoken_V1(c, &method->basic.bridgeswap_transfer_xtoken_V1))
         break;
+    case 10253: /* module 40 call 13 */
+        CHECK_ERROR(_readMethod_rtokenseries_liquidity_bond_V1(c, &method->basic.rtokenseries_liquidity_bond_V1))
+        break;
+    case 10254: /* module 40 call 14 */
+        CHECK_ERROR(_readMethod_rtokenseries_liquidity_bond_and_swap_V1(c, &method->basic.rtokenseries_liquidity_bond_and_swap_V1))
+        break;
+    case 10256: /* module 40 call 16 */
+        CHECK_ERROR(_readMethod_rtokenseries_liquidity_unbond_V1(c, &method->basic.rtokenseries_liquidity_unbond_V1))
+        break;
+    case 10258: /* module 40 call 18 */
+        CHECK_ERROR(_readMethod_rtokenseries_refund_swap_fee_V1(c, &method->basic.rtokenseries_refund_swap_fee_V1))
+        break;
+    case 10498: /* module 41 call 2 */
+        CHECK_ERROR(_readMethod_xclaim_claim_V1(c, &method->basic.xclaim_claim_V1))
+        break;
+    case 10499: /* module 41 call 3 */
+        CHECK_ERROR(_readMethod_xclaim_mint_claim_V1(c, &method->basic.xclaim_mint_claim_V1))
+        break;
+    case 10758: /* module 42 call 6 */
+        CHECK_ERROR(_readMethod_rclaim_claim_rtoken_reward_V1(c, &method->basic.rclaim_claim_rtoken_reward_V1))
+        break;
+    case 10759: /* module 42 call 7 */
+        CHECK_ERROR(_readMethod_rclaim_claim_reth_reward_V1(c, &method->basic.rclaim_claim_reth_reward_V1))
+        break;
+    case 10760: /* module 42 call 8 */
+        CHECK_ERROR(_readMethod_rclaim_update_reth_claim_info_V1(c, &method->basic.rclaim_update_reth_claim_info_V1))
+        break;
+    case 11520: /* module 45 call 0 */
+        CHECK_ERROR(_readMethod_rdexnswap_swap_rtoken_for_native_token_V1(c, &method->basic.rdexnswap_swap_rtoken_for_native_token_V1))
+        break;
+    case 11521: /* module 45 call 1 */
+        CHECK_ERROR(_readMethod_rdexnswap_swap_rfis_for_fis_token_V1(c, &method->basic.rdexnswap_swap_rfis_for_fis_token_V1))
+        break;
+    case 11776: /* module 46 call 0 */
+        CHECK_ERROR(_readMethod_rdexswap_swap_V1(c, &method->basic.rdexswap_swap_V1))
+        break;
+    case 11777: /* module 46 call 1 */
+        CHECK_ERROR(_readMethod_rdexswap_add_liquidity_V1(c, &method->basic.rdexswap_add_liquidity_V1))
+        break;
+    case 11778: /* module 46 call 2 */
+        CHECK_ERROR(_readMethod_rdexswap_remove_liquidity_V1(c, &method->basic.rdexswap_remove_liquidity_V1))
+        break;
+    case 12032: /* module 47 call 0 */
+        CHECK_ERROR(_readMethod_lpbalances_transfer_V1(c, &method->basic.lpbalances_transfer_V1))
+        break;
+    case 12288: /* module 48 call 0 */
+        CHECK_ERROR(_readMethod_rdexmining_deposit_V1(c, &method->basic.rdexmining_deposit_V1))
+        break;
+    case 12289: /* module 48 call 1 */
+        CHECK_ERROR(_readMethod_rdexmining_withdraw_V1(c, &method->basic.rdexmining_withdraw_V1))
+        break;
+    case 12290: /* module 48 call 2 */
+        CHECK_ERROR(_readMethod_rdexmining_claim_reward_V1(c, &method->basic.rdexmining_claim_reward_V1))
+        break;
+    case 12291: /* module 48 call 3 */
+        CHECK_ERROR(_readMethod_rdexmining_emergency_withdraw_V1(c, &method->basic.rdexmining_emergency_withdraw_V1))
+        break;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         CHECK_ERROR(_readMethod_system_fill_block_V1(c, &method->nested.system_fill_block_V1))
@@ -1636,6 +1882,20 @@ const char* _getMethod_ModuleName_V1(uint8_t moduleIdx)
         return STR_MO_RFIS;
     case 36:
         return STR_MO_BRIDGESWAP;
+    case 40:
+        return STR_MO_RTOKENSERIES;
+    case 41:
+        return STR_MO_XCLAIM;
+    case 42:
+        return STR_MO_RCLAIM;
+    case 45:
+        return STR_MO_RDEXNSWAP;
+    case 46:
+        return STR_MO_RDEXSWAP;
+    case 47:
+        return STR_MO_LPBALANCES;
+    case 48:
+        return STR_MO_RDEXMINING;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0:
         return STR_MO_SYSTEM;
@@ -1702,6 +1962,44 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_TRANSFER_RTOKEN;
     case 9220: /* module 36 call 4 */
         return STR_ME_TRANSFER_XTOKEN;
+    case 10253: /* module 40 call 13 */
+        return STR_ME_LIQUIDITY_BOND;
+    case 10254: /* module 40 call 14 */
+        return STR_ME_LIQUIDITY_BOND_AND_SWAP;
+    case 10256: /* module 40 call 16 */
+        return STR_ME_LIQUIDITY_UNBOND;
+    case 10258: /* module 40 call 18 */
+        return STR_ME_REFUND_SWAP_FEE;
+    case 10498: /* module 41 call 2 */
+        return STR_ME_CLAIM;
+    case 10499: /* module 41 call 3 */
+        return STR_ME_MINT_CLAIM;
+    case 10758: /* module 42 call 6 */
+        return STR_ME_CLAIM_RTOKEN_REWARD;
+    case 10759: /* module 42 call 7 */
+        return STR_ME_CLAIM_RETH_REWARD;
+    case 10760: /* module 42 call 8 */
+        return STR_ME_UPDATE_RETH_CLAIM_INFO;
+    case 11520: /* module 45 call 0 */
+        return STR_ME_SWAP_RTOKEN_FOR_NATIVE_TOKEN;
+    case 11521: /* module 45 call 1 */
+        return STR_ME_SWAP_RFIS_FOR_FIS_TOKEN;
+    case 11776: /* module 46 call 0 */
+        return STR_ME_SWAP;
+    case 11777: /* module 46 call 1 */
+        return STR_ME_ADD_LIQUIDITY;
+    case 11778: /* module 46 call 2 */
+        return STR_ME_REMOVE_LIQUIDITY;
+    case 12032: /* module 47 call 0 */
+        return STR_ME_TRANSFER;
+    case 12288: /* module 48 call 0 */
+        return STR_ME_DEPOSIT;
+    case 12289: /* module 48 call 1 */
+        return STR_ME_WITHDRAW;
+    case 12290: /* module 48 call 2 */
+        return STR_ME_CLAIM_REWARD;
+    case 12291: /* module 48 call 3 */
+        return STR_ME_EMERGENCY_WITHDRAW;
     default:
         return _getMethod_Name_V1_ParserFull(callPrivIdx);
     }
@@ -1786,6 +2084,44 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 4;
     case 9220: /* module 36 call 4 */
         return 4;
+    case 10253: /* module 40 call 13 */
+        return 7;
+    case 10254: /* module 40 call 14 */
+        return 9;
+    case 10256: /* module 40 call 16 */
+        return 4;
+    case 10258: /* module 40 call 18 */
+        return 2;
+    case 10498: /* module 41 call 2 */
+        return 1;
+    case 10499: /* module 41 call 3 */
+        return 3;
+    case 10758: /* module 42 call 6 */
+        return 3;
+    case 10759: /* module 42 call 7 */
+        return 4;
+    case 10760: /* module 42 call 8 */
+        return 3;
+    case 11520: /* module 45 call 0 */
+        return 5;
+    case 11521: /* module 45 call 1 */
+        return 4;
+    case 11776: /* module 46 call 0 */
+        return 4;
+    case 11777: /* module 46 call 1 */
+        return 3;
+    case 11778: /* module 46 call 2 */
+        return 6;
+    case 12032: /* module 47 call 0 */
+        return 3;
+    case 12288: /* module 48 call 0 */
+        return 4;
+    case 12289: /* module 48 call 1 */
+        return 4;
+    case 12290: /* module 48 call 2 */
+        return 3;
+    case 12291: /* module 48 call 3 */
+        return 3;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         return 1;
@@ -2024,6 +2360,251 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_recipient;
         case 3:
             return STR_IT_dest_id;
+        default:
+            return NULL;
+        }
+    case 10253: /* module 40 call 13 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pubkey;
+        case 1:
+            return STR_IT_signature;
+        case 2:
+            return STR_IT_pool;
+        case 3:
+            return STR_IT_blockhash;
+        case 4:
+            return STR_IT_txhash;
+        case 5:
+            return STR_IT_amount;
+        case 6:
+            return STR_IT_symbol;
+        default:
+            return NULL;
+        }
+    case 10254: /* module 40 call 14 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pubkey;
+        case 1:
+            return STR_IT_signature;
+        case 2:
+            return STR_IT_pool;
+        case 3:
+            return STR_IT_blockhash;
+        case 4:
+            return STR_IT_txhash;
+        case 5:
+            return STR_IT_amount;
+        case 6:
+            return STR_IT_symbol;
+        case 7:
+            return STR_IT_recipient;
+        case 8:
+            return STR_IT_dest_id;
+        default:
+            return NULL;
+        }
+    case 10256: /* module 40 call 16 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_pool;
+        case 2:
+            return STR_IT_value;
+        case 3:
+            return STR_IT_recipient;
+        default:
+            return NULL;
+        }
+    case 10258: /* module 40 call 18 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_bond_id;
+        default:
+            return NULL;
+        }
+    case 10498: /* module 41 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        default:
+            return NULL;
+        }
+    case 10499: /* module 41 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_symbol;
+        case 2:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 10758: /* module 42 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_cycle;
+        case 2:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 10759: /* module 42 call 7 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pubkey;
+        case 1:
+            return STR_IT_sigs;
+        case 2:
+            return STR_IT_cycle;
+        case 3:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 10760: /* module 42 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_pubkeys;
+        case 1:
+            return STR_IT_mint_values;
+        case 2:
+            return STR_IT_native_token_values;
+        default:
+            return NULL;
+        }
+    case 11520: /* module 45 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_receiver;
+        case 1:
+            return STR_IT_symbol;
+        case 2:
+            return STR_IT_rtoken_amount;
+        case 3:
+            return STR_IT_min_out_amount;
+        case 4:
+            return STR_IT_grade;
+        default:
+            return NULL;
+        }
+    case 11521: /* module 45 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_receiver;
+        case 1:
+            return STR_IT_rtoken_amount;
+        case 2:
+            return STR_IT_min_out_amount;
+        case 3:
+            return STR_IT_grade;
+        default:
+            return NULL;
+        }
+    case 11776: /* module 46 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_input_amount;
+        case 2:
+            return STR_IT_min_out_amount;
+        case 3:
+            return STR_IT_input_is_fis;
+        default:
+            return NULL;
+        }
+    case 11777: /* module 46 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_rtoken_amount;
+        case 2:
+            return STR_IT_fis_amount;
+        default:
+            return NULL;
+        }
+    case 11778: /* module 46 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_rm_unit;
+        case 2:
+            return STR_IT_swap_unit;
+        case 3:
+            return STR_IT_min_fis_out_amount;
+        case 4:
+            return STR_IT_min_rtoken_out_amount;
+        case 5:
+            return STR_IT_input_is_fis;
+        default:
+            return NULL;
+        }
+    case 12032: /* module 47 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_symbol;
+        case 2:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
+    case 12288: /* module 48 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_pool_index;
+        case 2:
+            return STR_IT_grade_index;
+        case 3:
+            return STR_IT_lp_amount;
+        default:
+            return NULL;
+        }
+    case 12289: /* module 48 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_pool_index;
+        case 2:
+            return STR_IT_stake_index;
+        case 3:
+            return STR_IT_lp_amount;
+        default:
+            return NULL;
+        }
+    case 12290: /* module 48 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_pool_index;
+        case 2:
+            return STR_IT_stake_index;
+        default:
+            return NULL;
+        }
+    case 12291: /* module 48 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_symbol;
+        case 1:
+            return STR_IT_pool_index;
+        case 2:
+            return STR_IT_stake_index;
         default:
             return NULL;
         }
@@ -2435,6 +3016,476 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return NULL;
         }
+    case 10253: /* module 40 call 13 */
+        switch (itemIdx) {
+        case 0: /* rtokenseries_liquidity_bond_V1 - pubkey */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_V1.pubkey,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rtokenseries_liquidity_bond_V1 - signature */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_V1.signature,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rtokenseries_liquidity_bond_V1 - pool */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rtokenseries_liquidity_bond_V1 - blockhash */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_V1.blockhash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* rtokenseries_liquidity_bond_V1 - txhash */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_V1.txhash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* rtokenseries_liquidity_bond_V1 - amount */
+           return _toStringu128(
+                &m->basic.rtokenseries_liquidity_bond_V1.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 6: /* rtokenseries_liquidity_bond_V1 - symbol */
+           return _toStringu8(
+                &m->basic.rtokenseries_liquidity_bond_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10254: /* module 40 call 14 */
+        switch (itemIdx) {
+        case 0: /* rtokenseries_liquidity_bond_and_swap_V1 - pubkey */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.pubkey,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rtokenseries_liquidity_bond_and_swap_V1 - signature */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.signature,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rtokenseries_liquidity_bond_and_swap_V1 - pool */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rtokenseries_liquidity_bond_and_swap_V1 - blockhash */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.blockhash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* rtokenseries_liquidity_bond_and_swap_V1 - txhash */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.txhash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* rtokenseries_liquidity_bond_and_swap_V1 - amount */
+           return _toStringu128(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 6: /* rtokenseries_liquidity_bond_and_swap_V1 - symbol */
+           return _toStringu8(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 7: /* rtokenseries_liquidity_bond_and_swap_V1 - recipient */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 8: /* rtokenseries_liquidity_bond_and_swap_V1 - dest_id */
+            return _toStringu8(
+                &m->basic.rtokenseries_liquidity_bond_and_swap_V1.dest_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10256: /* module 40 call 16 */
+        switch (itemIdx) {
+        case 0: /* rtokenseries_liquidity_unbond_V1 - symbol */
+           return _toStringu8(
+                &m->basic.rtokenseries_liquidity_unbond_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rtokenseries_liquidity_unbond_V1 - pool */
+           return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_unbond_V1.pool,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rtokenseries_liquidity_unbond_V1 - value */
+           return _toStringu128(
+                &m->basic.rtokenseries_liquidity_unbond_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rtokenseries_liquidity_unbond_V1 - recipient */
+            return _toStringBytes(
+                &m->basic.rtokenseries_liquidity_unbond_V1.recipient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10258: /* module 40 call 18 */
+        switch (itemIdx) {
+        case 0: /* rtokenseries_refund_swap_fee_V1 - symbol */
+           return _toStringu8(
+                &m->basic.rtokenseries_refund_swap_fee_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rtokenseries_refund_swap_fee_V1 - bond_id */
+           return _toStringHash(
+                &m->basic.rtokenseries_refund_swap_fee_V1.bond_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10498: /* module 41 call 2 */
+        switch (itemIdx) {
+        case 0: /* xclaim_claim_V1 - recipient */
+           return _toStringu8(
+                &m->basic.xclaim_claim_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10499: /* module 41 call 3 */
+        switch (itemIdx) {
+        case 0: /* xclaim_mint_claim_V1 - dest */
+            return _toStringAccountId_V1(
+                &m->basic.xclaim_mint_claim_V1.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* xclaim_mint_claim_V1 - symbol */
+            return _toStringu8(
+                &m->basic.xclaim_mint_claim_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* xclaim_mint_claim_V1 - value */
+            return _toStringu128(
+                &m->basic.xclaim_mint_claim_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10758: /* module 42 call 6 */
+        switch (itemIdx) {
+        case 0: /* rclaim_claim_rtoken_reward_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rclaim_claim_rtoken_reward_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rclaim_claim_rtoken_reward_V1 - cycle */
+            return _toStringu32(
+                &m->basic.rclaim_claim_rtoken_reward_V1.cycle,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rclaim_claim_rtoken_reward_V1 - index */
+            return _toStringu64(
+                &m->basic.rclaim_claim_rtoken_reward_V1.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10759: /* module 42 call 7 */
+        switch (itemIdx) {
+        case 0: /* rclaim_claim_reth_reward_V1 - pubkey */
+            return _toStringBytes(
+                &m->basic.rclaim_claim_reth_reward_V1.pubkey,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rclaim_claim_reth_reward_V1 - sigs */
+            return _toStringBytes(
+                &m->basic.rclaim_claim_reth_reward_V1.sigs,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rclaim_claim_reth_reward_V1 - cycle */
+            return _toStringu32(
+                &m->basic.rclaim_claim_reth_reward_V1.cycle,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rclaim_claim_reth_reward_V1 - index */
+            return _toStringu64(
+                &m->basic.rclaim_claim_reth_reward_V1.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 10760: /* module 42 call 8 */
+        switch (itemIdx) {
+        case 0: /* rclaim_update_reth_claim_info_V1 - pubkeys */
+            return _toStringVecBytes(
+                &m->basic.rclaim_update_reth_claim_info_V1.pubkeys,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rclaim_update_reth_claim_info_V1 - mint_values */
+            return _toStringVecu128(
+                &m->basic.rclaim_update_reth_claim_info_V1.mint_values,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rclaim_update_reth_claim_info_V1 - native_token_values */
+            return _toStringVecu128(
+                &m->basic.rclaim_update_reth_claim_info_V1.native_token_values,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 11520: /* module 45 call 0 */
+        switch (itemIdx) {
+        case 0: /* rdexnswap_swap_rtoken_for_native_token_V1 - receiver */
+            return _toStringBytes(
+                &m->basic.rdexnswap_swap_rtoken_for_native_token_V1.receiver,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexnswap_swap_rtoken_for_native_token_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexnswap_swap_rtoken_for_native_token_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexnswap_swap_rtoken_for_native_token_V1 - rtoken_amount */
+            return _toStringu128(
+                &m->basic.rdexnswap_swap_rtoken_for_native_token_V1.rtoken_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexnswap_swap_rtoken_for_native_token_V1 - min_out_amount */
+            return _toStringu128(
+                &m->basic.rdexnswap_swap_rtoken_for_native_token_V1.min_out_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* rdexnswap_swap_rtoken_for_native_token_V1 - grade */
+            return _toStringu8(
+                &m->basic.rdexnswap_swap_rtoken_for_native_token_V1.grade,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 11521: /* module 45 call 1 */
+        switch (itemIdx) {
+        case 0: /* rdexnswap_swap_rfis_for_fis_token_V1 - receiver */
+            return _toStringAccountId_V1(
+                &m->basic.rdexnswap_swap_rfis_for_fis_token_V1.receiver,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexnswap_swap_rfis_for_fis_token_V1 - rtoken_amount */
+            return _toStringu128(
+                &m->basic.rdexnswap_swap_rfis_for_fis_token_V1.rtoken_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexnswap_swap_rfis_for_fis_token_V1 - min_out_amount */
+            return _toStringu128(
+                &m->basic.rdexnswap_swap_rfis_for_fis_token_V1.min_out_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexnswap_swap_rfis_for_fis_token_V1 - grade */
+            return _toStringu8(
+                &m->basic.rdexnswap_swap_rfis_for_fis_token_V1.grade,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 11776: /* module 46 call 0 */
+        switch (itemIdx) {
+        case 0: /* rdexswap_swap_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexswap_swap_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexswap_swap_V1 - input_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_swap_V1.input_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexswap_swap_V1 - min_out_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_swap_V1.min_out_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexswap_swap_V1 - input_is_fis */
+            return _toStringbool(
+                &m->basic.rdexswap_swap_V1.input_is_fis,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 11777: /* module 46 call 1 */
+        switch (itemIdx) {
+        case 0: /* rdexswap_add_liquidity_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexswap_add_liquidity_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexswap_add_liquidity_V1 - rtoken_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_add_liquidity_V1.rtoken_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexswap_add_liquidity_V1 - fis_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_add_liquidity_V1.fis_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 11778: /* module 46 call 2 */
+        switch (itemIdx) {
+        case 0: /* rdexswap_remove_liquidity_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexswap_remove_liquidity_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexswap_remove_liquidity_V1 - rm_unit */
+            return _toStringu128(
+                &m->basic.rdexswap_remove_liquidity_V1.rm_unit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexswap_remove_liquidity_V1 - swap_unit */
+            return _toStringu128(
+                &m->basic.rdexswap_remove_liquidity_V1.swap_unit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexswap_remove_liquidity_V1 - min_fis_out_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_remove_liquidity_V1.min_fis_out_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* rdexswap_remove_liquidity_V1 - min_rtoken_out_amount */
+            return _toStringu128(
+                &m->basic.rdexswap_remove_liquidity_V1.min_rtoken_out_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* rdexswap_remove_liquidity_V1 - input_is_fis */
+            return _toStringbool(
+                &m->basic.rdexswap_remove_liquidity_V1.input_is_fis,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 12032: /* module 47 call 0 */
+        switch (itemIdx) {
+        case 0: /* lpbalances_transfer_V1 - dest */
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.lpbalances_transfer_V1.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* lpbalances_transfer_V1 - symbol */
+            return _toStringu8(
+                &m->basic.lpbalances_transfer_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* lpbalances_transfer_V1 - value */
+            return _toStringu128(
+                &m->basic.lpbalances_transfer_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 12288: /* module 48 call 0 */
+        switch (itemIdx) {
+        case 0: /* rdexmining_deposit_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexmining_deposit_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexmining_deposit_V1 - pool_index */
+            return _toStringu32(
+                &m->basic.rdexmining_deposit_V1.pool_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexmining_deposit_V1 - grade_index */
+            return _toStringu32(
+                &m->basic.rdexmining_deposit_V1.grade_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexmining_deposit_V1 - lp_amount */
+            return _toStringu128(
+                &m->basic.rdexmining_deposit_V1.lp_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 12289: /* module 48 call 1 */
+        switch (itemIdx) {
+        case 0: /* rdexmining_withdraw_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexmining_withdraw_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexmining_withdraw_V1 - pool_index */
+            return _toStringu32(
+                &m->basic.rdexmining_withdraw_V1.pool_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexmining_withdraw_V1 - stake_index */
+            return _toStringu32(
+                &m->basic.rdexmining_withdraw_V1.stake_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* rdexmining_withdraw_V1 - lp_amount */
+            return _toStringu128(
+                &m->basic.rdexmining_withdraw_V1.lp_amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 12290: /* module 48 call 2 */
+        switch (itemIdx) {
+        case 0: /* rdexmining_claim_reward_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexmining_claim_reward_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexmining_claim_reward_V1 - pool_index */
+            return _toStringu32(
+                &m->basic.rdexmining_claim_reward_V1.pool_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexmining_claim_reward_V1 - stake_index */
+            return _toStringu32(
+                &m->basic.rdexmining_claim_reward_V1.stake_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 12291: /* module 48 call 3 */
+        switch (itemIdx) {
+        case 0: /* rdexmining_emergency_withdraw_V1 - symbol */
+            return _toStringu8(
+                &m->basic.rdexmining_emergency_withdraw_V1.symbol,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* rdexmining_emergency_withdraw_V1 - pool_index */
+            return _toStringu32(
+                &m->basic.rdexmining_emergency_withdraw_V1.pool_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* rdexmining_emergency_withdraw_V1 - stake_index */
+            return _toStringu32(
+                &m->basic.rdexmining_emergency_withdraw_V1.stake_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx) {
@@ -2567,6 +3618,25 @@ bool _getMethod_IsNestingSupported_V1(uint8_t moduleIdx, uint8_t callIdx)
     case 9216: /* BridgeSwap: transfer native */
     case 9218: /* BridgeSwap: transfer rtoken */
     case 9220: /* BridgeSwap: transfer xtoken */
+    case 10253: /* module 40 call 13 */
+    case 10254: /* module 40 call 14 */
+    case 10256: /* module 40 call 16 */
+    case 10258: /* module 40 call 18 */
+    case 10498: /* module 41 call 2 */
+    case 10499: /* module 41 call 3 */
+    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 8 */
+    case 11520: /* module 45 call 0 */
+    case 11521: /* module 45 call 1 */
+    case 11776: /* module 46 call 0 */
+    case 11777: /* module 46 call 1 */
+    case 11778: /* module 46 call 2 */
+    case 12032: /* module 47 call 0 */
+    case 12288: /* module 48 call 0 */
+    case 12289: /* module 48 call 1 */
+    case 12290: /* module 48 call 2 */
+    case 12291: /* module 48 call 3 */
 //    case 2818: // Grandpa:Note stalled
 //    case 3584: // Democracy:Propose
 //    case 3585: // Democracy:Second

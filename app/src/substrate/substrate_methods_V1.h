@@ -176,6 +176,157 @@ typedef struct {
     pd_ChainId_V1_t dest_id;
 } pd_bridgeswap_transfer_xtoken_V1_t;
 
+#define PD_CALL_rtokenseries_liquidity_bond_V1 13
+typedef struct {
+    pd_Bytes_t pubkey;
+    pd_Bytes_t signature;
+    pd_Bytes_t pool;
+    pd_Bytes_t blockhash;
+    pd_Bytes_t txhash;
+    pd_u128_t amount;
+    pd_RSymbol_V1_t symbol;
+} pd_rtokenseries_liquidity_bond_V1_t;
+
+#define PD_CALL_rtokenseries_liquidity_bond_and_swap_V1 14
+typedef struct {
+    pd_Bytes_t pubkey;
+    pd_Bytes_t signature;
+    pd_Bytes_t pool;
+    pd_Bytes_t blockhash;
+    pd_Bytes_t txhash;
+    pd_u128_t amount;
+    pd_RSymbol_V1_t symbol;
+    pd_Bytes_t recipient;
+    pd_ChainId_V1_t dest_id;
+} pd_rtokenseries_liquidity_bond_and_swap_V1_t;
+
+#define PD_CALL_rtokenseries_liquidity_unbond_V1 16
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_Bytes_t pool;
+    pd_u128_t value;
+    pd_Bytes_t recipient;
+} pd_rtokenseries_liquidity_unbond_V1_t;
+
+#define PD_CALL_rtokenseries_refund_swap_fee_V1 18
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_Hash_t bond_id;
+} pd_rtokenseries_refund_swap_fee_V1_t;
+
+#define PD_CALL_xclaim_claim_V1 2
+typedef struct {
+    pd_XSymbol_V1_t symbol;
+} pd_xclaim_claim_V1_t;
+
+#define PD_CALL_xclaim_mint_claim_V1 3
+typedef struct {
+    pd_AccountId_V1_t dest;
+    pd_XSymbol_V1_t symbol;
+    pd_u128_t value;
+} pd_xclaim_mint_claim_V1_t;
+
+#define PD_CALL_rclaim_claim_rtoken_reward_V1 6
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u32_t cycle;
+    pd_u64_t index;
+} pd_rclaim_claim_rtoken_reward_V1_t;
+
+#define PD_CALL_rclaim_claim_reth_reward_V1 7
+typedef struct {
+    pd_Bytes_t pubkey;
+    pd_Bytes_t sigs;
+    pd_u32_t cycle;
+    pd_u64_t index;
+} pd_rclaim_claim_reth_reward_V1_t;
+
+#define PD_CALL_rclaim_update_reth_claim_info_V1 8
+typedef struct {
+    pd_VecBytes_t pubkeys;
+    pd_Vecu128_t mint_values;
+    pd_Vecu128_t native_token_values;
+} pd_rclaim_update_reth_claim_info_V1_t;
+
+#define PD_CALL_rdexnswap_swap_rtoken_for_native_token_V1 0
+typedef struct {
+    pd_Bytes_t receiver;
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t rtoken_amount;
+    pd_u128_t min_out_amount;
+    pd_u8_t grade;
+} pd_rdexnswap_swap_rtoken_for_native_token_V1_t;
+
+#define PD_CALL_rdexnswap_swap_rfis_for_fis_token_V1 1
+typedef struct {
+    pd_AccountId_V1_t receiver;
+    pd_u128_t rtoken_amount;
+    pd_u128_t min_out_amount;
+    pd_u8_t grade;
+} pd_rdexnswap_swap_rfis_for_fis_token_V1_t;
+
+#define PD_CALL_rdexswap_swap_V1 0
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t input_amount;
+    pd_u128_t min_out_amount;
+    pd_bool_t input_is_fis;
+} pd_rdexswap_swap_V1_t;
+
+#define PD_CALL_rdexswap_add_liquidity_V1 1
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t rtoken_amount;
+    pd_u128_t fis_amount;
+} pd_rdexswap_add_liquidity_V1_t;
+
+#define PD_CALL_rdexswap_remove_liquidity_V1 2
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t rm_unit;
+    pd_u128_t swap_unit;
+    pd_u128_t min_fis_out_amount;
+    pd_u128_t min_rtoken_out_amount;
+    pd_bool_t input_is_fis;
+} pd_rdexswap_remove_liquidity_V1_t;
+
+#define PD_CALL_lpbalances_transfer_V1 0
+typedef struct {
+    pd_LookupasStaticLookupSource_V1_t dest;
+    pd_RSymbol_V1_t symbol;
+    pd_u128_t value;
+} pd_lpbalances_transfer_V1_t;
+
+#define PD_CALL_rdexmining_deposit_V1 0
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u32_t pool_index;
+    pd_u32_t grade_index;
+    pd_u128_t lp_amount;
+} pd_rdexmining_deposit_V1_t;
+
+#define PD_CALL_rdexmining_withdraw_V1 1
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u32_t pool_index;
+    pd_u32_t stake_index;
+    pd_u128_t lp_amount;
+} pd_rdexmining_withdraw_V1_t;
+
+#define PD_CALL_rdexmining_claim_reward_V1 2
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u32_t pool_index;
+    pd_u32_t stake_index;
+} pd_rdexmining_claim_reward_V1_t;
+
+#define PD_CALL_rdexmining_emergency_withdraw_V1 3
+typedef struct {
+    pd_RSymbol_V1_t symbol;
+    pd_u32_t pool_index;
+    pd_u32_t stake_index;
+} pd_rdexmining_emergency_withdraw_V1_t;
+
 #define PD_CALL_SESSION_SET_KEYS_V1 0
 typedef struct {
     pd_Keys_V1_t keys;
@@ -1088,6 +1239,25 @@ typedef union {
     pd_bridgeswap_transfer_native_V1_t bridgeswap_transfer_native_V1;
     pd_bridgeswap_transfer_rtoken_V1_t bridgeswap_transfer_rtoken_V1;
     pd_bridgeswap_transfer_xtoken_V1_t bridgeswap_transfer_xtoken_V1;
+    pd_rtokenseries_liquidity_bond_V1_t rtokenseries_liquidity_bond_V1;
+    pd_rtokenseries_liquidity_bond_and_swap_V1_t rtokenseries_liquidity_bond_and_swap_V1;
+    pd_rtokenseries_liquidity_unbond_V1_t rtokenseries_liquidity_unbond_V1;
+    pd_rtokenseries_refund_swap_fee_V1_t rtokenseries_refund_swap_fee_V1;
+    pd_xclaim_claim_V1_t xclaim_claim_V1;
+    pd_xclaim_mint_claim_V1_t xclaim_mint_claim_V1;
+    pd_rclaim_claim_rtoken_reward_V1_t rclaim_claim_rtoken_reward_V1;
+    pd_rclaim_claim_reth_reward_V1_t rclaim_claim_reth_reward_V1;
+    pd_rclaim_update_reth_claim_info_V1_t rclaim_update_reth_claim_info_V1;
+    pd_rdexnswap_swap_rtoken_for_native_token_V1_t rdexnswap_swap_rtoken_for_native_token_V1;
+    pd_rdexnswap_swap_rfis_for_fis_token_V1_t rdexnswap_swap_rfis_for_fis_token_V1;
+    pd_rdexswap_swap_V1_t rdexswap_swap_V1;
+    pd_rdexswap_add_liquidity_V1_t rdexswap_add_liquidity_V1;
+    pd_rdexswap_remove_liquidity_V1_t rdexswap_remove_liquidity_V1;
+    pd_lpbalances_transfer_V1_t lpbalances_transfer_V1;
+    pd_rdexmining_deposit_V1_t rdexmining_deposit_V1;
+    pd_rdexmining_withdraw_V1_t rdexmining_withdraw_V1;
+    pd_rdexmining_claim_reward_V1_t rdexmining_claim_reward_V1;
+    pd_rdexmining_emergency_withdraw_V1_t rdexmining_emergency_withdraw_V1;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_timestamp_set_V1_t timestamp_set_V1;
     pd_indices_claim_V1_t indices_claim_V1;

@@ -1079,5 +1079,106 @@
       "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
       "9 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
+  },
+  {
+    "index": 420701,
+    "name": "rclaim_claim_rtoken_reward",
+    "blob": "2a070164000000640000000000000000283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RClaim : Claim rtoken reward",
+      "1 | Symbol : 1",
+      "2 | Cycle : 100",
+      "3 | Index : 100",
+      "4 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RClaim : Claim rtoken reward",
+      "1 | Symbol : 1",
+      "2 | Cycle : 100",
+      "3 | Index : 100",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 0.000012345678",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 420801,
+    "name": "rclaim_claim_reth_reward",
+    "blob": "2a088026db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965010194986e713df3303e9f6e7e04b764bac73ab4cc57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0cc6b33ba90a6b3c716631b1d6b4504c5b03e496cf354d348a8876400000000000000640000000028001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RClaim : Claim reth reward",
+      "1 | Pubkey [1/2] : 26db25c52b007221331a844e5335e59874e45b",
+      "1 | Pubkey [2/2] : 03e81c3d76ff007377c2c17965",
+      "2 | Sigs [1/4] : 94986e713df3303e9f6e7e04b764bac73ab4cc",
+      "2 | Sigs [2/4] : 57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0",
+      "2 | Sigs [3/4] : cc6b33ba90a6b3c716631b1d6b4504c5b03e49",
+      "2 | Sigs [4/4] : 6cf354d348a887",
+      "3 | Cycle : 100",
+      "4 | Index : 429496729600"
+    ],
+    "output_expert": [
+      "0 | RClaim : Claim reth reward",
+      "1 | Pubkey [1/2] : 26db25c52b007221331a844e5335e59874e45b",
+      "1 | Pubkey [2/2] : 03e81c3d76ff007377c2c17965",
+      "2 | Sigs [1/4] : 94986e713df3303e9f6e7e04b764bac73ab4cc",
+      "2 | Sigs [2/4] : 57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0",
+      "2 | Sigs [3/4] : cc6b33ba90a6b3c716631b1d6b4504c5b03e49",
+      "2 | Sigs [4/4] : 6cf354d348a887",
+      "3 | Cycle : 100",
+      "4 | Index : 429496729600",
+      "5 | Chain : StaFi",
+      "6 | Nonce : 10",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 420901,
+    "name": "rclaim_update_reth_claim_info",
+    "blob": "2a090c8026db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965809c4189297ad2140c85861f64656d1d1318994599130d98b75ff094176d2ca31e80765f3681fcc33aba624a09833455a3fd971d6791a8f2c57440626cd1195308600c6400000000000000000000000000000034202e71affa33340e0ee98e01000000809698000000000000000000000000000c34202e71affa33340e0ee98e0100000034202e71affa33340e0ee98e010000008096980000000000000000000000000000283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | RClaim : Update reth claim info",
+      "1 | Pubkeys [1/6] : 26db25c52b007221331a844e5335e59874e45b",
+      "1 | Pubkeys [2/6] : 03e81c3d76ff007377c2c17965",
+      "1 | Pubkeys [3/6] : 9c4189297ad2140c85861f64656d1d13189945",
+      "1 | Pubkeys [4/6] : 99130d98b75ff094176d2ca31e",
+      "1 | Pubkeys [5/6] : 765f3681fcc33aba624a09833455a3fd971d67",
+      "1 | Pubkeys [6/6] : 91a8f2c57440626cd119530860",
+      "2 | Mint values [1/3] : 100",
+      "2 | Mint values [2/3] : 123456780000012348902345678900",
+      "2 | Mint values [3/3] : 10000000",
+      "3 | Native token values [1/3] : 123456780000012348902345678900",
+      "3 | Native token values [2/3] : 123456780000012348902345678900",
+      "3 | Native token values [3/3] : 10000000",
+      "4 | Tip : FIS 0.000012345678"
+    ],
+    "output_expert": [
+      "0 | RClaim : Update reth claim info",
+      "1 | Pubkeys [1/6] : 26db25c52b007221331a844e5335e59874e45b",
+      "1 | Pubkeys [2/6] : 03e81c3d76ff007377c2c17965",
+      "1 | Pubkeys [3/6] : 9c4189297ad2140c85861f64656d1d13189945",
+      "1 | Pubkeys [4/6] : 99130d98b75ff094176d2ca31e",
+      "1 | Pubkeys [5/6] : 765f3681fcc33aba624a09833455a3fd971d67",
+      "1 | Pubkeys [6/6] : 91a8f2c57440626cd119530860",
+      "2 | Mint values [1/3] : 100",
+      "2 | Mint values [2/3] : 123456780000012348902345678900",
+      "2 | Mint values [3/3] : 10000000",
+      "3 | Native token values [1/3] : 123456780000012348902345678900",
+      "3 | Native token values [2/3] : 123456780000012348902345678900",
+      "3 | Native token values [3/3] : 10000000",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 0.000012345678",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
   }
 ]

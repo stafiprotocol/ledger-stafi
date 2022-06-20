@@ -1795,13 +1795,13 @@ parser_error_t _readMethod_V1(
     case 10499: /* module 41 call 3 */
         CHECK_ERROR(_readMethod_xclaim_mint_claim_V1(c, &method->basic.xclaim_mint_claim_V1))
         break;
-    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 6 */
         CHECK_ERROR(_readMethod_rclaim_claim_rtoken_reward_V1(c, &method->basic.rclaim_claim_rtoken_reward_V1))
         break;
-    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 7 */
         CHECK_ERROR(_readMethod_rclaim_claim_reth_reward_V1(c, &method->basic.rclaim_claim_reth_reward_V1))
         break;
-    case 10760: /* module 42 call 8 */
+    case 10761: /* module 42 call 8 */
         CHECK_ERROR(_readMethod_rclaim_update_reth_claim_info_V1(c, &method->basic.rclaim_update_reth_claim_info_V1))
         break;
     case 11520: /* module 45 call 0 */
@@ -1974,11 +1974,11 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_CLAIM;
     case 10499: /* module 41 call 3 */
         return STR_ME_MINT_CLAIM;
-    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 6 */
         return STR_ME_CLAIM_RTOKEN_REWARD;
-    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 7 */
         return STR_ME_CLAIM_RETH_REWARD;
-    case 10760: /* module 42 call 8 */
+    case 10761: /* module 42 call 8 */
         return STR_ME_UPDATE_RETH_CLAIM_INFO;
     case 11520: /* module 45 call 0 */
         return STR_ME_SWAP_RTOKEN_FOR_NATIVE_TOKEN;
@@ -2096,11 +2096,11 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 10499: /* module 41 call 3 */
         return 3;
-    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 6 */
         return 3;
-    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 7 */
         return 4;
-    case 10760: /* module 42 call 8 */
+    case 10761: /* module 42 call 8 */
         return 3;
     case 11520: /* module 45 call 0 */
         return 5;
@@ -2445,7 +2445,7 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 6 */
         switch (itemIdx) {
         case 0:
             return STR_IT_symbol;
@@ -2456,7 +2456,7 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 7 */
         switch (itemIdx) {
         case 0:
             return STR_IT_pubkey;
@@ -2469,7 +2469,7 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 10760: /* module 42 call 8 */
+    case 10761: /* module 42 call 8 */
         switch (itemIdx) {
         case 0:
             return STR_IT_pubkeys;
@@ -3176,7 +3176,7 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return NULL;
         }
-    case 10758: /* module 42 call 6 */
+    case 10759: /* module 42 call 6 for seiya*/
         switch (itemIdx) {
         case 0: /* rclaim_claim_rtoken_reward_V1 - symbol */
             return _toStringu8(
@@ -3196,7 +3196,7 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return NULL;
         }
-    case 10759: /* module 42 call 7 */
+    case 10760: /* module 42 call 7 */
         switch (itemIdx) {
         case 0: /* rclaim_claim_reth_reward_V1 - pubkey */
             return _toStringBytes(
@@ -3221,7 +3221,7 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return NULL;
         }
-    case 10760: /* module 42 call 8 */
+    case 10761: /* module 42 call 8 */
         switch (itemIdx) {
         case 0: /* rclaim_update_reth_claim_info_V1 - pubkeys */
             return _toStringVecBytes(
@@ -3624,9 +3624,9 @@ bool _getMethod_IsNestingSupported_V1(uint8_t moduleIdx, uint8_t callIdx)
     case 10258: /* module 40 call 18 */
     case 10498: /* module 41 call 2 */
     case 10499: /* module 41 call 3 */
-    case 10758: /* module 42 call 6 */
-    case 10759: /* module 42 call 7 */
-    case 10760: /* module 42 call 8 */
+    case 10759: /* module 42 call 6 */
+    case 10760: /* module 42 call 7 */
+    case 10761: /* module 42 call 8 */
     case 11520: /* module 45 call 0 */
     case 11521: /* module 45 call 1 */
     case 11776: /* module 46 call 0 */

@@ -231,7 +231,7 @@ parser_error_t _readKey_V1(parser_context_t* c, pd_Key_V1_t* v) {
 }
 
 parser_error_t _readKeys_V1(parser_context_t* c, pd_Keys_V1_t* v) {
-    GEN_DEF_READARRAY(6 * 32)
+    GEN_DEF_READARRAY(4 * 32)
 }
 
 parser_error_t _readLeasePeriodOfT_V1(parser_context_t* c, pd_LeasePeriodOfT_V1_t* v)
@@ -1123,7 +1123,7 @@ parser_error_t _toStringKeys_V1(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount) {
-    GEN_DEF_TOSTRING_ARRAY(6 * 32)
+    GEN_DEF_TOSTRING_ARRAY(4 * 32)
 }
 
 parser_error_t _toStringLeasePeriodOfT_V1(

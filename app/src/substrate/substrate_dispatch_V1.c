@@ -139,7 +139,7 @@ __Z_INLINE parser_error_t _readMethod_xbalances_transfer_V1(
     parser_context_t* c, pd_xbalances_transfer_V1_t* m)
 {
     CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
-    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->value))
     return parser_ok;
 }
@@ -148,7 +148,7 @@ __Z_INLINE parser_error_t _readMethod_rbalances_transfer_V1(
     parser_context_t* c, pd_rbalances_transfer_V1_t* m)
 {
     CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->value))
     return parser_ok;
 }
@@ -167,7 +167,7 @@ __Z_INLINE parser_error_t _readMethod_rfis_liquidity_bond_and_swap_V1(
     CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->pool))
     CHECK_ERROR(_readBalanceOf(c, &m->value))
     CHECK_ERROR(_readBytes(c, &m->recipient))
-    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    CHECK_ERROR(_readu8(c, &m->dest_id))
     return parser_ok;
 }
 
@@ -191,27 +191,27 @@ __Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_native_V1(
 {
     CHECK_ERROR(_readBalanceOf(c, &m->amount))
     CHECK_ERROR(_readBytes(c, &m->recipient))
-    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    CHECK_ERROR(_readu8(c, &m->dest_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_rtoken_V1(
     parser_context_t* c, pd_bridgeswap_transfer_rtoken_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->amount))
     CHECK_ERROR(_readBytes(c, &m->recipient))
-    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    CHECK_ERROR(_readu8(c, &m->dest_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_bridgeswap_transfer_xtoken_V1(
     parser_context_t* c, pd_bridgeswap_transfer_xtoken_V1_t* m)
 {
-    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->amount))
     CHECK_ERROR(_readBytes(c, &m->recipient))
-    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    CHECK_ERROR(_readu8(c, &m->dest_id))
     return parser_ok;
 }
 
@@ -224,7 +224,7 @@ __Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_bond_V1(
     CHECK_ERROR(_readBytes(c, &m->blockhash))
     CHECK_ERROR(_readBytes(c, &m->txhash))
     CHECK_ERROR(_readu128(c, &m->amount))
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     return parser_ok;
 }
 
@@ -237,16 +237,16 @@ __Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_bond_and_swap_V1(
     CHECK_ERROR(_readBytes(c, &m->blockhash))
     CHECK_ERROR(_readBytes(c, &m->txhash))
     CHECK_ERROR(_readu128(c, &m->amount))
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readBytes(c, &m->recipient))
-    CHECK_ERROR(_readChainId_V1(c, &m->dest_id))
+    CHECK_ERROR(_readu8(c, &m->dest_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_unbond_V1(
     parser_context_t* c, pd_rtokenseries_liquidity_unbond_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readBytes(c, &m->pool))
     CHECK_ERROR(_readu128(c, &m->value))
     CHECK_ERROR(_readBytes(c, &m->recipient))
@@ -256,7 +256,7 @@ __Z_INLINE parser_error_t _readMethod_rtokenseries_liquidity_unbond_V1(
 __Z_INLINE parser_error_t _readMethod_rtokenseries_refund_swap_fee_V1(
     parser_context_t* c, pd_rtokenseries_refund_swap_fee_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readHash(c, &m->bond_id))
     return parser_ok;
 }
@@ -264,7 +264,7 @@ __Z_INLINE parser_error_t _readMethod_rtokenseries_refund_swap_fee_V1(
 __Z_INLINE parser_error_t _readMethod_xclaim_claim_V1(
     parser_context_t* c, pd_xclaim_claim_V1_t* m)
 {
-    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     return parser_ok;
 }
 
@@ -272,7 +272,7 @@ __Z_INLINE parser_error_t _readMethod_xclaim_mint_claim_V1(
     parser_context_t* c, pd_xclaim_mint_claim_V1_t* m)
 {
     CHECK_ERROR(_readAccountId_V1(c, &m->dest))
-    CHECK_ERROR(_readXSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->value))
     return parser_ok;
 }
@@ -280,7 +280,7 @@ __Z_INLINE parser_error_t _readMethod_xclaim_mint_claim_V1(
 __Z_INLINE parser_error_t _readMethod_rclaim_claim_rtoken_reward_V1(
     parser_context_t* c, pd_rclaim_claim_rtoken_reward_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu32(c, &m->cycle))
     CHECK_ERROR(_readu64(c, &m->index))
     return parser_ok;
@@ -309,7 +309,7 @@ __Z_INLINE parser_error_t _readMethod_rdexnswap_swap_rtoken_for_native_token_V1(
     parser_context_t* c, pd_rdexnswap_swap_rtoken_for_native_token_V1_t* m)
 {
     CHECK_ERROR(_readBytes(c, &m->receiver))
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->rtoken_amount))
     CHECK_ERROR(_readu128(c, &m->min_out_amount))
     CHECK_ERROR(_readu8(c, &m->grade))
@@ -329,7 +329,7 @@ __Z_INLINE parser_error_t _readMethod_rdexnswap_swap_rfis_for_fis_token_V1(
 __Z_INLINE parser_error_t _readMethod_rdexswap_swap_V1(
     parser_context_t* c, pd_rdexswap_swap_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->input_amount))
     CHECK_ERROR(_readu128(c, &m->min_out_amount))
     CHECK_ERROR(_readbool(c, &m->input_is_fis))
@@ -339,7 +339,7 @@ __Z_INLINE parser_error_t _readMethod_rdexswap_swap_V1(
 __Z_INLINE parser_error_t _readMethod_rdexswap_add_liquidity_V1(
     parser_context_t* c, pd_rdexswap_add_liquidity_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->rtoken_amount))
     CHECK_ERROR(_readu128(c, &m->fis_amount))
     return parser_ok;
@@ -348,7 +348,7 @@ __Z_INLINE parser_error_t _readMethod_rdexswap_add_liquidity_V1(
 __Z_INLINE parser_error_t _readMethod_rdexswap_remove_liquidity_V1(
     parser_context_t* c, pd_rdexswap_remove_liquidity_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->rm_unit))
     CHECK_ERROR(_readu128(c, &m->swap_unit))
     CHECK_ERROR(_readu128(c, &m->min_fis_out_amount))
@@ -361,7 +361,7 @@ __Z_INLINE parser_error_t _readMethod_lpbalances_transfer_V1(
     parser_context_t* c, pd_lpbalances_transfer_V1_t* m)
 {
     CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->dest))
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu128(c, &m->value))
     return parser_ok;
 }
@@ -369,7 +369,7 @@ __Z_INLINE parser_error_t _readMethod_lpbalances_transfer_V1(
 __Z_INLINE parser_error_t _readMethod_rdexmining_deposit_V1(
     parser_context_t* c, pd_rdexmining_deposit_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu32(c, &m->pool_index))
     CHECK_ERROR(_readu32(c, &m->grade_index))
     CHECK_ERROR(_readu128(c, &m->lp_amount))
@@ -379,7 +379,7 @@ __Z_INLINE parser_error_t _readMethod_rdexmining_deposit_V1(
 __Z_INLINE parser_error_t _readMethod_rdexmining_withdraw_V1(
     parser_context_t* c, pd_rdexmining_withdraw_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu32(c, &m->pool_index))
     CHECK_ERROR(_readu32(c, &m->stake_index))
     CHECK_ERROR(_readu128(c, &m->lp_amount))
@@ -389,7 +389,7 @@ __Z_INLINE parser_error_t _readMethod_rdexmining_withdraw_V1(
 __Z_INLINE parser_error_t _readMethod_rdexmining_claim_reward_V1(
     parser_context_t* c, pd_rdexmining_claim_reward_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu32(c, &m->pool_index))
     CHECK_ERROR(_readu32(c, &m->stake_index))
     return parser_ok;
@@ -398,7 +398,7 @@ __Z_INLINE parser_error_t _readMethod_rdexmining_claim_reward_V1(
 __Z_INLINE parser_error_t _readMethod_rdexmining_emergency_withdraw_V1(
     parser_context_t* c, pd_rdexmining_emergency_withdraw_V1_t* m)
 {
-    CHECK_ERROR(_readRSymbol_V1(c, &m->symbol))
+    CHECK_ERROR(_readu8(c, &m->symbol))
     CHECK_ERROR(_readu32(c, &m->pool_index))
     CHECK_ERROR(_readu32(c, &m->stake_index))
     return parser_ok;
@@ -800,6 +800,122 @@ __Z_INLINE parser_error_t _readMethod_identity_quit_sub_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_recovery_as_recovered_V1(
+    parser_context_t* c, pd_recovery_as_recovered_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->account))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_create_recovery_V1(
+    parser_context_t* c, pd_recovery_create_recovery_V1_t* m)
+{
+    CHECK_ERROR(_readVecAccountId_V1(c, &m->friends))
+    CHECK_ERROR(_readu16(c, &m->threshold))
+    CHECK_ERROR(_readBlockNumber(c, &m->delay_period))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_initiate_recovery_V1(
+    parser_context_t* c, pd_recovery_initiate_recovery_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_vouch_recovery_V1(
+    parser_context_t* c, pd_recovery_vouch_recovery_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->lost))
+    CHECK_ERROR(_readAccountId_V1(c, &m->rescuer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_claim_recovery_V1(
+    parser_context_t* c, pd_recovery_claim_recovery_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_close_recovery_V1(
+    parser_context_t* c, pd_recovery_close_recovery_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->rescuer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_remove_recovery_V1(
+    parser_context_t* c, pd_recovery_remove_recovery_V1_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_cancel_recovered_V1(
+    parser_context_t* c, pd_recovery_cancel_recovered_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_schedule_V1(
+    parser_context_t* c, pd_scheduler_schedule_V1_t* m)
+{
+    CHECK_ERROR(_readBlockNumber(c, &m->when))
+    CHECK_ERROR(_readOptionschedulePeriodBlockNumber_V1(c, &m->maybe_periodic))
+    CHECK_ERROR(_readu8(c, &m->priority))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_cancel_V1(
+    parser_context_t* c, pd_scheduler_cancel_V1_t* m)
+{
+    CHECK_ERROR(_readBlockNumber(c, &m->when))
+    CHECK_ERROR(_readu32(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_schedule_named_V1(
+    parser_context_t* c, pd_scheduler_schedule_named_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->id))
+    CHECK_ERROR(_readBlockNumber(c, &m->when))
+    CHECK_ERROR(_readOptionschedulePeriodBlockNumber_V1(c, &m->maybe_periodic))
+    CHECK_ERROR(_readu8(c, &m->priority))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_cancel_named_V1(
+    parser_context_t* c, pd_scheduler_cancel_named_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_schedule_after_V1(
+    parser_context_t* c, pd_scheduler_schedule_after_V1_t* m)
+{
+    CHECK_ERROR(_readBlockNumber(c, &m->after))
+    CHECK_ERROR(_readOptionschedulePeriodBlockNumber_V1(c, &m->maybe_periodic))
+    CHECK_ERROR(_readu8(c, &m->priority))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_scheduler_schedule_named_after_V1(
+    parser_context_t* c, pd_scheduler_schedule_named_after_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->id))
+    CHECK_ERROR(_readBlockNumber(c, &m->after))
+    CHECK_ERROR(_readOptionschedulePeriodBlockNumber_V1(c, &m->maybe_periodic))
+    CHECK_ERROR(_readu8(c, &m->priority))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_proxy_proxy_V1(
     parser_context_t* c, pd_proxy_proxy_V1_t* m)
 {
@@ -1183,6 +1299,30 @@ parser_error_t _readMethod_V1(
     case 6158: /* module 24 call 14 */
         CHECK_ERROR(_readMethod_identity_quit_sub_V1(c, &method->basic.identity_quit_sub_V1))
         break;
+    case 6400: /* module 25 call 0 */
+        CHECK_ERROR(_readMethod_recovery_as_recovered_V1(c, &method->basic.recovery_as_recovered_V1))
+        break;
+    case 6402: /* module 25 call 2 */
+        CHECK_ERROR(_readMethod_recovery_create_recovery_V1(c, &method->basic.recovery_create_recovery_V1))
+        break;
+    case 6403: /* module 25 call 3 */
+        CHECK_ERROR(_readMethod_recovery_initiate_recovery_V1(c, &method->basic.recovery_initiate_recovery_V1))
+        break;
+    case 6404: /* module 25 call 4 */
+        CHECK_ERROR(_readMethod_recovery_vouch_recovery_V1(c, &method->basic.recovery_vouch_recovery_V1))
+        break;
+    case 6405: /* module 25 call 5 */
+        CHECK_ERROR(_readMethod_recovery_claim_recovery_V1(c, &method->basic.recovery_claim_recovery_V1))
+        break;
+    case 6406: /* module 25 call 6 */
+        CHECK_ERROR(_readMethod_recovery_close_recovery_V1(c, &method->basic.recovery_close_recovery_V1))
+        break;
+    case 6407: /* module 25 call 7 */
+        CHECK_ERROR(_readMethod_recovery_remove_recovery_V1(c, &method->basic.recovery_remove_recovery_V1))
+        break;
+    case 6408: /* module 25 call 8 */
+        CHECK_ERROR(_readMethod_recovery_cancel_recovered_V1(c, &method->basic.recovery_cancel_recovered_V1))
+        break;
     case 6656: /* module 26 call 0 */
         CHECK_ERROR(_readMethod_vesting_vest_V1(c, &method->basic.vesting_vest_V1))
         break;
@@ -1191,6 +1331,24 @@ parser_error_t _readMethod_V1(
         break;
     case 6658: /* module 26 call 2 */
         CHECK_ERROR(_readMethod_vesting_vested_transfer_V1(c, &method->basic.vesting_vested_transfer_V1))
+        break;
+    case 6912: /* module 27 call 0 */
+        CHECK_ERROR(_readMethod_scheduler_schedule_V1(c, &method->basic.scheduler_schedule_V1))
+        break;
+    case 6913: /* module 27 call 1 */
+        CHECK_ERROR(_readMethod_scheduler_cancel_V1(c, &method->basic.scheduler_cancel_V1))
+        break;
+    case 6914: /* module 27 call 2 */
+        CHECK_ERROR(_readMethod_scheduler_schedule_named_V1(c, &method->basic.scheduler_schedule_named_V1))
+        break;
+    case 6915: /* module 27 call 3 */
+        CHECK_ERROR(_readMethod_scheduler_cancel_named_V1(c, &method->basic.scheduler_cancel_named_V1))
+        break;
+    case 6916: /* module 27 call 4 */
+        CHECK_ERROR(_readMethod_scheduler_schedule_after_V1(c, &method->basic.scheduler_schedule_after_V1))
+        break;
+    case 6917: /* module 27 call 5 */
+        CHECK_ERROR(_readMethod_scheduler_schedule_named_after_V1(c, &method->basic.scheduler_schedule_named_after_V1))
         break;
     case 7168: /* module 28 call 0 */
         CHECK_ERROR(_readMethod_proxy_proxy_V1(c, &method->nested.proxy_proxy_V1))
@@ -1498,12 +1656,40 @@ const char* _getMethod_Name_V1_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_SUB;
     case 6158: /* module 24 call 14 */
         return STR_ME_QUIT_SUB;
+    case 6400: /* module 25 call 0 */
+        return STR_ME_AS_RECOVERED;
+    case 6402: /* module 25 call 2 */
+        return STR_ME_CREATE_RECOVERY;
+    case 6403: /* module 25 call 3 */
+        return STR_ME_INITIATE_RECOVERY;
+    case 6404: /* module 25 call 4 */
+        return STR_ME_VOUCH_RECOVERY;
+    case 6405: /* module 25 call 5 */
+        return STR_ME_CLAIM_RECOVERY;
+    case 6406: /* module 25 call 6 */
+        return STR_ME_CLOSE_RECOVERY;
+    case 6407: /* module 25 call 7 */
+        return STR_ME_REMOVE_RECOVERY;
+    case 6408: /* module 25 call 8 */
+        return STR_ME_CANCEL_RECOVERED;
     case 6656: /* module 26 call 0 */
         return STR_ME_VEST;
     case 6657: /* module 26 call 1 */
         return STR_ME_VEST_OTHER;
     case 6658: /* module 26 call 2 */
         return STR_ME_VESTED_TRANSFER;
+    case 6912: /* module 27 call 0 */
+        return STR_ME_SCHEDULE;
+    case 6913: /* module 27 call 1 */
+        return STR_ME_CANCEL;
+    case 6914: /* module 27 call 2 */
+        return STR_ME_SCHEDULE_NAMED;
+    case 6915: /* module 27 call 3 */
+        return STR_ME_CANCEL_NAMED;
+    case 6916: /* module 27 call 4 */
+        return STR_ME_SCHEDULE_AFTER;
+    case 6917: /* module 27 call 5 */
+        return STR_ME_SCHEDULE_NAMED_AFTER;
     case 7168: /* module 28 call 0 */
         return STR_ME_PROXY;
     case 7169: /* module 28 call 1 */
@@ -1718,12 +1904,40 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 6158: /* module 24 call 14 */
         return 0;
+    case 6400: /* module 25 call 0 */
+        return 2;
+    case 6402: /* module 25 call 2 */
+        return 3;
+    case 6403: /* module 25 call 3 */
+        return 1;
+    case 6404: /* module 25 call 4 */
+        return 2;
+    case 6405: /* module 25 call 5 */
+        return 1;
+    case 6406: /* module 25 call 6 */
+        return 1;
+    case 6407: /* module 25 call 7 */
+        return 0;
+    case 6408: /* module 25 call 8 */
+        return 1;
     case 6656: /* module 26 call 0 */
         return 0;
     case 6657: /* module 26 call 1 */
         return 1;
     case 6658: /* module 26 call 2 */
         return 2;
+    case 6912: /* module 27 call 0 */
+        return 4;
+    case 6913: /* module 27 call 1 */
+        return 2;
+    case 6914: /* module 27 call 2 */
+        return 5;
+    case 6915: /* module 27 call 3 */
+        return 1;
+    case 6916: /* module 27 call 4 */
+        return 4;
+    case 6917: /* module 27 call 5 */
+        return 5;
     case 7168: /* module 28 call 0 */
         return 3;
     case 7169: /* module 28 call 1 */
@@ -2589,6 +2803,68 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 6400: /* module 25 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        case 1:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 6402: /* module 25 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_friends;
+        case 1:
+            return STR_IT_threshold;
+        case 2:
+            return STR_IT_delay_period;
+        default:
+            return NULL;
+        }
+    case 6403: /* module 25 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
+    case 6404: /* module 25 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_lost;
+        case 1:
+            return STR_IT_rescuer;
+        default:
+            return NULL;
+        }
+    case 6405: /* module 25 call 5 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
+    case 6406: /* module 25 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_rescuer;
+        default:
+            return NULL;
+        }
+    case 6407: /* module 25 call 7 */
+        switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 6408: /* module 25 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
     case 6656: /* module 26 call 0 */
         switch (itemIdx) {
         default:
@@ -2607,6 +2883,78 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_target;
         case 1:
             return STR_IT_schedule;
+        default:
+            return NULL;
+        }
+    case 6912: /* module 27 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_when;
+        case 1:
+            return STR_IT_maybe_periodic;
+        case 2:
+            return STR_IT_priority;
+        case 3:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 6913: /* module 27 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_when;
+        case 1:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 6914: /* module 27 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_when;
+        case 2:
+            return STR_IT_maybe_periodic;
+        case 3:
+            return STR_IT_priority;
+        case 4:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 6915: /* module 27 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    case 6916: /* module 27 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_after;
+        case 1:
+            return STR_IT_maybe_periodic;
+        case 2:
+            return STR_IT_priority;
+        case 3:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 6917: /* module 27 call 5 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_after;
+        case 2:
+            return STR_IT_maybe_periodic;
+        case 3:
+            return STR_IT_priority;
+        case 4:
+            return STR_IT_call;
         default:
             return NULL;
         }
@@ -4164,6 +4512,101 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return parser_no_data;
         }
+    case 6400: /* module 25 call 0 */
+        switch (itemIdx) {
+        case 0: /* recovery_as_recovered_V1 - account */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_as_recovered_V1.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_as_recovered_V1 - call */;
+            return _toStringCall(
+                &m->basic.recovery_as_recovered_V1.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 6402: /* module 25 call 2 */
+        switch (itemIdx) {
+        case 0: /* recovery_create_recovery_V1 - friends */;
+            return _toStringVecAccountId_V1(
+                &m->basic.recovery_create_recovery_V1.friends,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_create_recovery_V1 - threshold */;
+            return _toStringu16(
+                &m->basic.recovery_create_recovery_V1.threshold,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* recovery_create_recovery_V1 - delay_period */;
+            return _toStringBlockNumber(
+                &m->basic.recovery_create_recovery_V1.delay_period,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6403: /* module 25 call 3 */
+        switch (itemIdx) {
+        case 0: /* recovery_initiate_recovery_V1 - account */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_initiate_recovery_V1.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 6404: /* module 25 call 4 */
+        switch (itemIdx) {
+        case 0: /* recovery_vouch_recovery_V1 - lost */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_vouch_recovery_V1.lost,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_vouch_recovery_V1 - rescuer */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_vouch_recovery_V1.rescuer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 6405: /* module 25 call 5 */
+        switch (itemIdx) {
+        case 0: /* recovery_claim_recovery_V1 - account */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_claim_recovery_V1.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 6406: /* module 25 call 6 */
+        switch (itemIdx) {
+        case 0: /* recovery_close_recovery_V1 - rescuer */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_close_recovery_V1.rescuer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
+    case 6407: /* module 25 call 7 */
+        switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 6408: /* module 25 call 8 */
+        switch (itemIdx) {
+        case 0: /* recovery_cancel_recovered_V1 - account */;
+            return _toStringAccountId_V1(
+                &m->basic.recovery_cancel_recovered_V1.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return NULL;
+        }
     case 6656: /* module 26 call 0 */
         switch (itemIdx) {
         default:
@@ -4189,6 +4632,141 @@ parser_error_t _getMethod_ItemValue_V1(
         case 1: /* vesting_vested_transfer_V1 - schedule */;
             return _toStringVestingInfo_V1(
                 &m->basic.vesting_vested_transfer_V1.schedule,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6912: /* module 27 call 0 */
+        switch (itemIdx) {
+        case 0: /* scheduler_schedule_V1 - when */;
+            return _toStringBlockNumber(
+                &m->basic.scheduler_schedule_V1.when,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* scheduler_schedule_V1 - maybe_periodic */;
+            return _toStringOptionschedulePeriodBlockNumber_V1(
+                &m->basic.scheduler_schedule_V1.maybe_periodic,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* scheduler_schedule_V1 - priority */;
+            return _toStringu8(
+                &m->basic.scheduler_schedule_V1.priority,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* scheduler_schedule_V1 - call */;
+            return _toStringCall(
+                &m->basic.scheduler_schedule_V1.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6913: /* module 27 call 1 */
+        switch (itemIdx) {
+        case 0: /* scheduler_cancel_V1 - when */;
+            return _toStringBlockNumber(
+                &m->basic.scheduler_cancel_V1.when,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* scheduler_cancel_V1 - index */;
+            return _toStringu32(
+                &m->basic.scheduler_cancel_V1.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6914: /* module 27 call 2 */
+        switch (itemIdx) {
+        case 0: /* scheduler_schedule_named_V1 - id */;
+            return _toStringBytes(
+                &m->basic.scheduler_schedule_named_V1.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* scheduler_schedule_named_V1 - when */;
+            return _toStringBlockNumber(
+                &m->basic.scheduler_schedule_named_V1.when,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* scheduler_schedule_named_V1 - maybe_periodic */;
+            return _toStringOptionschedulePeriodBlockNumber_V1(
+                &m->basic.scheduler_schedule_named_V1.maybe_periodic,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* scheduler_schedule_named_V1 - priority */;
+            return _toStringu8(
+                &m->basic.scheduler_schedule_named_V1.priority,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* scheduler_schedule_named_V1 - call */;
+            return _toStringCall(
+                &m->basic.scheduler_schedule_named_V1.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6915: /* module 27 call 3 */
+         switch (itemIdx) {
+         case 0: /* scheduler_cancel_named_V1 - id */;
+             return _toStringBytes(
+                 &m->basic.scheduler_cancel_named_V1.id,
+                 outValue, outValueLen,
+                 pageIdx, pageCount);
+         default:
+             return parser_no_data;
+         }
+    case 6916: /* module 27 call 4 */
+        switch (itemIdx) {
+        case 0: /* scheduler_schedule_after_V1 - after */;
+            return _toStringBlockNumber(
+                &m->basic.scheduler_schedule_after_V1.after,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* scheduler_schedule_after_V1 - maybe_periodic */;
+            return _toStringOptionschedulePeriodBlockNumber_V1(
+                &m->basic.scheduler_schedule_after_V1.maybe_periodic,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* scheduler_schedule_after_V1 - priority */;
+            return _toStringu8(
+                &m->basic.scheduler_schedule_after_V1.priority,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* scheduler_schedule_after_V1 - call */;
+            return _toStringCall(
+                &m->basic.scheduler_schedule_after_V1.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6917: /* module 27 call 5 */
+        switch (itemIdx) {
+        case 0: /* scheduler_schedule_named_after_V1 - id */;
+            return _toStringBytes(
+                &m->basic.scheduler_schedule_named_after_V1.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* scheduler_schedule_named_after_V1 - after */;
+            return _toStringBlockNumber(
+                &m->basic.scheduler_schedule_named_after_V1.after,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* scheduler_schedule_named_after_V1 - maybe_periodic */;
+            return _toStringOptionschedulePeriodBlockNumber_V1(
+                &m->basic.scheduler_schedule_named_after_V1.maybe_periodic,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* scheduler_schedule_named_after_V1 - priority */;
+            return _toStringu8(
+                &m->basic.scheduler_schedule_named_after_V1.priority,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* scheduler_schedule_named_after_V1 - call */;
+            return _toStringCall(
+                &m->basic.scheduler_schedule_named_after_V1.call,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:

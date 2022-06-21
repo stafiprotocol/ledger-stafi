@@ -26,33 +26,33 @@ extern "C" {
 #include <stddef.h>
 #include <stdint.h>
 
-//#define PD_CALL_SYSTEM_V1 0
-//#define PD_CALL_UTILITY_V1 1
-//#define PD_CALL_BALANCES_V1 6
-//#define PD_CALL_STAKING_V1 8
-//#define PD_CALL_SESSION_V1 9
-//#define PD_CALL_GRANDPA_V1 11
-//#define PD_CALL_DEMOCRACY_V1 14
-//#define PD_CALL_COUNCIL_V1 15
-//#define PD_CALL_TECHNICALCOMMITTEE_V1 16
-//#define PD_CALL_TREASURY_V1 19
-//#define PD_CALL_CLAIMS_V1 24
-//#define PD_CALL_VESTING_V1 25
-//#define PD_CALL_UTILITY_V1 26
-//#define PD_CALL_IDENTITY_V1 28
-//#define PD_CALL_PROXY_V1 29
-//#define PD_CALL_MULTISIG_V1 30
-//#define PD_CALL_BOUNTIES_V1 34
-//#define PD_CALL_CHILDBOUNTIES_V1 38
-//#define PD_CALL_TIPS_V1 35
-//#define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V1 36
-//#define PD_CALL_BAGSLIST_V1 37
-//#define PD_CALL_CONFIGURATION_V1 51
-//#define PD_CALL_INITIALIZER_V1 57
-//#define PD_CALL_HRMP_V1 60
-//#define PD_CALL_PARASDISPUTES_V1 62
-//#define PD_CALL_REGISTRAR_V1 70
-//#define PD_CALL_AUCTIONS_V1 72
+#define PD_CALL_SYSTEM 0;
+#define PD_CALL_UTILITY 1;
+#define PD_CALL_BALANCES 6;
+#define PD_CALL_STAKING 8;
+#define PD_CALL_SESSION 9;
+#define PD_CALL_DEMOCRACY 10;
+#define PD_CALL_COUNCIL 11;
+#define PD_CALL_TECHNICALCOMMITTEE 12;
+#define PD_CALL_ELECTIONS 13;
+#define PD_CALL_TREASURY 17;
+#define PD_CALL_IDENTITY 24;
+#define PD_CALL_RECOVERY 25;
+#define PD_CALL_VESTING 26;
+#define PD_CALL_SCHEDULER 27;
+#define PD_CALL_PROXY 28;
+#define PD_CALL_MULTISIG 29;
+#define PD_CALL_XBALANCES 30;
+#define PD_CALL_RBALANCES 31;
+#define PD_CALL_RFIS 33;
+#define PD_CALL_BRIDGESWAP 36;
+#define PD_CALL_RTOKENSERIES 40;
+#define PD_CALL_XCLAIM 41;
+#define PD_CALL_RCLAIM 42;
+#define PD_CALL_RDEXNSWAP 45;
+#define PD_CALL_RDEXSWAP 46;
+#define PD_CALL_LPBALANCES 47;
+#define PD_CALL_RDEXMINING 48;
 
 #define PD_CALL_STAKING_BOND_V1 0
 typedef struct {
@@ -114,14 +114,14 @@ typedef struct {
 #define PD_CALL_xbalances_transfer_V1 0
 typedef struct {
     pd_LookupasStaticLookupSource_V1_t dest;
-    pd_XSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t value;
 } pd_xbalances_transfer_V1_t;
 
 #define PD_CALL_rbalances_transfer_V1 0
 typedef struct {
     pd_LookupasStaticLookupSource_V1_t dest;
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t value;
 } pd_rbalances_transfer_V1_t;
 
@@ -136,7 +136,7 @@ typedef struct {
     pd_LookupasStaticLookupSource_V1_t pool;
     pd_BalanceOf_t value;
     pd_Bytes_t recipient;
-    pd_ChainId_V1_t dest_id;
+    pd_u8_t dest_id;
 } pd_rfis_liquidity_bond_and_swap_V1_t;
 
 #define PD_CALL_rfis_liquidity_unbond_V1 20
@@ -154,23 +154,23 @@ typedef struct {
 typedef struct {
     pd_BalanceOf_t amount;
     pd_Bytes_t recipient;
-    pd_ChainId_V1_t dest_id;
+    pd_u8_t dest_id;
 } pd_bridgeswap_transfer_native_V1_t;
 
 #define PD_CALL_bridgeswap_transfer_rtoken_V1 0
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t amount;
     pd_Bytes_t recipient;
-    pd_ChainId_V1_t dest_id;
+    pd_u8_t dest_id;
 } pd_bridgeswap_transfer_rtoken_V1_t;
 
 #define PD_CALL_bridgeswap_transfer_xtoken_V1 0
 typedef struct {
-    pd_XSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t amount;
     pd_Bytes_t recipient;
-    pd_ChainId_V1_t dest_id;
+    pd_u8_t dest_id;
 } pd_bridgeswap_transfer_xtoken_V1_t;
 
 #define PD_CALL_rtokenseries_liquidity_bond_V1 13
@@ -181,7 +181,7 @@ typedef struct {
     pd_Bytes_t blockhash;
     pd_Bytes_t txhash;
     pd_u128_t amount;
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
 } pd_rtokenseries_liquidity_bond_V1_t;
 
 #define PD_CALL_rtokenseries_liquidity_bond_and_swap_V1 14
@@ -192,14 +192,14 @@ typedef struct {
     pd_Bytes_t blockhash;
     pd_Bytes_t txhash;
     pd_u128_t amount;
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_Bytes_t recipient;
-    pd_ChainId_V1_t dest_id;
+    pd_u8_t dest_id;
 } pd_rtokenseries_liquidity_bond_and_swap_V1_t;
 
 #define PD_CALL_rtokenseries_liquidity_unbond_V1 16
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_Bytes_t pool;
     pd_u128_t value;
     pd_Bytes_t recipient;
@@ -207,25 +207,25 @@ typedef struct {
 
 #define PD_CALL_rtokenseries_refund_swap_fee_V1 18
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_Hash_t bond_id;
 } pd_rtokenseries_refund_swap_fee_V1_t;
 
 #define PD_CALL_xclaim_claim_V1 2
 typedef struct {
-    pd_XSymbol_V1_t symbol;
+    pd_u8_t symbol;
 } pd_xclaim_claim_V1_t;
 
 #define PD_CALL_xclaim_mint_claim_V1 3
 typedef struct {
     pd_AccountId_V1_t dest;
-    pd_XSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t value;
 } pd_xclaim_mint_claim_V1_t;
 
 #define PD_CALL_rclaim_claim_rtoken_reward_V1 6
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u32_t cycle;
     pd_u64_t index;
 } pd_rclaim_claim_rtoken_reward_V1_t;
@@ -248,7 +248,7 @@ typedef struct {
 #define PD_CALL_rdexnswap_swap_rtoken_for_native_token_V1 0
 typedef struct {
     pd_Bytes_t receiver;
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t rtoken_amount;
     pd_u128_t min_out_amount;
     pd_u8_t grade;
@@ -264,7 +264,7 @@ typedef struct {
 
 #define PD_CALL_rdexswap_swap_V1 0
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t input_amount;
     pd_u128_t min_out_amount;
     pd_bool_t input_is_fis;
@@ -272,14 +272,14 @@ typedef struct {
 
 #define PD_CALL_rdexswap_add_liquidity_V1 1
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t rtoken_amount;
     pd_u128_t fis_amount;
 } pd_rdexswap_add_liquidity_V1_t;
 
 #define PD_CALL_rdexswap_remove_liquidity_V1 2
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t rm_unit;
     pd_u128_t swap_unit;
     pd_u128_t min_fis_out_amount;
@@ -290,13 +290,13 @@ typedef struct {
 #define PD_CALL_lpbalances_transfer_V1 0
 typedef struct {
     pd_LookupasStaticLookupSource_V1_t dest;
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u128_t value;
 } pd_lpbalances_transfer_V1_t;
 
 #define PD_CALL_rdexmining_deposit_V1 0
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u32_t pool_index;
     pd_u32_t grade_index;
     pd_u128_t lp_amount;
@@ -304,7 +304,7 @@ typedef struct {
 
 #define PD_CALL_rdexmining_withdraw_V1 1
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u32_t pool_index;
     pd_u32_t stake_index;
     pd_u128_t lp_amount;
@@ -312,14 +312,14 @@ typedef struct {
 
 #define PD_CALL_rdexmining_claim_reward_V1 2
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u32_t pool_index;
     pd_u32_t stake_index;
 } pd_rdexmining_claim_reward_V1_t;
 
 #define PD_CALL_rdexmining_emergency_withdraw_V1 3
 typedef struct {
-    pd_RSymbol_V1_t symbol;
+    pd_u8_t symbol;
     pd_u32_t pool_index;
     pd_u32_t stake_index;
 } pd_rdexmining_emergency_withdraw_V1_t;
@@ -627,6 +627,94 @@ typedef struct {
 typedef struct {
 } pd_identity_quit_sub_V1_t;
 
+#define PD_CALL_RECOVERY_AS_RECOVERED_V1 0
+typedef struct {
+    pd_AccountId_V1_t account;
+    pd_Call_t call;
+} pd_recovery_as_recovered_V1_t;
+
+#define PD_CALL_RECOVERY_CREATE_RECOVERY_V1 2
+typedef struct {
+    pd_VecAccountId_V1_t friends;
+    pd_u16_t threshold;
+    pd_BlockNumber_t delay_period;
+} pd_recovery_create_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V1 3
+typedef struct {
+    pd_AccountId_V1_t account;
+} pd_recovery_initiate_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V1 4
+typedef struct {
+    pd_AccountId_V1_t lost;
+    pd_AccountId_V1_t rescuer;
+} pd_recovery_vouch_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V1 5
+typedef struct {
+    pd_AccountId_V1_t account;
+} pd_recovery_claim_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V1 6
+typedef struct {
+    pd_AccountId_V1_t rescuer;
+} pd_recovery_close_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V1 7
+typedef struct {
+} pd_recovery_remove_recovery_V1_t;
+
+#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V1 8
+typedef struct {
+    pd_AccountId_V1_t account;
+} pd_recovery_cancel_recovered_V1_t;
+
+#define pd_call_scheduler_schedule_V1 0
+typedef struct {
+    pd_BlockNumber_t when;
+    pd_OptionschedulePeriodBlockNumber_V1_t maybe_periodic;
+    pd_u8_t priority;
+    pd_Call_t call;
+} pd_scheduler_schedule_V1_t;
+
+#define pd_call_scheduler_cancel_V1 0
+typedef struct {
+    pd_BlockNumber_t when;
+    pd_u32_t index;
+} pd_scheduler_cancel_V1_t;
+
+#define pd_call_scheduler_schedule_named_V1 0
+typedef struct {
+    pd_Bytes_t id;
+    pd_BlockNumber_t when;
+    pd_OptionschedulePeriodBlockNumber_V1_t maybe_periodic;
+    pd_u8_t priority;
+    pd_Call_t call;
+} pd_scheduler_schedule_named_V1_t;
+
+#define pd_call_scheduler_cancel_named_V1 0
+typedef struct {
+    pd_Bytes_t id;
+} pd_scheduler_cancel_named_V1_t;
+
+#define pd_call_scheduler_schedule_after_V1 0
+typedef struct {
+    pd_BlockNumber_t after;
+    pd_OptionschedulePeriodBlockNumber_V1_t maybe_periodic;
+    pd_u8_t priority;
+    pd_Call_t call;
+} pd_scheduler_schedule_after_V1_t;
+
+#define pd_call_scheduler_schedule_named_after_V1 0
+typedef struct {
+    pd_Bytes_t id;
+    pd_BlockNumber_t after;
+    pd_OptionschedulePeriodBlockNumber_V1_t maybe_periodic;
+    pd_u8_t priority;
+    pd_Call_t call;
+} pd_scheduler_schedule_named_after_V1_t;
+
 #define PD_CALL_PROXY_ADD_PROXY_V1 1
 typedef struct {
     pd_AccountId_V1_t delegate;
@@ -763,9 +851,23 @@ typedef union {
     pd_identity_kill_identity_V1_t identity_kill_identity_V1;
     pd_identity_remove_sub_V1_t identity_remove_sub_V1;
     pd_identity_quit_sub_V1_t identity_quit_sub_V1;
+    pd_recovery_as_recovered_V1_t recovery_as_recovered_V1;
+    pd_recovery_create_recovery_V1_t recovery_create_recovery_V1;
+    pd_recovery_initiate_recovery_V1_t recovery_initiate_recovery_V1;
+    pd_recovery_vouch_recovery_V1_t recovery_vouch_recovery_V1;
+    pd_recovery_claim_recovery_V1_t recovery_claim_recovery_V1;
+    pd_recovery_close_recovery_V1_t recovery_close_recovery_V1;
+    pd_recovery_remove_recovery_V1_t recovery_remove_recovery_V1;
+    pd_recovery_cancel_recovered_V1_t recovery_cancel_recovered_V1;
     pd_vesting_vest_V1_t vesting_vest_V1;
     pd_vesting_vest_other_V1_t vesting_vest_other_V1;
     pd_vesting_vested_transfer_V1_t vesting_vested_transfer_V1;
+    pd_scheduler_schedule_V1_t scheduler_schedule_V1;
+    pd_scheduler_cancel_V1_t scheduler_cancel_V1;
+    pd_scheduler_schedule_named_V1_t scheduler_schedule_named_V1;
+    pd_scheduler_cancel_named_V1_t scheduler_cancel_named_V1;
+    pd_scheduler_schedule_after_V1_t scheduler_schedule_after_V1;
+    pd_scheduler_schedule_named_after_V1_t scheduler_schedule_named_after_V1;
     pd_proxy_add_proxy_V1_t proxy_add_proxy_V1;
     pd_proxy_remove_proxy_V1_t proxy_remove_proxy_V1;
     pd_proxy_remove_proxies_V1_t proxy_remove_proxies_V1;

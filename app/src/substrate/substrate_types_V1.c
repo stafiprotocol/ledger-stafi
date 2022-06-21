@@ -292,16 +292,6 @@ parser_error_t _readOverweightIndex_V1(parser_context_t* c, pd_OverweightIndex_V
     return parser_not_supported;
 }
 
-parser_error_t _readParaId_V1(parser_context_t* c, pd_ParaId_V1_t* v)
-{
-    return parser_not_supported;
-}
-
-parser_error_t _readParachainsInherentDataHeader_V1(parser_context_t* c, pd_ParachainsInherentDataHeader_V1_t* v)
-{
-    return parser_not_supported;
-}
-
 parser_error_t _readPerbill_V1(parser_context_t* c, pd_Perbill_V1_t* v)
 {
     CHECK_INPUT()
@@ -455,14 +445,11 @@ parser_error_t _readWeight_V1(parser_context_t* c, pd_Weight_V1_t* v)
     return parser_ok;
 }
 
-parser_error_t _readXcmVersion_V1(parser_context_t* c, pd_XcmVersion_V1_t* v)
-{
-    return parser_not_supported;
-}
-
 parser_error_t _readschedulePeriodBlockNumber_V1(parser_context_t* c, pd_schedulePeriodBlockNumber_V1_t* v)
 {
-    return parser_not_supported;
+    CHECK_ERROR(_readBlockNumber(c, &v->length))
+    CHECK_ERROR(_readUInt32(c, &v->total))
+    return parser_ok;
 }
 
 parser_error_t _readschedulePriority_V1(parser_context_t* c, pd_schedulePriority_V1_t* v)
@@ -571,15 +558,6 @@ parser_error_t _readOptionTupleBalanceOfTBalanceOfTBlockNumber_V1(parser_context
     return parser_ok;
 }
 
-parser_error_t _readOptionXcmVersion_V1(parser_context_t* c, pd_OptionXcmVersion_V1_t* v)
-{
-    CHECK_ERROR(_readUInt8(c, &v->some))
-    if (v->some > 0) {
-        CHECK_ERROR(_readXcmVersion_V1(c, &v->contained))
-    }
-    return parser_ok;
-}
-
 parser_error_t _readOptionschedulePeriodBlockNumber_V1(parser_context_t* c, pd_OptionschedulePeriodBlockNumber_V1_t* v)
 {
     CHECK_ERROR(_readUInt8(c, &v->some))
@@ -591,20 +569,17 @@ parser_error_t _readOptionschedulePeriodBlockNumber_V1(parser_context_t* c, pd_O
 
 parser_error_t _readXSymbol_V1(parser_context_t* c, pd_XSymbol_V1_t* v)
 {
-    CHECK_ERROR(_readUInt8(c, &v->symbol))
-    return parser_ok;
+    return parser_not_supported;
 }
 
 parser_error_t _readRSymbol_V1(parser_context_t* c, pd_RSymbol_V1_t* v)
 {
-    CHECK_ERROR(_readUInt8(c, &v->symbol))
-    return parser_ok;
+    return parser_not_supported;
 }
 
 parser_error_t _readChainId_V1(parser_context_t* c, pd_ChainId_V1_t* v)
 {
-    CHECK_ERROR(_readUInt8(c, &v->chainId))
-    return parser_ok;
+    return parser_not_supported;
 }
 
 ///////////////////////////////////
@@ -1223,28 +1198,6 @@ parser_error_t _toStringOverweightIndex_V1(
     return parser_print_not_supported;
 }
 
-parser_error_t _toStringParaId_V1(
-    const pd_ParaId_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount)
-{
-    CLEAN_AND_CHECK()
-    return parser_print_not_supported;
-}
-
-parser_error_t _toStringParachainsInherentDataHeader_V1(
-    const pd_ParachainsInherentDataHeader_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount)
-{
-    CLEAN_AND_CHECK()
-    return parser_print_not_supported;
-}
-
 parser_error_t _toStringPerbill_V1(
     const pd_Perbill_V1_t* v,
     char* outValue,
@@ -1617,17 +1570,6 @@ parser_error_t _toStringWeight_V1(
     return _toStringu64(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
 
-parser_error_t _toStringXcmVersion_V1(
-    const pd_XcmVersion_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount)
-{
-    CLEAN_AND_CHECK()
-    return parser_print_not_supported;
-}
-
 parser_error_t _toStringschedulePeriodBlockNumber_V1(
     const pd_schedulePeriodBlockNumber_V1_t* v,
     char* outValue,
@@ -1636,7 +1578,33 @@ parser_error_t _toStringschedulePeriodBlockNumber_V1(
     uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
-    return parser_print_not_supported;
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringBlockNumber(&v->length, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->total, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringBlockNumber(&v->length, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->total, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
 }
 
 parser_error_t _toStringschedulePriority_V1(
@@ -1880,27 +1848,6 @@ parser_error_t _toStringOptionTupleBalanceOfTBalanceOfTBlockNumber_V1(
     *pageCount = 1;
     if (v->some > 0) {
         CHECK_ERROR(_toStringTupleBalanceOfTBalanceOfTBlockNumber_V1(
-            &v->contained,
-            outValue, outValueLen,
-            pageIdx, pageCount));
-    } else {
-        snprintf(outValue, outValueLen, "None");
-    }
-    return parser_ok;
-}
-
-parser_error_t _toStringOptionXcmVersion_V1(
-    const pd_OptionXcmVersion_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount)
-{
-    CLEAN_AND_CHECK()
-
-    *pageCount = 1;
-    if (v->some > 0) {
-        CHECK_ERROR(_toStringXcmVersion_V1(
             &v->contained,
             outValue, outValueLen,
             pageIdx, pageCount));

@@ -114,13 +114,8 @@ typedef struct {
 } pd_TupleBalanceOfTBalanceOfTBlockNumber_V1_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
-} pd_XcmVersion_V1_t;
-
-typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    pd_BlockNumber_t length;
+    uint32_t total;
 } pd_schedulePeriodBlockNumber_V1_t;
 
 typedef struct {
@@ -355,11 +350,6 @@ typedef struct {
 
 typedef struct {
     uint8_t some;
-    pd_XcmVersion_V1_t contained;
-} pd_OptionXcmVersion_V1_t;
-
-typedef struct {
-    uint8_t some;
     pd_schedulePeriodBlockNumber_V1_t contained;
 } pd_OptionschedulePeriodBlockNumber_V1_t;
 
@@ -367,16 +357,6 @@ typedef struct {
     // TODO: Not implemented
     uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_OverweightIndex_V1_t;
-
-typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
-} pd_ParaId_V1_t;
-
-typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
-} pd_ParachainsInherentDataHeader_V1_t;
 
 typedef struct {
     uint32_t value;
@@ -467,15 +447,18 @@ typedef struct {
 } pd_schedulePriority_V1_t;
 
 typedef struct {
-    uint8_t symbol;
+    // TODO: Not implemented
+    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_XSymbol_V1_t;
 
 typedef struct {
-    uint8_t symbol;
+    // TODO: Not implemented
+    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_RSymbol_V1_t;
 
 typedef struct {
-    uint8_t chainId;
+    // TODO: Not implemented
+    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_ChainId_V1_t;
 
 #ifdef __cplusplus

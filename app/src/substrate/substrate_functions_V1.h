@@ -80,11 +80,8 @@ parser_error_t _readOptionReferendumIndex_V1(parser_context_t* c, pd_OptionRefer
 parser_error_t _readOptionStatementKind_V1(parser_context_t* c, pd_OptionStatementKind_V1_t* v);
 parser_error_t _readOptionTimepoint_V1(parser_context_t* c, pd_OptionTimepoint_V1_t* v);
 parser_error_t _readOptionTupleBalanceOfTBalanceOfTBlockNumber_V1(parser_context_t* c, pd_OptionTupleBalanceOfTBalanceOfTBlockNumber_V1_t* v);
-parser_error_t _readOptionXcmVersion_V1(parser_context_t* c, pd_OptionXcmVersion_V1_t* v);
 parser_error_t _readOptionschedulePeriodBlockNumber_V1(parser_context_t* c, pd_OptionschedulePeriodBlockNumber_V1_t* v);
 parser_error_t _readOverweightIndex_V1(parser_context_t* c, pd_OverweightIndex_V1_t* v);
-parser_error_t _readParaId_V1(parser_context_t* c, pd_ParaId_V1_t* v);
-parser_error_t _readParachainsInherentDataHeader_V1(parser_context_t* c, pd_ParachainsInherentDataHeader_V1_t* v);
 parser_error_t _readPerbill_V1(parser_context_t* c, pd_Perbill_V1_t* v);
 parser_error_t _readPercent_V1(parser_context_t* c, pd_Percent_V1_t* v);
 parser_error_t _readProxyType_V1(parser_context_t* c, pd_ProxyType_V1_t* v);
@@ -113,7 +110,6 @@ parser_error_t _readVestingInfo_V1(parser_context_t* c, pd_VestingInfo_V1_t* v);
 parser_error_t _readVote_V1(parser_context_t* c, pd_Vote_V1_t* v);
 parser_error_t _readWeightLimit_V1(parser_context_t* c, pd_WeightLimit_V1_t* v);
 parser_error_t _readWeight_V1(parser_context_t* c, pd_Weight_V1_t* v);
-parser_error_t _readXcmVersion_V1(parser_context_t* c, pd_XcmVersion_V1_t* v);
 parser_error_t _readschedulePeriodBlockNumber_V1(parser_context_t* c, pd_schedulePeriodBlockNumber_V1_t* v);
 parser_error_t _readschedulePriority_V1(parser_context_t* c, pd_schedulePriority_V1_t* v);
 parser_error_t _readXSymbol_V1(parser_context_t* c, pd_XSymbol_V1_t* v);
@@ -499,13 +495,6 @@ parser_error_t _toStringOptionTupleBalanceOfTBalanceOfTBlockNumber_V1(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
-parser_error_t _toStringOptionXcmVersion_V1(
-    const pd_OptionXcmVersion_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount);
-
 parser_error_t _toStringOptionschedulePeriodBlockNumber_V1(
     const pd_OptionschedulePeriodBlockNumber_V1_t* v,
     char* outValue,
@@ -515,20 +504,6 @@ parser_error_t _toStringOptionschedulePeriodBlockNumber_V1(
 
 parser_error_t _toStringOverweightIndex_V1(
     const pd_OverweightIndex_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount);
-
-parser_error_t _toStringParaId_V1(
-    const pd_ParaId_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount);
-
-parser_error_t _toStringParachainsInherentDataHeader_V1(
-    const pd_ParachainsInherentDataHeader_V1_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
@@ -725,13 +700,6 @@ parser_error_t _toStringWeightLimit_V1(
 
 parser_error_t _toStringWeight_V1(
     const pd_Weight_V1_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount);
-
-parser_error_t _toStringXcmVersion_V1(
-    const pd_XcmVersion_V1_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,

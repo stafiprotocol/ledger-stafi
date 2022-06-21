@@ -541,31 +541,6 @@ typedef struct {
     pd_Compactu32_t proposal_id;
 } pd_treasury_approve_proposal_V1_t;
 
-#define PD_CALL_CLAIMS_CLAIM_V1 0
-typedef struct {
-    pd_AccountId_V1_t dest;
-    pd_EcdsaSignature_V1_t ethereum_signature;
-} pd_claims_claim_V1_t;
-
-#define PD_CALL_CLAIMS_CLAIM_ATTEST_V1 2
-typedef struct {
-    pd_AccountId_V1_t dest;
-    pd_EcdsaSignature_V1_t ethereum_signature;
-    pd_Bytes_t statement;
-} pd_claims_claim_attest_V1_t;
-
-#define PD_CALL_CLAIMS_ATTEST_V1 3
-typedef struct {
-    pd_Bytes_t statement;
-} pd_claims_attest_V1_t;
-
-#define PD_CALL_CLAIMS_MOVE_CLAIM_V1 4
-typedef struct {
-    pd_EthereumAddress_V1_t old;
-    pd_EthereumAddress_V1_t new_;
-    pd_OptionAccountId_V1_t maybe_preclaim;
-} pd_claims_move_claim_V1_t;
-
 #define PD_CALL_VESTING_VEST_V1 0
 typedef struct {
 } pd_vesting_vest_V1_t;
@@ -838,10 +813,6 @@ typedef union {
     pd_treasury_propose_spend_V1_t treasury_propose_spend_V1;
     pd_treasury_reject_proposal_V1_t treasury_reject_proposal_V1;
     pd_treasury_approve_proposal_V1_t treasury_approve_proposal_V1;
-    pd_claims_claim_V1_t claims_claim_V1;
-    pd_claims_claim_attest_V1_t claims_claim_attest_V1;
-    pd_claims_attest_V1_t claims_attest_V1;
-    pd_claims_move_claim_V1_t claims_move_claim_V1;
     pd_identity_add_registrar_V1_t identity_add_registrar_V1;
     pd_identity_clear_identity_V1_t identity_clear_identity_V1;
     pd_identity_request_judgement_V1_t identity_request_judgement_V1;

@@ -682,39 +682,6 @@ __Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V1(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_claims_claim_V1(
-    parser_context_t* c, pd_claims_claim_V1_t* m)
-{
-    CHECK_ERROR(_readAccountId_V1(c, &m->dest))
-    CHECK_ERROR(_readEcdsaSignature_V1(c, &m->ethereum_signature))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_claim_attest_V1(
-    parser_context_t* c, pd_claims_claim_attest_V1_t* m)
-{
-    CHECK_ERROR(_readAccountId_V1(c, &m->dest))
-    CHECK_ERROR(_readEcdsaSignature_V1(c, &m->ethereum_signature))
-    CHECK_ERROR(_readBytes(c, &m->statement))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_attest_V1(
-    parser_context_t* c, pd_claims_attest_V1_t* m)
-{
-    CHECK_ERROR(_readBytes(c, &m->statement))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_move_claim_V1(
-    parser_context_t* c, pd_claims_move_claim_V1_t* m)
-{
-    CHECK_ERROR(_readEthereumAddress_V1(c, &m->old))
-    CHECK_ERROR(_readEthereumAddress_V1(c, &m->new_))
-    CHECK_ERROR(_readOptionAccountId_V1(c, &m->maybe_preclaim))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_vesting_vest_V1(
     parser_context_t* c, pd_vesting_vest_V1_t* m)
 {

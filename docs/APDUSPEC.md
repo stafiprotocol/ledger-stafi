@@ -97,7 +97,7 @@ The general structure of commands and responses is as follows:
 
 | Field   | Type     | Content                   | Expected   |
 | ------- | -------- | ------------------------- | ---------- |
-| CLA     | byte (1) | Application Identifier    | 0x99       |
+| CLA     | byte (1) | Application Identifier    | 0xac       |
 | INS     | byte (1) | Instruction ID            | 0x11       |
 | P1      | byte (1) | Request User confirmation | No = 0     |
 | P2      | byte (1) | Parameter 2               | ignored    |

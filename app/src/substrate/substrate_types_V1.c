@@ -68,6 +68,10 @@ parser_error_t _readAccountVote_V1(parser_context_t* c, pd_AccountVote_V1_t* v)
     return parser_ok;
 }
 
+parser_error_t _readCallHashOf_V1(parser_context_t* c, pd_CallHashOf_V1_t* v) {
+    GEN_DEF_READARRAY(32)
+}
+
 parser_error_t _readCompactAccountIndex_V1(parser_context_t* c, pd_CompactAccountIndex_V1_t* v)
 {
     return _readCompactInt(c, &v->value);
@@ -431,6 +435,15 @@ parser_error_t _toStringAccountVote_V1(
     }
 
     return parser_ok;
+}
+
+parser_error_t _toStringCallHashOf_V1(
+    const pd_CallHashOf_V1_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount) {
+    GEN_DEF_TOSTRING_ARRAY(32)
 }
 
 parser_error_t _toStringCompactAccountIndex_V1(

@@ -4,14 +4,14 @@
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Remark |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` remark <br/> |
+|Remark |    | :heavy_check_mark: |  | `Vecu8` remark <br/> |
 
 ## Utility
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Batch | :heavy_check_mark:  | :heavy_check_mark: |   | `VecCall` calls <br/> |
-|As derivative |    |   |   | `u16` index <br/>`Call` call <br/> |
+|Batch | :heavy_check_mark:  |  |   | `VecCall` calls <br/> |
+|As derivative |    | :heavy_check_mark:   |   | `u16` index <br/>`Call` call <br/> |
 
 ## Balances
 
@@ -148,12 +148,12 @@
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Schedule |    |   |   | `BlockNumber` when <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
-|Cancel |    |   |   | `BlockNumber` when <br/>`u32` index <br/> |
-|Schedule named |    |   |   | `Vecu8` id <br/>`BlockNumber` when <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
-|Cancel named |    |   |   | `Vecu8` id <br/> |
-|Schedule after |    |   |   | `BlockNumber` after <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
-|Schedule named after |    |   |   | `Vecu8` id <br/>`BlockNumber` after <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
+|Schedule |    | :heavy_check_mark:  |   | `BlockNumber` when <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
+|Cancel |    | :heavy_check_mark:   |   | `BlockNumber` when <br/>`u32` index <br/> |
+|Schedule named |    | :heavy_check_mark:  |   | `Vecu8` id <br/>`BlockNumber` when <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
+|Cancel named |    | :heavy_check_mark:   |   | `Vecu8` id <br/> |
+|Schedule after |    | :heavy_check_mark:  |   | `BlockNumber` after <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
+|Schedule named after |    |:heavy_check_mark:   |   | `Vecu8` id <br/>`BlockNumber` after <br/>`OptionschedulePeriodBlockNumber` maybe_periodic <br/>`schedulePriority` priority <br/>`BoxCallOrHashOfT` call <br/> |
 
 ## Proxy
 
@@ -165,9 +165,9 @@
 |Remove proxies |    | :heavy_check_mark: |   |  |
 |Anonymous |    | :heavy_check_mark: |   | `ProxyType` proxy_type <br/>`BlockNumber` delay <br/>`u16` index <br/> |
 |Kill anonymous |    | :heavy_check_mark: |   | `AccountId` spawner <br/>`ProxyType` proxy_type <br/>`u16` index <br/>`Compactu32` height <br/>`Compactu32` ext_index <br/> |
-|Announce |    |   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
-|Remove announcement |    |   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
-|Reject announcement |    |   |   | `AccountId` delegate <br/>`CallHashOf` call_hash <br/> |
+|Announce |    | :heavy_check_mark:   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
+|Remove announcement |    | :heavy_check_mark:   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
+|Reject announcement |    | :heavy_check_mark:   |   | `AccountId` delegate <br/>`CallHashOf` call_hash <br/> |
 |Proxy announced |    | :heavy_check_mark: |   | `AccountId` delegate <br/>`AccountId` real <br/>`OptionProxyType` force_proxy_type <br/>`Call` call <br/> |
 
 ## Multisig
@@ -183,81 +183,81 @@
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Transfer |    | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
+|Transfer | :heavy_check_mark:   | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
 
 ## Rbalances
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Transfer |    | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
+|Transfer | :heavy_check_mark:    | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
 
 ## Rfis
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Liquidity bond |    | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`Balance` value <br/> |
-|Liquidity bond and swap |    | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`Balance` value <br/>`Bytes` recipient <br/>`u8` dest_id|
-|Liquidity unbond |    | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`u128` value <br/> |
-|Withdraw unbond |    | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool |
+|Liquidity bond | :heavy_check_mark:   | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`Balance` value <br/> |
+|Liquidity bond and swap | :heavy_check_mark:   | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`Balance` value <br/>`Bytes` recipient <br/>`u8` dest_id|
+|Liquidity unbond | :heavy_check_mark:   | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool <br/>`u128` value <br/> |
+|Withdraw unbond | :heavy_check_mark:   | :heavy_check_mark: |  | `LookupasStaticLookupSource` pool |
 
 ## Bridgeswap
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Transfer native |    | :heavy_check_mark: | :heavy_check_mark: | `Balance` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
-|Transfer rtoken |    | :heavy_check_mark: | :heavy_check_mark: | `u8` symbol <br/>`u128` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
-|Transfer xtoken |    | :heavy_check_mark: | :heavy_check_mark: | `u8` symbol <br/>`u128` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
+|Transfer native | :heavy_check_mark:   | :heavy_check_mark: |  | `Balance` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
+|Transfer rtoken | :heavy_check_mark:   | :heavy_check_mark: |  | `u8` symbol <br/>`u128` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
+|Transfer xtoken | :heavy_check_mark:   | :heavy_check_mark: |  | `u8` symbol <br/>`u128` amount <br/>`Bytes` recipient <br/>`u8` dest_id |
 
 ## Rtokenseries
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Liquidity bond |    | :heavy_check_mark: | | `Bytes` pubkey <br/>`Bytes` signature <br/>`Bytes` pool <br/>`Bytes` blockhash <br/>`Bytes` txhash <br/>`u128` amount <br/>`u8` symbol|
-|Liquidity bond and swap |    | :heavy_check_mark: |  | `Bytes` pubkey <br/>`Bytes` signature <br/>`Bytes` pool <br/>`Bytes` blockhash <br/>`Bytes` txhash <br/>`u128` amount <br/>`u8` symbol <br/>`Bytes` recipient <br/>`u8` dest_id |
-|Liquidity unbond |    | :heavy_check_mark: |  | `u8` symbol <br/>`Bytes` pool <br/>`u128` value <br/>`Bytes` recipient |
-|Refund swap fee |    | :heavy_check_mark: |  | `u8` symbol <br/>`Hash` bond_id  |
+|Liquidity bond |:heavy_check_mark:    | :heavy_check_mark: | | `Bytes` pubkey <br/>`Bytes` signature <br/>`Bytes` pool <br/>`Bytes` blockhash <br/>`Bytes` txhash <br/>`u128` amount <br/>`u8` symbol|
+|Liquidity bond and swap | :heavy_check_mark:   | :heavy_check_mark: |  | `Bytes` pubkey <br/>`Bytes` signature <br/>`Bytes` pool <br/>`Bytes` blockhash <br/>`Bytes` txhash <br/>`u128` amount <br/>`u8` symbol <br/>`Bytes` recipient <br/>`u8` dest_id |
+|Liquidity unbond | :heavy_check_mark:   | :heavy_check_mark: |  | `u8` symbol <br/>`Bytes` pool <br/>`u128` value <br/>`Bytes` recipient |
+|Refund swap fee |:heavy_check_mark:    | :heavy_check_mark: |  | `u8` symbol <br/>`Hash` bond_id  |
 
 ## Xclaim
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Claim |    | :heavy_check_mark: | | `u8` symbol|
-|Mint claim |    | :heavy_check_mark: | | `AccountId` dest <br/>`u8` symbol <br/>`u128` value|
+|Claim |:heavy_check_mark:    | :heavy_check_mark: | | `u8` symbol|
+|Mint claim |:heavy_check_mark:    | :heavy_check_mark: | | `AccountId` dest <br/>`u8` symbol <br/>`u128` value|
 
 ## Rclaim
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Claim rtoken reward |    | :heavy_check_mark: | | `u8` symbol<br/>`u32` cycle <br/>`u64` index|
-|Claim reth reward |    | :heavy_check_mark: | | `Bytes` pubkey <br/>`Bytes` sigs <br/>`u32` cycle <br/>`u64` index|
-|Update reth claim info |    | :heavy_check_mark: | | `VecBytes` pubkeys<br/>`Vecu128` mint_values <br/>`Vecu128` native_token_values|
+|Claim rtoken reward | :heavy_check_mark:   | :heavy_check_mark: | | `u8` symbol<br/>`u32` cycle <br/>`u64` index|
+|Claim reth reward | :heavy_check_mark:   | :heavy_check_mark: | | `Bytes` pubkey <br/>`Bytes` sigs <br/>`u32` cycle <br/>`u64` index|
+|Update reth claim info |:heavy_check_mark:    | :heavy_check_mark: | | `VecBytes` pubkeys<br/>`Vecu128` mint_values <br/>`Vecu128` native_token_values|
 
 ## Rdexnswap
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Swap rtoken for native token |    | :heavy_check_mark: | | `Bytes` receiver <br/>`u8` symbol <br/>`u128` rtoken_amount <br/>`u128` min_out_amount <br/>`u8` grade|
-|Swap rfis for fis token |    | :heavy_check_mark: | | `AccountId` receiver <br/>`u128` rtoken_amount <br/>`u128` min_out_amount <br/>`u8` grade|
+|Swap rtoken for native token |:heavy_check_mark:    | :heavy_check_mark: | | `Bytes` receiver <br/>`u8` symbol <br/>`u128` rtoken_amount <br/>`u128` min_out_amount <br/>`u8` grade|
+|Swap rfis for fis token | :heavy_check_mark:   | :heavy_check_mark: | | `AccountId` receiver <br/>`u128` rtoken_amount <br/>`u128` min_out_amount <br/>`u8` grade|
 
 ## Rdexswap
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Swap |    | :heavy_check_mark: | | `u8` symbol <br/>`u128` input_amount <br/>`u128` min_out_amount <br/>`bool` input_is_fis|
-|Add liquidity |    | :heavy_check_mark: | | `u8` symbol <br/>`u128` rtoken_amount <br/>`u128` fis_amount|
-|Remove liquidity |    | :heavy_check_mark: | | `u8` symbol <br/>`u128` rm_unit <br/>`u128` swap_unit <br/>`u128` min_fis_out_amount <br/>`u128` min_rtoken_out_amount <br/>`bool` input_is_fis|
+|Swap |:heavy_check_mark:    | :heavy_check_mark: | | `u8` symbol <br/>`u128` input_amount <br/>`u128` min_out_amount <br/>`bool` input_is_fis|
+|Add liquidity | :heavy_check_mark:   | :heavy_check_mark: | | `u8` symbol <br/>`u128` rtoken_amount <br/>`u128` fis_amount|
+|Remove liquidity | :heavy_check_mark:   | :heavy_check_mark: | | `u8` symbol <br/>`u128` rm_unit <br/>`u128` swap_unit <br/>`u128` min_fis_out_amount <br/>`u128` min_rtoken_out_amount <br/>`bool` input_is_fis|
 
 ## Lpbalances
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Transfer |    | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
+|Transfer |:heavy_check_mark:    | :heavy_check_mark: | :heavy_check_mark:  | `LookupasStaticLookupSource` dest <br/>`u8` symbol <br/>`u128` value |
 
 ## Rdexmining
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|Deposit |    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` grade_index <br/>`uu128` lp_amount |
-|Withdraw |    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index <br/>`uu128` lp_amount |
-|Claim reward |    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index |
-|Emergency withdraw |    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index |
+|Deposit | :heavy_check_mark:    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` grade_index <br/>`uu128` lp_amount |
+|Withdraw | :heavy_check_mark:    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index <br/>`uu128` lp_amount |
+|Claim reward | :heavy_check_mark:    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index |
+|Emergency withdraw | :heavy_check_mark:    | :heavy_check_mark: |   | `u8` symbol <br/>`u32` pool_index <br/>`u32` stake_index |

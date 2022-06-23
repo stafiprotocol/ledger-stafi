@@ -412,6 +412,14 @@ __Z_INLINE parser_error_t _readMethod_system_remark_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_utility_as_derivative_V1(
+    parser_context_t* c, pd_utility_as_derivative_V1_t* m)
+{
+    CHECK_ERROR(_readu16(c, &m->index))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_democracy_propose_V1(
     parser_context_t* c, pd_democracy_propose_V1_t* m)
 {
@@ -936,6 +944,30 @@ __Z_INLINE parser_error_t _readMethod_proxy_kill_anonymous_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_proxy_announce_V1(
+    parser_context_t* c, pd_proxy_announce_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->real))
+    CHECK_ERROR(_readCallHashOf_V1(c, &m->call_hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_proxy_remove_announcement_V1(
+    parser_context_t* c, pd_proxy_remove_announcement_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->real))
+    CHECK_ERROR(_readCallHashOf_V1(c, &m->call_hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_proxy_reject_announcement_V1(
+    parser_context_t* c, pd_proxy_reject_announcement_V1_t* m)
+{
+    CHECK_ERROR(_readAccountId_V1(c, &m->delegate))
+    CHECK_ERROR(_readCallHashOf_V1(c, &m->call_hash))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_proxy_proxy_announced_V1(
     parser_context_t* c, pd_proxy_proxy_announced_V1_t* m)
 {
@@ -998,6 +1030,9 @@ parser_error_t _readMethod_V1(
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
+    case 256: /* module 1 call 0 */
+        CHECK_ERROR(_readMethod_utility_batch_V1(c, &method->basic.utility_batch_V1))
+        break;
     case 1536: /* module 6 call 0 */
         CHECK_ERROR(_readMethod_balances_transfer_V1(c, &method->nested.balances_transfer_V1))
         break;
@@ -1043,14 +1078,11 @@ parser_error_t _readMethod_V1(
     case 2305: /* module 9 call 1 */
         CHECK_ERROR(_readMethod_session_purge_keys_V1(c, &method->basic.session_purge_keys_V1))
         break;
-    case 256: /* module 1 call 0 */
-        CHECK_ERROR(_readMethod_utility_batch_V1(c, &method->basic.utility_batch_V1))
-        break;
     case 7680: /* module 30 call 0 */
-        CHECK_ERROR(_readMethod_xbalances_transfer_V1(c, &method->basic.xbalances_transfer_V1))
+        CHECK_ERROR(_readMethod_xbalances_transfer_V1(c, &method->nested.xbalances_transfer_V1))
         break;
     case 7936: /* module 31 call 0 */
-        CHECK_ERROR(_readMethod_rbalances_transfer_V1(c, &method->basic.rbalances_transfer_V1))
+        CHECK_ERROR(_readMethod_rbalances_transfer_V1(c, &method->nested.rbalances_transfer_V1))
         break;
     case 8466: /* module 33 call 18 */
         CHECK_ERROR(_readMethod_rfis_liquidity_bond_V1(c, &method->basic.rfis_liquidity_bond_V1))
@@ -1116,7 +1148,7 @@ parser_error_t _readMethod_V1(
         CHECK_ERROR(_readMethod_rdexswap_remove_liquidity_V1(c, &method->basic.rdexswap_remove_liquidity_V1))
         break;
     case 12032: /* module 47 call 0 */
-        CHECK_ERROR(_readMethod_lpbalances_transfer_V1(c, &method->basic.lpbalances_transfer_V1))
+        CHECK_ERROR(_readMethod_lpbalances_transfer_V1(c, &method->nested.lpbalances_transfer_V1))
         break;
     case 12288: /* module 48 call 0 */
         CHECK_ERROR(_readMethod_rdexmining_deposit_V1(c, &method->basic.rdexmining_deposit_V1))
@@ -1132,7 +1164,10 @@ parser_error_t _readMethod_V1(
         break;
 #ifdef SUBSTRATE_PARSER_FULL
     case 1: /* module 0 call 1 */
-        CHECK_ERROR(_readMethod_system_remark_V1(c, &method->nested.system_remark_V1))
+        CHECK_ERROR(_readMethod_system_remark_V1(c, &method->basic.system_remark_V1))
+        break;
+    case 257: /* module 1 call 1 */
+        CHECK_ERROR(_readMethod_utility_as_derivative_V1(c, &method->basic.utility_as_derivative_V1))
         break;
     case 2560: /* module 10 call 0 */
         CHECK_ERROR(_readMethod_democracy_propose_V1(c, &method->basic.democracy_propose_V1))
@@ -1335,6 +1370,15 @@ parser_error_t _readMethod_V1(
     case 7173: /* module 28 call 5 */
         CHECK_ERROR(_readMethod_proxy_kill_anonymous_V1(c, &method->basic.proxy_kill_anonymous_V1))
         break;
+    case 7174: /* module 28 call 6 */
+        CHECK_ERROR(_readMethod_proxy_announce_V1(c, &method->basic.proxy_announce_V1))
+        break;
+    case 7175: /* module 28 call 7 */
+        CHECK_ERROR(_readMethod_proxy_remove_announcement_V1(c, &method->basic.proxy_remove_announcement_V1))
+        break;
+    case 7176: /* module 28 call 8 */
+        CHECK_ERROR(_readMethod_proxy_reject_announcement_V1(c, &method->basic.proxy_reject_announcement_V1))
+        break;
     case 7177: /* module 28 call 9 */
         CHECK_ERROR(_readMethod_proxy_proxy_announced_V1(c, &method->basic.proxy_proxy_announced_V1))
         break;
@@ -1434,6 +1478,8 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
+    case 256: /* module 1 call 0 */
+        return STR_ME_BATCH;
     case 1536: /* module 6 call 0 */
         return STR_ME_TRANSFER;
     case 1539: /* module 6 call 3 */
@@ -1464,8 +1510,6 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_SET_KEYS;
     case 2305: /* module 9 call 1 */
         return STR_ME_PURGE_KEYS;
-    case 256: /* module 1 call 0 */
-        return STR_ME_BATCH;
     case 7680: /* module 30 call 0 */
         return STR_ME_TRANSFER;
     case 7936: /* module 31 call 0 */
@@ -1535,6 +1579,8 @@ const char* _getMethod_Name_V1_ParserFull(uint16_t callPrivIdx)
 #ifdef SUBSTRATE_PARSER_FULL
     case 1: /* module 0 call 1 */
         return STR_ME_REMARK;
+    case 257: /* module 1 call 0 */
+        return STR_ME_AS_DERIVATIVE;
     case 2560: /* module 10 call 0 */
         return STR_ME_PROPOSE;
     case 2561: /* module 10 call 1 */
@@ -1669,6 +1715,12 @@ const char* _getMethod_Name_V1_ParserFull(uint16_t callPrivIdx)
         return STR_ME_ANONYMOUS;
     case 7173: /* module 28 call 5 */
         return STR_ME_KILL_ANONYMOUS;
+    case 7174: /* module 28 call 6 */
+        return STR_ME_ANNOUNCE;
+    case 7175: /* module 28 call 7 */
+        return STR_ME_REMOVE_ANNOUNCEMENT;
+    case 7176: /* module 28 call 8 */
+        return STR_ME_REJECT_ANNOUNCEMENT;
     case 7177: /* module 28 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
     case 7424: /* module 29 call 0 */
@@ -1692,6 +1744,8 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
+    case 256: /* module 1 call 0 */
+        return 1;
     case 1536: /* module 6 call 0 */
         return 2;
     case 1539: /* module 6 call 3 */
@@ -1722,8 +1776,6 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2305: /* module 9 call 1 */
         return 0;
-    case 256: /* module 1 call 0 */
-        return 1;
     case 7680: /* module 30 call 0 */
         return 3;
     case 7936: /* module 31 call 0 */
@@ -1783,6 +1835,8 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
 #ifdef SUBSTRATE_PARSER_FULL
     case 1: /* module 0 call 1 */
         return 1;
+    case 257: /* module 1 call 1 */
+        return 2;
     case 2560: /* module 10 call 0 */
         return 2;
     case 2561: /* module 10 call 1 */
@@ -1917,6 +1971,12 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 3;
     case 7173: /* module 28 call 5 */
         return 5;
+    case 7174: /* module 28 call 6 */
+        return 2;
+    case 7175: /* module 28 call 7 */
+        return 2;
+    case 7176: /* module 28 call 8 */
+        return 2;
     case 7177: /* module 28 call 9 */
         return 4;
     case 7424: /* module 29 call 0 */
@@ -1940,6 +2000,13 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
+    case 256: /* module 1 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_calls;
+        default:
+            return NULL;
+        }
     case 1536: /* module 6 call 0 */
         switch (itemIdx) {
         case 0:
@@ -2050,13 +2117,6 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         }
     case 2305: /* module 9 call 1 */
         switch (itemIdx) {
-        default:
-            return NULL;
-        }
-    case 256: /* module 1 call 0 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_calls;
         default:
             return NULL;
         }
@@ -2407,6 +2467,15 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx) {
         case 0:
             return STR_IT_remark;
+        default:
+            return NULL;
+        }
+    case 257: /* module 1 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_index;
+        case 1:
+            return STR_IT_call;
         default:
             return NULL;
         }
@@ -2989,6 +3058,33 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 7174: /* module 28 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_real;
+        case 1:
+            return STR_IT_call_hash;
+        default:
+            return NULL;
+        }
+    case 7175: /* module 28 call 7 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_real;
+        case 1:
+            return STR_IT_call_hash;
+        default:
+            return NULL;
+        }
+    case 7176: /* module 28 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_delegate;
+        case 1:
+            return STR_IT_call_hash;
+        default:
+            return NULL;
+        }
     case 7177: /* module 28 call 9 */
         switch (itemIdx) {
         case 0:
@@ -3073,6 +3169,16 @@ parser_error_t _getMethod_ItemValue_V1(
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
+    case 256: /* module 1 call 0 */
+        switch (itemIdx) {
+        case 0: /* utility_batch_V1 - calls */;
+            return _toStringVecCall(
+                &m->basic.utility_batch_V1.calls,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 1536: /* module 6 call 0 */
         switch (itemIdx) {
         case 0: /* balances_transfer_V1 - dest */;
@@ -3243,31 +3349,21 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return parser_no_data;
         }
-    case 256: /* module 1 call 0 */
-        switch (itemIdx) {
-        case 0: /* utility_batch_V1 - calls */;
-            return _toStringVecCall(
-                &m->basic.utility_batch_V1.calls,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 7680: /* module 30 call 0 */
         switch (itemIdx) {
         case 0:
             return _toStringLookupasStaticLookupSource_V1(
-                &m->basic.xbalances_transfer_V1.dest,
+                &m->nested.xbalances_transfer_V1.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1:
             return _toStringu8(
-                &m->basic.xbalances_transfer_V1.symbol,
+                &m->nested.xbalances_transfer_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2:
             return _toStringu128(
-                &m->basic.xbalances_transfer_V1.value,
+                &m->nested.xbalances_transfer_V1.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3277,17 +3373,17 @@ parser_error_t _getMethod_ItemValue_V1(
         switch (itemIdx) {
         case 0:
             return _toStringLookupasStaticLookupSource_V1(
-                &m->basic.rbalances_transfer_V1.dest,
+                &m->nested.rbalances_transfer_V1.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1:
             return _toStringu8(
-                &m->basic.rbalances_transfer_V1.symbol,
+                &m->nested.rbalances_transfer_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2:
             return _toStringu128(
-                &m->basic.rbalances_transfer_V1.value,
+                &m->nested.rbalances_transfer_V1.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3792,17 +3888,17 @@ parser_error_t _getMethod_ItemValue_V1(
         switch (itemIdx) {
         case 0: /* lpbalances_transfer_V1 - dest */
             return _toStringLookupasStaticLookupSource_V1(
-                &m->basic.lpbalances_transfer_V1.dest,
+                &m->nested.lpbalances_transfer_V1.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* lpbalances_transfer_V1 - symbol */
             return _toStringu8(
-                &m->basic.lpbalances_transfer_V1.symbol,
+                &m->nested.lpbalances_transfer_V1.symbol,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* lpbalances_transfer_V1 - value */
             return _toStringu128(
-                &m->basic.lpbalances_transfer_V1.value,
+                &m->nested.lpbalances_transfer_V1.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3903,7 +3999,22 @@ parser_error_t _getMethod_ItemValue_V1(
         switch (itemIdx) {
         case 0: /* system_remark_V1 - remark */;
             return _toStringVecu8(
-                &m->nested.system_remark_V1.remark,
+                &m->basic.system_remark_V1.remark,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 257: /* module 1 call 1 */
+        switch (itemIdx) {
+        case 0: /* utility_as_derivative_V1 - index */;
+            return _toStringu16(
+                &m->basic.utility_as_derivative_V1.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* utility_as_derivative_V1 - call */;
+            return _toStringCall(
+                &m->basic.utility_as_derivative_V1.call,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4854,6 +4965,51 @@ parser_error_t _getMethod_ItemValue_V1(
         default:
             return parser_no_data;
         }
+    case 7174: /* module 28 call 6 */
+        switch (itemIdx) {
+        case 0: /* proxy_announce_V1 - real */;
+            return _toStringAccountId_V1(
+                &m->basic.proxy_announce_V1.real,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_announce_V1 - call_hash */;
+            return _toStringCallHashOf_V1(
+                &m->basic.proxy_announce_V1.call_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 7175: /* module 28 call 7 */
+        switch (itemIdx) {
+        case 0: /* proxy_remove_announcement_V1 - real */;
+            return _toStringAccountId_V1(
+                &m->basic.proxy_remove_announcement_V1.real,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_remove_announcement_V1 - call_hash */;
+            return _toStringCallHashOf_V1(
+                &m->basic.proxy_remove_announcement_V1.call_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 7176: /* module 28 call 8 */
+        switch (itemIdx) {
+        case 0: /* proxy_reject_announcement_V1 - delegate */;
+            return _toStringAccountId_V1(
+                &m->basic.proxy_reject_announcement_V1.delegate,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_reject_announcement_V1 - call_hash */;
+            return _toStringCallHashOf_V1(
+                &m->basic.proxy_reject_announcement_V1.call_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 7177: /* module 28 call 9 */
         switch (itemIdx) {
         case 0: /* proxy_proxy_announced_V1 - delegate */;
@@ -5029,89 +5185,18 @@ bool _getMethod_IsNestingSupported_V1(uint8_t moduleIdx, uint8_t callIdx)
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-//    case 768: // Timestamp:Set
-//    case 1024: // Indices:Claim
-//    case 1026: // Indices:Free
-//    case 1027: // Indices:Force transfer
-//    case 1028: // Indices:Freeze
-    case 2048: // Staking:Bond
-    case 2049: // Staking:Bond extra
-    case 2050: // Staking:Unbond
-    case 2051: // Staking:Withdraw Unbonded
-    case 2052: // Staking:Validate
-    case 2053: // Staking:Nominate
-    case 2054: // Staking:Chill
-    case 2055: // Staking:Set payee
-    case 2056: // Staking:Set controller
-    case 2057: // Staking:Set validator count
-    case 2058: // Staking:Increase validator count
-    case 2060: // Staking:Force no eras
-    case 2061: // Staking:Force new era
-    case 2063: // Staking:Force unstake
-    case 2064: // Staking:Force new era always
-    case 2066: // Staking:Payout stakers
-    case 2067: // Staking:Rebond
-    case 2068: // Staking:Set history depth
-    case 2069: // Staking:Reap stash
-//    case 1816: // Staking:Chill other
-    case 2304: // Session:Set keys
-    case 2305: // Session:Purge keys
-    case 7680:  /* XBalances: transfer */
-    case 7936: /* RBalances: transfer */
-    case 8466: /* RFis: liquidity bond */
-    case 8467: /* RFis: liquidity bond and swap */
-    case 8468: /* RFis: liquidity unbond */
-    case 8469: /* RFis: liquidity withdraw unbond */
-    case 9216: /* BridgeSwap: transfer native */
-    case 9218: /* BridgeSwap: transfer rtoken */
-    case 9220: /* BridgeSwap: transfer xtoken */
-    case 10253: /* module 40 call 13 */
-    case 10254: /* module 40 call 14 */
-    case 10256: /* module 40 call 16 */
-    case 10258: /* module 40 call 18 */
-    case 10498: /* module 41 call 2 */
-    case 10499: /* module 41 call 3 */
-    case 10759: /* module 42 call 6 */
-    case 10760: /* module 42 call 7 */
-    case 10761: /* module 42 call 8 */
-    case 11520: /* module 45 call 0 */
-    case 11521: /* module 45 call 1 */
-    case 11776: /* module 46 call 0 */
-    case 11777: /* module 46 call 1 */
-    case 11778: /* module 46 call 2 */
-    case 12032: /* module 47 call 0 */
-    case 12288: /* module 48 call 0 */
-    case 12289: /* module 48 call 1 */
-    case 12290: /* module 48 call 2 */
-    case 12291: /* module 48 call 3 */
-    case 2560: // Democracy:Propose
-    case 2561: // Democracy:Second
-    case 2562: // Democracy:Vote
-    case 2563: // Democracy:Emergency cancel
-    case 2564: // Democracy:External propose
-    case 2565: // Democracy:External propose majority
-    case 2566: // Democracy:External propose default
-    case 2567: // Democracy:Fast track
-    case 2568: // Democracy:Veto external
-    case 2571: // Democracy:Delegate
-    case 2572: // Democracy:Undelegate
-    case 2574: // Democracy:Note preimage
-    case 2575: // Democracy:Note preimage operational
-    case 2576: // Democracy:Note imminent preimage
-    case 2577: // Democracy:Note imminent preimage operational
-    case 2578: // Democracy:Reap preimage
-    case 2579: // Democracy:Unlock
-    case 2580: // Democracy:Remove vote
-    case 2581: // Democracy:Remove other vote
-    case 3328:
-    case 3329:
-    case 3331:
+    case 1536:
+    case 1539:
+    case 7168:
     case 7424:
     case 7425:
     case 7426:
     case 7427:
-        return false;
-    default:
+    case 7680:
+    case 7936:
+    case 12032:
         return true;
+    default:
+        return false;
     }
 }

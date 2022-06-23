@@ -341,6 +341,17 @@ typedef struct {
 
 #ifdef SUBSTRATE_PARSER_FULL
 
+#define PD_CALL_SYSTEM_REMARK_V1 1
+typedef struct {
+    pd_Vecu8_t remark;
+} pd_system_remark_V1_t;
+
+#define PD_CALL_UTILITY_AS_DERIVATIVE_V1 1
+typedef struct {
+    pd_u16_t index;
+    pd_Call_t call;
+} pd_utility_as_derivative_V1_t;
+
 #define PD_CALL_DEMOCRACY_PROPOSE_V1 0
 typedef struct {
     pd_Hash_t proposal_hash;
@@ -724,6 +735,24 @@ typedef struct {
     pd_Compactu32_t ext_index;
 } pd_proxy_kill_anonymous_V1_t;
 
+#define PD_CALL_PROXY_ANNOUNCE_V1 6
+typedef struct {
+    pd_AccountId_V1_t real;
+    pd_CallHashOf_V1_t call_hash;
+} pd_proxy_announce_V1_t;
+
+#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V1 7
+typedef struct {
+    pd_AccountId_V1_t real;
+    pd_CallHashOf_V1_t call_hash;
+} pd_proxy_remove_announcement_V1_t;
+
+#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V1 8
+typedef struct {
+    pd_AccountId_V1_t delegate;
+    pd_CallHashOf_V1_t call_hash;
+} pd_proxy_reject_announcement_V1_t;
+
 #define PD_CALL_PROXY_PROXY_ANNOUNCED_V1 9
 typedef struct {
     pd_AccountId_V1_t delegate;
@@ -749,8 +778,6 @@ typedef union {
     pd_session_set_keys_V1_t session_set_keys_V1;
     pd_session_purge_keys_V1_t session_purge_keys_V1;
     pd_utility_batch_V1_t utility_batch_V1;
-    pd_xbalances_transfer_V1_t xbalances_transfer_V1;
-    pd_rbalances_transfer_V1_t rbalances_transfer_V1;
     pd_rfis_liquidity_bond_V1_t rfis_liquidity_bond_V1;
     pd_rfis_liquidity_bond_and_swap_V1_t rfis_liquidity_bond_and_swap_V1;
     pd_rfis_liquidity_unbond_V1_t rfis_liquidity_unbond_V1;
@@ -772,12 +799,13 @@ typedef union {
     pd_rdexswap_swap_V1_t rdexswap_swap_V1;
     pd_rdexswap_add_liquidity_V1_t rdexswap_add_liquidity_V1;
     pd_rdexswap_remove_liquidity_V1_t rdexswap_remove_liquidity_V1;
-    pd_lpbalances_transfer_V1_t lpbalances_transfer_V1;
     pd_rdexmining_deposit_V1_t rdexmining_deposit_V1;
     pd_rdexmining_withdraw_V1_t rdexmining_withdraw_V1;
     pd_rdexmining_claim_reward_V1_t rdexmining_claim_reward_V1;
     pd_rdexmining_emergency_withdraw_V1_t rdexmining_emergency_withdraw_V1;
 #ifdef SUBSTRATE_PARSER_FULL
+    pd_system_remark_V1_t system_remark_V1;
+    pd_utility_as_derivative_V1_t utility_as_derivative_V1;
     pd_democracy_propose_V1_t democracy_propose_V1;
     pd_democracy_second_V1_t democracy_second_V1;
     pd_democracy_vote_V1_t democracy_vote_V1;
@@ -844,6 +872,9 @@ typedef union {
     pd_proxy_remove_proxies_V1_t proxy_remove_proxies_V1;
     pd_proxy_anonymous_V1_t proxy_anonymous_V1;
     pd_proxy_kill_anonymous_V1_t proxy_kill_anonymous_V1;
+    pd_proxy_announce_V1_t proxy_announce_V1;
+    pd_proxy_remove_announcement_V1_t proxy_remove_announcement_V1;
+    pd_proxy_reject_announcement_V1_t proxy_reject_announcement_V1;
     pd_proxy_proxy_announced_V1_t proxy_proxy_announced_V1;
 #endif
 } pd_MethodBasic_V1_t;
@@ -861,11 +892,6 @@ typedef struct {
 } pd_balances_transfer_keep_alive_V1_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
-
-#define PD_CALL_SYSTEM_REMARK_V1 1
-typedef struct {
-    pd_Vecu8_t remark;
-} pd_system_remark_V1_t;
 
 #define PD_CALL_PROXY_PROXY_V1 0
 typedef struct {
@@ -912,8 +938,10 @@ typedef struct {
 typedef union {
     pd_balances_transfer_V1_t balances_transfer_V1;
     pd_balances_transfer_keep_alive_V1_t balances_transfer_keep_alive_V1;
+    pd_xbalances_transfer_V1_t xbalances_transfer_V1;
+    pd_rbalances_transfer_V1_t rbalances_transfer_V1;
+    pd_lpbalances_transfer_V1_t lpbalances_transfer_V1;
 #ifdef SUBSTRATE_PARSER_FULL
-    pd_system_remark_V1_t system_remark_V1;
     pd_proxy_proxy_V1_t proxy_proxy_V1;
     pd_multisig_as_multi_threshold_1_V1_t multisig_as_multi_threshold_1_V1;
     pd_multisig_as_multi_V1_t multisig_as_multi_V1;

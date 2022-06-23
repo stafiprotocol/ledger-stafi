@@ -1182,7 +1182,7 @@
     ]
   },
   {
-    "index": 1001,
+    "index": 10001,
     "name": "Utility_batch",
     "blob": "0100080600ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2ee5c00600ff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965e5c00028001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
     "output": [
@@ -1212,6 +1212,37 @@
       "5 | Era Period : 0",
       "6 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
       "6 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 10101,
+    "name": "Utility_asDerivative",
+    "blob": "010164000600ff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179652f744b914670d6374b2585017ee5c4ed0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Utility : As derivative",
+      "1 | Index : 100",
+      "2 | Call [1/5] : Transfer",
+      "2 | Call [2/5] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Call [3/5] : 4xYaSWHwsX",
+      "2 | Call [4/5] : FIS 1234567890001234567899012.34567808",
+      "2 | Call [5/5] : 9076",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Utility : As derivative",
+      "1 | Index : 100",
+      "2 | Call [1/5] : Transfer",
+      "2 | Call [2/5] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Call [3/5] : 4xYaSWHwsX",
+      "2 | Call [4/5] : FIS 1234567890001234567899012.34567808",
+      "2 | Call [5/5] : 9076",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
   },
   {
@@ -2976,6 +3007,87 @@
       "10 | Era Period : 0",
       "11 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
       "11 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 280601,
+    "name": "proxy_announce",
+    "blob": "1c0626db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965cd0e799a748e2201ea2ebb4e261bf1e69adabfa1cc482991f8e8296ab2e6f0c20028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Proxy : Announce",
+      "1 | Real [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Real [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Proxy : Announce",
+      "1 | Real [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Real [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 280701,
+    "name": "proxy_remove_announcement",
+    "blob": "1c0726db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965cd0e799a748e2201ea2ebb4e261bf1e69adabfa1cc482991f8e8296ab2e6f0c20028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Proxy : Remove announcement",
+      "1 | Real [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Real [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Proxy : Remove announcement",
+      "1 | Real [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Real [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 280801,
+    "name": "proxy_reject_announcement",
+    "blob": "1c0826db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c17965cd0e799a748e2201ea2ebb4e261bf1e69adabfa1cc482991f8e8296ab2e6f0c20028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Proxy : Reject announcement",
+      "1 | Delegate [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Delegate [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Proxy : Reject announcement",
+      "1 | Delegate [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "1 | Delegate [2/2] : 4xYaSWHwsX",
+      "2 | Call hash [1/2] : cd0e799a748e2201ea2ebb4e261bf1e69adabf",
+      "2 | Call hash [2/2] : a1cc482991f8e8296ab2e6f0c2",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
   },
   {

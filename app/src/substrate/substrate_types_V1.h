@@ -49,6 +49,10 @@ typedef struct {
 } pd_AccountVoteStandard_V1_t;
 
 typedef struct {
+    const uint8_t* _ptr;
+} pd_CallHashOf_V1_t;
+
+typedef struct {
     compactInt_t value;
 } pd_CompactPerBill_V1_t;
 

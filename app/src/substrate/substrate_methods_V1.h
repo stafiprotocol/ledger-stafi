@@ -552,6 +552,85 @@ typedef struct {
     pd_Compactu32_t proposal_id;
 } pd_treasury_approve_proposal_V1_t;
 
+#define PD_CALL_TREASURY_REPORT_AWESOME_V1 3
+typedef struct {
+    pd_Bytes_t reason;
+    pd_AccountId_V1_t who;
+} pd_treasury_report_awesome_V1_t;
+
+#define PD_CALL_TREASURY_RETRACT_TIP_V1 4
+typedef struct {
+    pd_Hash_t hash;
+} pd_treasury_retract_tip_V1_t;
+
+#define PD_CALL_TREASURY_TIP_NEW_V1 5
+typedef struct {
+    pd_Bytes_t reason;
+    pd_AccountId_V1_t who;
+    pd_CompactBalance_t tip_value;
+} pd_treasury_tip_new_V1_t;
+
+#define PD_CALL_TREASURY_TIP_V1 6
+typedef struct {
+    pd_Hash_t hash;
+    pd_CompactBalance_t tip_value;
+} pd_treasury_tip_V1_t;
+
+#define PD_CALL_TREASURY_CLOSE_TIP_V1 7
+typedef struct {
+    pd_Hash_t hash;
+} pd_treasury_close_tip_V1_t;
+
+#define PD_CALL_TREASURY_PROPOSE_BOUNTY_V1 8
+typedef struct {
+    pd_CompactBalance_t value;
+    pd_Bytes_t description;
+} pd_treasury_propose_bounty_V1_t;
+
+#define PD_CALL_TREASURY_APPROVE_BOUNTY_V1 9
+typedef struct {
+    pd_Compactu32_t bounty_id;
+} pd_treasury_approve_bounty_V1_t;
+
+#define PD_CALL_TREASURY_PROPOSE_CURATOR_V1 10
+typedef struct {
+    pd_Compactu32_t bounty_id;
+    pd_LookupasStaticLookupSource_V1_t curator;
+    pd_CompactBalance_t fee;
+} pd_treasury_propose_curator_V1_t;
+
+#define PD_CALL_TREASURY_UNASSIGN_CURATOR_V1 11
+typedef struct {
+    pd_Compactu32_t bounty_id;
+} pd_treasury_unassign_curator_V1_t;
+
+#define PD_CALL_TREASURY_ACCEPT_CURATOR_V1 12
+typedef struct {
+    pd_Compactu32_t bounty_id;
+} pd_treasury_accept_curator_V1_t;
+
+#define PD_CALL_TREASURY_AWARD_BOUNTY_V1 13
+typedef struct {
+    pd_Compactu32_t bounty_id;
+    pd_LookupasStaticLookupSource_V1_t beneficiary;
+} pd_treasury_award_bounty_V1_t;
+
+#define PD_CALL_TREASURY_CLAIM_BOUNTY_V1 14
+typedef struct {
+    pd_Compactu32_t bounty_id;
+} pd_treasury_claim_bounty_V1_t;
+
+#define PD_CALL_TREASURY_CLOSE_BOUNTY_V1 15
+typedef struct {
+    pd_Compactu32_t bounty_id;
+} pd_treasury_close_bounty_V1_t;
+
+#define PD_CALL_TREASURY_EXTEND_BOUNTY_EXPIRY_V1 16
+typedef struct {
+    pd_Compactu32_t bounty_id;
+    pd_Bytes_t _remark;
+} pd_treasury_extend_bounty_expiry_V1_t;
+
 #define PD_CALL_VESTING_VEST_V1 0
 typedef struct {
 } pd_vesting_vest_V1_t;
@@ -841,6 +920,20 @@ typedef union {
     pd_treasury_propose_spend_V1_t treasury_propose_spend_V1;
     pd_treasury_reject_proposal_V1_t treasury_reject_proposal_V1;
     pd_treasury_approve_proposal_V1_t treasury_approve_proposal_V1;
+    pd_treasury_report_awesome_V1_t treasury_report_awesome_V1;
+    pd_treasury_retract_tip_V1_t treasury_retract_tip_V1;
+    pd_treasury_tip_new_V1_t treasury_tip_new_V1;
+    pd_treasury_tip_V1_t treasury_tip_V1;
+    pd_treasury_close_tip_V1_t treasury_close_tip_V1;
+    pd_treasury_propose_bounty_V1_t treasury_propose_bounty_V1;
+    pd_treasury_approve_bounty_V1_t treasury_approve_bounty_V1;
+    pd_treasury_propose_curator_V1_t treasury_propose_curator_V1;
+    pd_treasury_unassign_curator_V1_t treasury_unassign_curator_V1;
+    pd_treasury_accept_curator_V1_t treasury_accept_curator_V1;
+    pd_treasury_award_bounty_V1_t treasury_award_bounty_V1;
+    pd_treasury_claim_bounty_V1_t treasury_claim_bounty_V1;
+    pd_treasury_close_bounty_V1_t treasury_close_bounty_V1;
+    pd_treasury_extend_bounty_expiry_V1_t treasury_extend_bounty_expiry_V1;
     pd_identity_add_registrar_V1_t identity_add_registrar_V1;
     pd_identity_clear_identity_V1_t identity_clear_identity_V1;
     pd_identity_request_judgement_V1_t identity_request_judgement_V1;

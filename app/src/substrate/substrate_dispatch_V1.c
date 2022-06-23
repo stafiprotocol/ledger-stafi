@@ -690,6 +690,113 @@ __Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_treasury_report_awesome_V1(
+    parser_context_t* c, pd_treasury_report_awesome_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->reason))
+    CHECK_ERROR(_readAccountId_V1(c, &m->who))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_retract_tip_V1(
+    parser_context_t* c, pd_treasury_retract_tip_V1_t* m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_tip_new_V1(
+    parser_context_t* c, pd_treasury_tip_new_V1_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->reason))
+    CHECK_ERROR(_readAccountId_V1(c, &m->who))
+    CHECK_ERROR(_readCompactBalance(c, &m->tip_value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_tip_V1(
+    parser_context_t* c, pd_treasury_tip_V1_t* m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    CHECK_ERROR(_readCompactBalance(c, &m->tip_value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_close_tip_V1(
+    parser_context_t* c, pd_treasury_close_tip_V1_t* m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_propose_bounty_V1(
+    parser_context_t* c, pd_treasury_propose_bounty_V1_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    CHECK_ERROR(_readBytes(c, &m->description))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_approve_bounty_V1(
+    parser_context_t* c, pd_treasury_approve_bounty_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_propose_curator_V1(
+    parser_context_t* c, pd_treasury_propose_curator_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->curator))
+    CHECK_ERROR(_readCompactBalance(c, &m->fee))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_unassign_curator_V1(
+    parser_context_t* c, pd_treasury_unassign_curator_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_accept_curator_V1(
+    parser_context_t* c, pd_treasury_accept_curator_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_award_bounty_V1(
+    parser_context_t* c, pd_treasury_award_bounty_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V1(c, &m->beneficiary))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_claim_bounty_V1(
+    parser_context_t* c, pd_treasury_claim_bounty_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_close_bounty_V1(
+    parser_context_t* c, pd_treasury_close_bounty_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasury_extend_bounty_expiry_V1(
+    parser_context_t* c, pd_treasury_extend_bounty_expiry_V1_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    CHECK_ERROR(_readBytes(c, &m->_remark))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_vesting_vest_V1(
     parser_context_t* c, pd_vesting_vest_V1_t* m)
 {
@@ -1274,6 +1381,48 @@ parser_error_t _readMethod_V1(
     case 4354: /* module 17 call 2 */
         CHECK_ERROR(_readMethod_treasury_approve_proposal_V1(c, &method->basic.treasury_approve_proposal_V1))
         break;
+    case 4355: /* module 17 call 3 */
+        CHECK_ERROR(_readMethod_treasury_report_awesome_V1(c, &method->basic.treasury_report_awesome_V1))
+        break;
+    case 4356: /* module 17 call 4 */
+        CHECK_ERROR(_readMethod_treasury_retract_tip_V1(c, &method->basic.treasury_retract_tip_V1))
+        break;
+    case 4357: /* module 17 call 5 */
+        CHECK_ERROR(_readMethod_treasury_tip_new_V1(c, &method->basic.treasury_tip_new_V1))
+        break;
+    case 4358: /* module 17 call 6 */
+        CHECK_ERROR(_readMethod_treasury_tip_V1(c, &method->basic.treasury_tip_V1))
+        break;
+    case 4359: /* module 17 call 7 */
+        CHECK_ERROR(_readMethod_treasury_close_tip_V1(c, &method->basic.treasury_close_tip_V1))
+        break;
+    case 4360: /* module 17 call 8 */
+        CHECK_ERROR(_readMethod_treasury_propose_bounty_V1(c, &method->basic.treasury_propose_bounty_V1))
+        break;
+    case 4361: /* module 17 call 9 */
+        CHECK_ERROR(_readMethod_treasury_approve_bounty_V1(c, &method->basic.treasury_approve_bounty_V1))
+        break;
+    case 4362: /* module 17 call 10 */
+        CHECK_ERROR(_readMethod_treasury_propose_curator_V1(c, &method->basic.treasury_propose_curator_V1))
+        break;
+    case 4363: /* module 17 call 11 */
+        CHECK_ERROR(_readMethod_treasury_unassign_curator_V1(c, &method->basic.treasury_unassign_curator_V1))
+        break;
+    case 4364: /* module 17 call 12 */
+        CHECK_ERROR(_readMethod_treasury_accept_curator_V1(c, &method->basic.treasury_accept_curator_V1))
+        break;
+    case 4365: /* module 17 call 13 */
+        CHECK_ERROR(_readMethod_treasury_award_bounty_V1(c, &method->basic.treasury_award_bounty_V1))
+        break;
+    case 4366: /* module 17 call 14 */
+        CHECK_ERROR(_readMethod_treasury_claim_bounty_V1(c, &method->basic.treasury_claim_bounty_V1))
+        break;
+    case 4367: /* module 17 call 15 */
+        CHECK_ERROR(_readMethod_treasury_close_bounty_V1(c, &method->basic.treasury_close_bounty_V1))
+        break;
+    case 4368: /* module 17 call 16 */
+        CHECK_ERROR(_readMethod_treasury_extend_bounty_expiry_V1(c, &method->basic.treasury_extend_bounty_expiry_V1))
+        break;
     case 6144: /* module 24 call 0 */
         CHECK_ERROR(_readMethod_identity_add_registrar_V1(c, &method->basic.identity_add_registrar_V1))
         break;
@@ -1651,6 +1800,34 @@ const char* _getMethod_Name_V1_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REJECT_PROPOSAL;
     case 4354: /* module 17 call 2 */
         return STR_ME_APPROVE_PROPOSAL;
+    case 4355: /* module 17 call 3 */
+        return STR_ME_REPORT_AWESOME;
+    case 4356: /* module 17 call 4 */
+        return STR_ME_RETRACT_TIP;
+    case 4357: /* module 17 call 5 */
+        return STR_ME_TIP_NEW;
+    case 4358: /* module 17 call 6 */
+        return STR_ME_TIP;
+    case 4359: /* module 17 call 7 */
+        return STR_ME_CLOSE_TIP;
+    case 4360: /* module 17 call 8 */
+        return STR_ME_PROPOSE_BOUNTY;
+    case 4361: /* module 17 call 9 */
+        return STR_ME_APPROVE_BOUNTY;
+    case 4362: /* module 17 call 10 */
+        return STR_ME_PROPOSE_CURATOR;
+    case 4363: /* module 17 call 11 */
+        return STR_ME_UNASSIGN_CURATOR;
+    case 4364: /* module 17 call 12 */
+        return STR_ME_ACCEPT_CURATOR;
+    case 4365: /* module 17 call 13 */
+        return STR_ME_AWARD_BOUNTY;
+    case 4366: /* module 17 call 14 */
+        return STR_ME_CLAIM_BOUNTY;
+    case 4367: /* module 17 call 15 */
+        return STR_ME_CLOSE_BOUNTY;
+    case 4368: /* module 17 call 16 */
+        return STR_ME_EXTEND_BOUNTY_EXPIRY;
     case 6144: /* module 24 call 0 */
         return STR_ME_ADD_REGISTRAR;
     case 6147: /* module 24 call 3 */
@@ -1907,6 +2084,34 @@ uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 4354: /* module 17 call 2 */
         return 1;
+    case 4355: /* module 17 call 3 */
+        return 2;
+    case 4356: /* module 17 call 4 */
+        return 1;
+    case 4357: /* module 17 call 5 */
+        return 3;
+    case 4358: /* module 17 call 6 */
+        return 2;
+    case 4359: /* module 17 call 7 */
+        return 1;
+    case 4360: /* module 17 call 8 */
+        return 2;
+    case 4361: /* module 17 call 9 */
+        return 1;
+    case 4362: /* module 17 call 10 */
+        return 3;
+    case 4363: /* module 17 call 11 */
+        return 1;
+    case 4364: /* module 17 call 12 */
+        return 1;
+    case 4365: /* module 17 call 13 */
+        return 2;
+    case 4366: /* module 17 call 14 */
+        return 1;
+    case 4367: /* module 17 call 15 */
+        return 1;
+    case 4368: /* module 17 call 16 */
+        return 2;
     case 6144: /* module 24 call 0 */
         return 1;
     case 6147: /* module 24 call 3 */
@@ -2771,6 +2976,122 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal_id;
+        default:
+            return NULL;
+        }
+    case 4355: /* module 17 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_reason;
+        case 1:
+            return STR_IT_who;
+        default:
+            return NULL;
+        }
+    case 4356: /* module 17 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_hash;
+        default:
+            return NULL;
+        }
+    case 4357: /* module 17 call 5 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_reason;
+        case 1:
+            return STR_IT_who;
+        case 2:
+            return STR_IT_tip_value;
+        default:
+            return NULL;
+        }
+    case 4358: /* module 17 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_hash;
+        case 1:
+            return STR_IT_tip_value;
+        default:
+            return NULL;
+        }
+    case 4359: /* module 17 call 7 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_hash;
+        default:
+            return NULL;
+        }
+    case 4360: /* module 17 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_value;
+        case 1:
+            return STR_IT_description;
+        default:
+            return NULL;
+        }
+    case 4361: /* module 17 call 9 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        default:
+            return NULL;
+        }
+    case 4362: /* module 17 call 10 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        case 1:
+            return STR_IT_curator;
+        case 2:
+            return STR_IT_fee;
+        default:
+            return NULL;
+        }
+    case 4363: /* module 17 call 11 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        default:
+            return NULL;
+        }
+    case 4364: /* module 17 call 12 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        default:
+            return NULL;
+        }
+    case 4365: /* module 17 call 13 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        case 1:
+            return STR_IT_beneficiary;
+        default:
+            return NULL;
+        }
+    case 4366: /* module 17 call 14 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        default:
+            return NULL;
+        }
+    case 4367: /* module 17 call 15 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        default:
+            return NULL;
+        }
+    case 4368: /* module 17 call 16 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_bounty_id;
+        case 1:
+            return STR_IT_remark;
         default:
             return NULL;
         }
@@ -4490,6 +4811,191 @@ parser_error_t _getMethod_ItemValue_V1(
         case 0: /* treasury_approve_proposal_V1 - proposal_id */;
             return _toStringCompactu32(
                 &m->basic.treasury_approve_proposal_V1.proposal_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4355: /* module 17 call 3 */
+        switch (itemIdx) {
+        case 0: /* treasury_report_awesome_V1 - reason */;
+            return _toStringBytes(
+                &m->basic.treasury_report_awesome_V1.reason,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_report_awesome_V1 - who */;
+            return _toStringAccountId_V1(
+                &m->basic.treasury_report_awesome_V1.who,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4356: /* module 17 call 4 */
+        switch (itemIdx) {
+        case 0: /* treasury_retract_tip_V1 - hash */;
+            return _toStringHash(
+                &m->basic.treasury_retract_tip_V1.hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4357: /* module 17 call 5 */
+        switch (itemIdx) {
+        case 0: /* treasury_tip_new_V1 - reason */;
+            return _toStringBytes(
+                &m->basic.treasury_tip_new_V1.reason,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_tip_new_V1 - who */;
+            return _toStringAccountId_V1(
+                &m->basic.treasury_tip_new_V1.who,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* treasury_tip_new_V1 - tip_value */;
+            return _toStringCompactBalance(
+                &m->basic.treasury_tip_new_V1.tip_value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4358: /* module 17 call 6 */
+        switch (itemIdx) {
+        case 0: /* treasury_tip_V1 - hash */;
+            return _toStringHash(
+                &m->basic.treasury_tip_V1.hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_tip_V1 - tip_value */;
+            return _toStringCompactBalance(
+                &m->basic.treasury_tip_V1.tip_value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4359: /* module 17 call 7 */
+        switch (itemIdx) {
+        case 0: /* treasury_close_tip_V1 - hash */;
+            return _toStringHash(
+                &m->basic.treasury_close_tip_V1.hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4360: /* module 17 call 8 */
+        switch (itemIdx) {
+        case 0: /* treasury_propose_bounty_V1 - value */;
+            return _toStringCompactBalance(
+                &m->basic.treasury_propose_bounty_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_propose_bounty_V1 - description */;
+            return _toStringBytes(
+                &m->basic.treasury_propose_bounty_V1.description,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4361: /* module 17 call 9 */
+        switch (itemIdx) {
+        case 0: /* treasury_approve_bounty_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_approve_bounty_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4362: /* module 17 call 10 */
+        switch (itemIdx) {
+        case 0: /* treasury_propose_curator_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_propose_curator_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_propose_curator_V1 - curator */;
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.treasury_propose_curator_V1.curator,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* treasury_propose_curator_V1 - fee */;
+            return _toStringCompactBalance(
+                &m->basic.treasury_propose_curator_V1.fee,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4363: /* module 17 call 11 */
+        switch (itemIdx) {
+        case 0: /* treasury_unassign_curator_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_unassign_curator_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4364: /* module 17 call 12 */
+        switch (itemIdx) {
+        case 0: /* treasury_accept_curator_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_accept_curator_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4365: /* module 17 call 13 */
+        switch (itemIdx) {
+        case 0: /* treasury_award_bounty_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_award_bounty_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_award_bounty_V1 - beneficiary */;
+            return _toStringLookupasStaticLookupSource_V1(
+                &m->basic.treasury_award_bounty_V1.beneficiary,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4366: /* module 17 call 14 */
+        switch (itemIdx) {
+        case 0: /* treasury_claim_bounty_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_claim_bounty_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4367: /* module 17 call 15 */
+        switch (itemIdx) {
+        case 0: /* treasury_close_bounty_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_close_bounty_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 4368: /* module 17 call 16 */
+        switch (itemIdx) {
+        case 0: /* treasury_extend_bounty_expiry_V1 - bounty_id */;
+            return _toStringCompactu32(
+                &m->basic.treasury_extend_bounty_expiry_V1.bounty_id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* treasury_extend_bounty_expiry_V1 - _remark */;
+            return _toStringBytes(
+                &m->basic.treasury_extend_bounty_expiry_V1._remark,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:

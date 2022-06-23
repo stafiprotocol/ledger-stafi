@@ -102,6 +102,20 @@
 |Propose spend |    | :heavy_check_mark: |   | `CompactBalance` amount <br/>`LookupasStaticLookupSource` beneficiary <br/> |
 |Reject proposal |    | :heavy_check_mark: |   | `Compactu32` proposal_id <br/> |
 |Approve proposal |    | :heavy_check_mark: |   | `Compactu32` proposal_id <br/> |
+|Report_awesome |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/> |
+|Retract tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
+|Tip new |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/>`CompactBalance` tip_value <br/> |
+|Tip |    | :heavy_check_mark: |   | `Hash` hash <br/>`CompactBalance` tip_value <br/> |
+|Close tip |    | :heavy_check_mark: |   | `Hash` hash <br/>|
+|Propose bounty |    | :heavy_check_mark: |   | `CompactBalance` value <br/>`Bytes` description <br/> |
+|Approve bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id |
+|Propose curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`LookupasStaticLookupSource` curator <br/>`CompactBalance` fee <br/> |
+|Unassign curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id |
+|Accept curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id |
+|Award bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`LookupasStaticLookupSource` beneficiary |
+|Claim bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id |
+|Close bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id |
+|Extend bounty expiry |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`Bytes` _remark |
 
 ## Identity
 

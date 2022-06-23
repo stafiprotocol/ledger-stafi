@@ -2166,6 +2166,352 @@
     ]
   },
   {
+    "index": 170301,
+    "name": "treasury_reportAwesome",
+    "blob": "11038008cdf39320022a20f7c46ea7a98bf2ed3dae058c6cc8948bfe8eb47414ebb74626db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179650028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Report awesome",
+      "1 | Reason [1/2] : 08cdf39320022a20f7c46ea7a98bf2ed3dae05",
+      "1 | Reason [2/2] : 8c6cc8948bfe8eb47414ebb746",
+      "2 | Who [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Who [2/2] : 4xYaSWHwsX",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Report awesome",
+      "1 | Reason [1/2] : 08cdf39320022a20f7c46ea7a98bf2ed3dae05",
+      "1 | Reason [2/2] : 8c6cc8948bfe8eb47414ebb746",
+      "2 | Who [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Who [2/2] : 4xYaSWHwsX",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170401,
+    "name": "treasury_retractTip",
+    "blob": "110444aa05cfd0c04d6a1c67122efd723744a990904138cfffd06af522aa23f272c90028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Retract tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Retract tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170501,
+    "name": "treasury_tipNew",
+    "blob": "11058008cdf39320022a20f7c46ea7a98bf2ed3dae058c6cc8948bfe8eb47414ebb74626db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179652f744b914670d6374b2585017ee5c4ed0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Tip new",
+      "1 | Reason [1/2] : 08cdf39320022a20f7c46ea7a98bf2ed3dae05",
+      "1 | Reason [2/2] : 8c6cc8948bfe8eb47414ebb746",
+      "2 | Who [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Who [2/2] : 4xYaSWHwsX",
+      "3 | Tip value [1/2] : FIS 1234567890001234567899012.34567808",
+      "3 | Tip value [2/2] : 9076",
+      "4 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Tip new",
+      "1 | Reason [1/2] : 08cdf39320022a20f7c46ea7a98bf2ed3dae05",
+      "1 | Reason [2/2] : 8c6cc8948bfe8eb47414ebb746",
+      "2 | Who [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Who [2/2] : 4xYaSWHwsX",
+      "3 | Tip value [1/2] : FIS 1234567890001234567899012.34567808",
+      "3 | Tip value [2/2] : 9076",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 1.0",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170601,
+    "name": "treasury_tip",
+    "blob": "110644aa05cfd0c04d6a1c67122efd723744a990904138cfffd06af522aa23f272c92f744b914670d6374b2585017ee5c4ed0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Tip value [1/2] : FIS 1234567890001234567899012.34567808",
+      "2 | Tip value [2/2] : 9076",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Tip value [1/2] : FIS 1234567890001234567899012.34567808",
+      "2 | Tip value [2/2] : 9076",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170701,
+    "name": "treasury_closeTip",
+    "blob": "110744aa05cfd0c04d6a1c67122efd723744a990904138cfffd06af522aa23f272c90028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Close tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Close tip",
+      "1 | Hash [1/2] : 44aa05cfd0c04d6a1c67122efd723744a99090",
+      "1 | Hash [2/2] : 4138cfffd06af522aa23f272c9",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170801,
+    "name": "treasury_proposeBounty",
+    "blob": "11082f744b914670d6374b2585017ee5c4ed010194986e713df3303e9f6e7e04b764bac73ab4cc57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0cc6b33ba90a6b3c716631b1d6b4504c5b03e496cf354d348a8870028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Propose bounty",
+      "1 | Value [1/2] : FIS 1234567890001234567899012.34567808",
+      "1 | Value [2/2] : 9076",
+      "2 | Description [1/4] : 94986e713df3303e9f6e7e04b764bac73ab4cc",
+      "2 | Description [2/4] : 57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0",
+      "2 | Description [3/4] : cc6b33ba90a6b3c716631b1d6b4504c5b03e49",
+      "2 | Description [4/4] : 6cf354d348a887",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Propose bounty",
+      "1 | Value [1/2] : FIS 1234567890001234567899012.34567808",
+      "1 | Value [2/2] : 9076",
+      "2 | Description [1/4] : 94986e713df3303e9f6e7e04b764bac73ab4cc",
+      "2 | Description [2/4] : 57752e5bd9b2f238ffdc8d4b4ddb68d9095cf0",
+      "2 | Description [3/4] : cc6b33ba90a6b3c716631b1d6b4504c5b03e49",
+      "2 | Description [4/4] : 6cf354d348a887",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 170901,
+    "name": "treasury_approveBounty",
+    "blob": "1109fa276bee0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Approve bounty",
+      "1 | Bounty id : 999999998",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Approve bounty",
+      "1 | Bounty id : 999999998",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171001,
+    "name": "treasury_proposeCurator",
+    "blob": "110afa276beeff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179652f744b914670d6374b2585017ee5c4ed0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Propose curator",
+      "1 | Bounty id : 999999998",
+      "2 | Curator [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Curator [2/2] : 4xYaSWHwsX",
+      "3 | Fee [1/2] : FIS 1234567890001234567899012.34567808",
+      "3 | Fee [2/2] : 9076",
+      "4 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Propose curator",
+      "1 | Bounty id : 999999998",
+      "2 | Curator [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Curator [2/2] : 4xYaSWHwsX",
+      "3 | Fee [1/2] : FIS 1234567890001234567899012.34567808",
+      "3 | Fee [2/2] : 9076",
+      "4 | Chain : StaFi",
+      "5 | Nonce : 10",
+      "6 | Tip : FIS 1.0",
+      "7 | Era Phase : 0",
+      "8 | Era Period : 0",
+      "9 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "9 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171101,
+    "name": "treasury_unassignCurator",
+    "blob": "110b6a266bee0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Unassign curator",
+      "1 | Bounty id : 999999898",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Unassign curator",
+      "1 | Bounty id : 999999898",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171201,
+    "name": "treasury_acceptCurator",
+    "blob": "110c6a266bee0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Accept curator",
+      "1 | Bounty id : 999999898",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Accept curator",
+      "1 | Bounty id : 999999898",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171301,
+    "name": "treasury_awardBounty",
+    "blob": "110d6a266beeff26db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179650028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Award bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Beneficiary [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Beneficiary [2/2] : 4xYaSWHwsX",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Award bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Beneficiary [1/2] : 31d96Cq9idWQqPq3Ch5BFY84zrThVE3r98M7vG",
+      "2 | Beneficiary [2/2] : 4xYaSWHwsX",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171401,
+    "name": "treasury_claimBounty",
+    "blob": "110e6a266bee0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Claim bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Claim bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171501,
+    "name": "treasury_closeBounty",
+    "blob": "110f6a266bee0028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Close bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Close bounty",
+      "1 | Bounty id : 999999898",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 1.0",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
+    "index": 171601,
+    "name": "treasury_extendBountyExpiry",
+    "blob": "11106a266bee50bd39f5936969828ed9315220659cd111290718140028070010a5d4e81200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "output": [
+      "0 | Treasury : Extend bounty expiry",
+      "1 | Bounty id : 999999898",
+      "2 | Remark [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "2 | Remark [2/2] : 14",
+      "3 | Tip : FIS 1.0"
+    ],
+    "output_expert": [
+      "0 | Treasury : Extend bounty expiry",
+      "1 | Bounty id : 999999898",
+      "2 | Remark [1/2] : bd39f5936969828ed9315220659cd111290718",
+      "2 | Remark [2/2] : 14",
+      "3 | Chain : StaFi",
+      "4 | Nonce : 10",
+      "5 | Tip : FIS 1.0",
+      "6 | Era Phase : 0",
+      "7 | Era Period : 0",
+      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+    ]
+  },
+  {
     "index": 240001,
     "name": "identity_add_registrar",
     "blob": "180026db25c52b007221331a844e5335e59874e45b03e81c3d76ff007377c2c179650028028907001200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",

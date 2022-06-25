@@ -59,6 +59,31 @@ TEST(SCALE, UIntX) {
     EXPECT_EQ(v64, 8671175386481439762);
 }
 
+// Test that we can parse SCALE-encoded unsigned integers correctly (uint8_t, uint16_t, uint32_t, uint64_t}
+TEST(SCALE, UIntX2) {
+    parser_context_t ctx;
+    parser_error_t err;
+    uint8_t buffer[100];
+    auto bufferLen = parseHexString(
+            buffer,
+            sizeof(buffer),
+            "64000000"
+            "6400000000000000"
+    );
+
+    parser_init(&ctx, buffer, bufferLen);
+
+    uint32_t v32 = 0;
+    err = _readUInt32(&ctx, &v32);
+    EXPECT_EQ(err, parser_ok) << parser_getErrorDescription(err);
+    EXPECT_EQ(v32, 100);
+
+    uint64_t v64 = 0;
+    err = _readUInt64(&ctx, &v64);
+    EXPECT_EQ(err, parser_ok) << parser_getErrorDescription(err);
+    EXPECT_EQ(v64, 100);
+}
+
 // Parse SCALE-encoded booleans
 TEST(SCALE, Bool) {
     uint8_t buffer[100];

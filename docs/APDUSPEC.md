@@ -8,7 +8,7 @@ The general structure of commands and responses is as follows:
 
 | Field   | Type     | Content                | Note |
 | :------ | :------- | :--------------------- | ---- |
-| CLA     | byte (1) | Application Identifier | 0x90 |
+| CLA     | byte (1) | Application Identifier | 0xac |
 | INS     | byte (1) | Instruction ID         |      |
 | P1      | byte (1) | Parameter 1            |      |
 | P2      | byte (1) | Parameter 2            |      |
@@ -45,7 +45,7 @@ The general structure of commands and responses is as follows:
 
 | Field | Type     | Content                | Expected |
 | ----- | -------- | ---------------------- | -------- |
-| CLA   | byte (1) | Application Identifier | 0x90     |
+| CLA   | byte (1) | Application Identifier | 0xac     |
 | INS   | byte (1) | Instruction ID         | 0x00     |
 | P1    | byte (1) | Parameter 1            | ignored  |
 | P2    | byte (1) | Parameter 2            | ignored  |
@@ -70,7 +70,7 @@ The general structure of commands and responses is as follows:
 
 | Field   | Type     | Content                   | Expected   |
 | ------- | -------- | ------------------------- | ---------- |
-| CLA     | byte (1) | Application Identifier    | 0x90       |
+| CLA     | byte (1) | Application Identifier    | 0xac       |
 | INS     | byte (1) | Instruction ID            | 0x01       |
 | P1      | byte (1) | Request User confirmation | No = 0     |
 | P2      | byte (1) | Parameter 2               | ignored    |
@@ -97,7 +97,7 @@ The general structure of commands and responses is as follows:
 
 | Field   | Type     | Content                   | Expected   |
 | ------- | -------- | ------------------------- | ---------- |
-| CLA     | byte (1) | Application Identifier    | 0x99       |
+| CLA     | byte (1) | Application Identifier    | 0xac       |
 | INS     | byte (1) | Instruction ID            | 0x11       |
 | P1      | byte (1) | Request User confirmation | No = 0     |
 | P2      | byte (1) | Parameter 2               | ignored    |
@@ -124,7 +124,7 @@ The general structure of commands and responses is as follows:
 
 | Field | Type     | Content                | Expected  |
 | ----- | -------- | ---------------------- | --------- |
-| CLA   | byte (1) | Application Identifier | 0x90      |
+| CLA   | byte (1) | Application Identifier | 0xac      |
 | INS   | byte (1) | Instruction ID         | 0x02      |
 | P1    | byte (1) | Payload desc           | 0 = init  |
 |       |          |                        | 1 = add   |
@@ -141,7 +141,7 @@ All other packets/chunks contain data chunks that are described below
 | Field   | Type     | Content              | Expected |
 | ------- | -------- | -------------------- | -------- |
 | Path[0] | byte (4) | Derivation Path Data | 44       |
-| Path[1] | byte (4) | Derivation Path Data | 434      |
+| Path[1] | byte (4) | Derivation Path Data | 907      |
 | Path[2] | byte (4) | Derivation Path Data | ?        |
 | Path[3] | byte (4) | Derivation Path Data | ?        |
 | Path[4] | byte (4) | Derivation Path Data | ?        |
@@ -167,7 +167,7 @@ All other packets/chunks contain data chunks that are described below
 
 | Field | Type     | Content                | Expected  |
 | ----- | -------- | ---------------------- | --------- |
-| CLA   | byte (1) | Application Identifier | 0x99      |
+| CLA   | byte (1) | Application Identifier | 0xac      |
 | INS   | byte (1) | Instruction ID         | 0x12      |
 | P1    | byte (1) | Payload desc           | 0 = init  |
 |       |          |                        | 1 = add   |
@@ -184,7 +184,7 @@ All other packets/chunks contain data chunks that are described below
 | Field   | Type     | Content              | Expected |
 | ------- | -------- | -------------------- | -------- |
 | Path[0] | byte (4) | Derivation Path Data | 44       |
-| Path[1] | byte (4) | Derivation Path Data | 434      |
+| Path[1] | byte (4) | Derivation Path Data | 907      |
 | Path[2] | byte (4) | Derivation Path Data | ?        |
 | Path[3] | byte (4) | Derivation Path Data | ?        |
 | Path[4] | byte (4) | Derivation Path Data | ?        |

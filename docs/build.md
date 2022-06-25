@@ -1,6 +1,7 @@
 Tip:
 
 - In releases, you will find a precompiled test app. If you are just curious, you can run `install_app.sh` and avoid building.
+- [FAQ](FAQ.md) may help when you encounter any problems during the build.
 
 ## Download and install
 
@@ -21,6 +22,8 @@ then run:
 ```
 
 # Development
+
+
 
 ## Preconditions
 

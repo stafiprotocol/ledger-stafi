@@ -2,5 +2,5 @@
 jsoncpp/1.9.3
 fmt/7.0.2
 
-[generators]1111
+[generators]
 cmake

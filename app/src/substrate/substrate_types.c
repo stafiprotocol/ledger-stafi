@@ -53,6 +53,10 @@ parser_error_t _readu128(parser_context_t* c, pd_u128_t* v) {
     GEN_DEF_READARRAY(16)
 }
 
+parser_error_t _readVecu128(parser_context_t* c, pd_Vecu128_t* v) {
+    GEN_DEF_READVECTOR(u128)
+}
+
 parser_error_t _readBlockNumber(parser_context_t* c, pd_BlockNumber_t* v)
 {
     return _readUInt32(c, v);
@@ -136,6 +140,11 @@ parser_error_t _readBytes(parser_context_t* c, pd_Bytes_t* v)
     v->_ptr = c->buffer + c->offset;
     CTX_CHECK_AND_ADVANCE(c, v->_len);
     return parser_ok;
+}
+
+parser_error_t _readVecBytes(parser_context_t* c, pd_VecBytes_t* v)
+{
+    GEN_DEF_READVECTOR(Bytes)
 }
 
 parser_error_t _readCall(parser_context_t* c, pd_Call_t* v)
@@ -370,6 +379,16 @@ parser_error_t _toStringu128(
     return parser_ok;
 }
 
+parser_error_t _toStringVecu128(
+    const pd_Vecu128_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(u128)
+}
+
 parser_error_t _toStringBlockNumber(
     const pd_BlockNumber_t* v,
     char* outValue,
@@ -469,6 +488,16 @@ parser_error_t _toStringBytes(
     uint8_t* pageCount)
 {
     GEN_DEF_TOSTRING_ARRAY(v->_len);
+}
+
+parser_error_t _toStringVecBytes(
+    const pd_VecBytes_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(Bytes)
 }
 
 parser_error_t _toStringCall(

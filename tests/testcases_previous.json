@@ -1,27 +1,31 @@
 [
   {
-    "index": 1,
-    "name": "Balances_Transfer",
-    "blob": "0600ff3673009bdb664a3f3b6d9f69c9dd37fc0473551a249aa48542408b016ec62b2e070010a5d4e8000c0700e87648171200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
+    "index": 101,
+    "name": "System_remark",
+    "blob": "0001140110a00fff00283a85f1021200000001000000f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478f5e102d0798e90ed38e7f5512d078d778a8507d7a18819878e4d100aba19d478",
     "output": [
-      "0 | Balances : Transfer",
-      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
-      "1 | Dest [2/2] : kweHVpqcov",
-      "2 | Amount : FIS 1.0",
-      "3 | Tip : FIS 0.1"
+      "0 | System : Remark",
+      "1 | Remark [1/5] : 1",
+      "1 | Remark [2/5] : 16",
+      "1 | Remark [3/5] : 160",
+      "1 | Remark [4/5] : 15",
+      "1 | Remark [5/5] : 255",
+      "2 | Tip : FIS 0.000012345678"
     ],
     "output_expert": [
-      "0 | Balances : Transfer",
-      "1 | Dest [1/2] : 31yavGB5CVb8EwpqKQaS9XY7JZcfbK6QpWPn5k",
-      "1 | Dest [2/2] : kweHVpqcov",
-      "2 | Amount : FIS 1.0",
-      "3 | Chain : StaFi",
-      "4 | Nonce : 3",
-      "5 | Tip : FIS 0.1",
-      "6 | Era Phase : 0",
-      "7 | Era Period : 0",
-      "8 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
-      "8 | Block [2/2] : d7a18819878e4d100aba19d478"
+      "0 | System : Remark",
+      "1 | Remark [1/5] : 1",
+      "1 | Remark [2/5] : 16",
+      "1 | Remark [3/5] : 160",
+      "1 | Remark [4/5] : 15",
+      "1 | Remark [5/5] : 255",
+      "2 | Chain : StaFi",
+      "3 | Nonce : 10",
+      "4 | Tip : FIS 0.000012345678",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : f5e102d0798e90ed38e7f5512d078d778a8507",
+      "7 | Block [2/2] : d7a18819878e4d100aba19d478"
     ]
   }
 ]

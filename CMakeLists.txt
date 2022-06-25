@@ -14,7 +14,7 @@
 #*  limitations under the License.
 #********************************************************************************
 cmake_minimum_required(VERSION 3.0)
-project(ledger-polkadot VERSION 0.0.0)
+project(ledger-stafi VERSION 0.0.0)
 enable_testing()
 
 cmake_policy(SET CMP0025 NEW)
@@ -115,6 +115,7 @@ file(GLOB_RECURSE LIB_SRC
         ####
         ${CMAKE_CURRENT_SOURCE_DIR}/app/src/crypto_helper.c
         ${CMAKE_CURRENT_SOURCE_DIR}/app/src/parser.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/src/parser_impl_common.c
         ${CMAKE_CURRENT_SOURCE_DIR}/app/src/parser_impl.c
         ${CMAKE_CURRENT_SOURCE_DIR}/app/src/parser_txdef.c
         ${CMAKE_CURRENT_SOURCE_DIR}/app/src/substrate/substrate*.c
